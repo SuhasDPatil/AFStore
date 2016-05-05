@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AFStore.xcodeproj">
+      location = "self:/Users/rac/Desktop/AFStore/AFStore.xcodeproj">
    </FileRef>
 </Workspace>

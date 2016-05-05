@@ -1,0 +1,82 @@
+//
+//  GalleryViewController.m
+//  AFStore 
+//
+//  Created by Suhas on 10/03/15.
+//  Copyright (c) 2015 ___SANDS_TECHNOLOGIES___. All rights reserved.
+//
+
+#import "GalleryViewController.h"
+
+@interface GalleryViewController ()
+
+@end
+
+@implementation GalleryViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title=LocalizedString(@"Gallery");
+
+    self.lblPhotoGallery.text=LocalizedString(@"Photo Gallery");
+    self.lblVideoGallery.text=LocalizedString(@"Video Gallery");
+    [self setNavBar];
+
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+
+#pragma mark User Defined
+
+-(void)setNavBar
+{
+    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    //Back Button
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"back.png"]  ;
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 10, 16);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    
+}
+
+- (void)goback
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+- (IBAction)PhotoGalleryClicked:(id)sender
+{
+    GalleryBranchViewController *gbvc=[[GalleryBranchViewController alloc]init];
+    [self.navigationController pushViewController:gbvc animated:YES];
+}
+
+- (IBAction)VideoGalleryClicked:(id)sender
+{
+    
+    GalleryVideoViewController *gvvc=[[GalleryVideoViewController alloc]init];
+    [self.navigationController pushViewController:gvvc animated:YES];
+    
+}
+@end

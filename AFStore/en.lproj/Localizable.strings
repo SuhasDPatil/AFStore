@@ -1,0 +1,229 @@
+/* 
+  Localizable.strings
+  AFStoreNew
+
+  Created by rac on 12/03/15.
+  Copyright (c) 2015 ___SANDS_TECHNOLOGIES___. All rights reserved.
+*/
+
+
+
+//Slide Menu Screen
+
+"Home"="Home";
+"Store"="Store";
+"Search"="Search";
+"Hot Offer"="Hot Offers";
+"Most Popular"="Most Popular";
+"News"="News";
+"About Us"="About Us";
+"Gallery"="Gallery";
+"Contact Us"="Contact Us";
+"Warranty"="Warranty";
+"Check Your Phone"="Check Your Phone";
+"Other Services"="Other Services";
+
+
+"Notification"="Notification";
+"User Account"="User Account";
+"Exit"="Exit";
+
+
+"Detail"="Details";
+"Search Result For"="Search Result For";
+
+//Store Screen
+    // **** CateGory Screen
+
+"Choose Category"="Select Category";
+
+"Choose Branch"="Select Album";
+
+"Photo Gallery"="PHOTO GALLERY";
+"Video Gallery"="VIDEO GALLERY";
+
+
+
+
+"Summary"="Summary";
+
+"About_us"="About Us";
+"Quality Policy"="Quality Policy";
+"Vision Mission"="Vision & Mission";
+
+
+
+"Diamod Warranty"="DIAMOND GUARANTEE";
+"Gold Warranty"="GOLD GUARANTEE";
+"Silver Warranty"="SILVER GUARANTEE";
+
+"Installments"="Installments";
+"Used Mobile Phones"="Used Mobile Phones";
+"Door-to-Door Delivery"="Door-to-Door Delivery";
+
+
+
+
+"Diamond"="DIAMOND";
+"Gold"="GOLD";
+"Silver"="SILVER";
+"Guarantee"="Guarantee";
+
+
+
+
+
+
+
+// **** SubCategory Screen
+
+
+
+
+    // **** Product List View Screen
+
+
+
+
+
+    // **** Product Detail Screen
+
+
+
+
+
+    // **** Email for Price Screen
+
+
+
+
+
+
+
+
+
+
+
+//Search Screen
+    // **** Serach Product Screen
+
+
+
+
+    // **** Searched Product detail screen
+
+
+
+
+
+
+
+
+
+
+//Hot Offers Screen
+    // **** Hot Offer View Screen
+
+
+
+
+    // **** Detail Hot Offer View Scrween
+
+
+
+
+
+
+
+
+
+
+
+//Notification Screen
+
+
+
+
+
+
+
+
+
+//NEws Sreen
+    // **** News View Screen
+
+
+
+    // **** details News view screen
+
+
+
+
+
+
+
+
+//Gallery Screen
+    // **** Select option View screen
+
+
+    // **** Image view screen
+
+
+
+
+    // **** Videos view screen
+
+
+
+
+
+
+
+
+
+
+//About Us Screen
+
+
+"About_Us"="        Launched in 2004 with clear vision and objectives reflecting the absolute commitment towards its customers in providing the best solutions and products in the world of telecommunications. AynAlFahad became a leading company in Iraq providing the latest innovations in the world of mobile phones and services.
+
+        Shortly afterwards, and as a result of the company's commitment towards its customers and business partners, AynAlFahad in a ugurated retail outlets covering the governorate of Baghdad.
+
+        To extend the company’s reach to a wider area of Iraq, AynAlFahad decided to expand outside the governorate of Baghdad through a network of resellers and business partners who share the same vision and objectives for the development of the telecommunications market and keep pace with the rapid changes in communication technologies in general and mobile phones in particular.
+
+        AynAlFahad is considered today one of the leading companies in providing innovative solutions and services for mobile phones and accessories, and has a network of branches covering the city of Baghdad in addition to a network of resellers in all governorates of Iraq.
+
+        We believe that our success is linked to our commitment to quality and authenticity of our products. We strive to provide products from original sources to maintain the quality of products offered to our customers.
+
+        In order to achieve all of the above AynAlFahad has made customer satisfaction at the forefront of its priorities. A specialized customer service department managed by a group of highly qualified engineers and technicians is established to better service its customers
+
+        AynAlFahad aims to present the best service to its customers and therefore all branches of the company have qualified sales consultants and technicians dedicated to providing consulting to clients to help them select the best mobile solutions that fit their needs and requirements.
+
+        The professional and high caliber management and business development team of the company makes AynAlFahad the ultimate destination for its clients and the international suppliers who wishes to expand their presence to Iraq and the Middle East.";
+
+
+"Quality_Policy"="         Our clients are our partners. Our success stems from our customer’s satisfaction with our products and technical support as our after-sales services policy.\n\n 1. AynAlFahad is committed to providing the highest levels of quality in its products.\n\n 2. AynAlFahad is committed to providing the latest technologies of smart phones, accessories with prices suitable to all budgets.\n\n 3. AynAlFahad is committed to attracting highly skilled employees in the world of communication and continues to enhance and develop their business and technical knowledge and expertise.\n\n 4. AynAlFahad is committed to maintaining best strategic relationships with the mobile telecommunication operators in Iraq and offers their products at competitive prices.";
+
+
+"Vision_Mission"="\n\t\t\t\t        Vision\n\n        Technology for human welfare. This is what we believe and strive to achieve for our clients. We seek to always be in a leadership position not only in the state of Iraq, but also in the Middle East. We will continue our quest and offer theTelecom devices & accessories in the market.\n\n\n\t\t\t\t       Mission\n\n        We aspire to maintain leadership in the world of mobile phones. Our contribution in the provision of technology is a step to enhance the lives of our customers and enrich their experience.";
+
+
+
+//Contact Us Screen
+
+
+    // **** PopUp to sending Contact screen
+
+
+
+
+
+
+
+//Exit
+
+
+
+
+

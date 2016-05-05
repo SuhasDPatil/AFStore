@@ -2,11 +2,19 @@
 //  AppDelegate.m
 //  AFStore
 //
-//  Created by rac on 10/02/15.
+//  Created by Suhas on 10/02/15.
 //  Copyright (c) 2015 ___SANDS_TECHNOLOGIES___. All rights reserved.
 //
 
 #import "AppDelegate.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+#import "BeginViewController.h"
+#import "CategoryViewController.h"
+#import "DashboardViewController.h"
+
+
 
 @implementation AppDelegate
 
@@ -17,9 +25,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+  //  MainVC * begin = [[MainVC alloc] init];
+    BeginViewController * begin=[[BeginViewController alloc]init];
+    
+    DashboardViewController *dbvc=[[DashboardViewController alloc]init];
+    
+    
+    UINavigationController * navC = [[UINavigationController alloc] initWithRootViewController:dbvc];
+    
+    navC.navigationBar.backgroundColor = [UIColor orangeColor];
+    
+    
+    
+    [NSThread sleepForTimeInterval:2.5];
+    
+    self.window.rootViewController = navC;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
+    
+
+    
     return YES;
 }
 
@@ -42,8 +72,31 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    
+    [FBSDKAppEvents activateApp];
+
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
+
+
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+}
+
+
+
+
+
+
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
@@ -61,6 +114,7 @@
              // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
+            
         } 
     }
 }
@@ -134,7 +188,6 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    
-    
     return _persistentStoreCoordinator;
 }
 
@@ -145,5 +198,7 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
 
 @end
