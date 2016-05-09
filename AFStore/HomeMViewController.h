@@ -10,73 +10,64 @@
 #import "AOScrollerView.h"
 #import "Localization.h"
 
-#import "HotOfferCollectionViewCell.h"
-#import "NewsTableViewCell.h"
 
 #import "AFAppAPIClient.h"
 #import "Constant.h"
 #import "MBProgressHUD.h"
 #import "NSString+HTML.h"
-#import "DetailNewsViewController.h"
 #import "HotOfferViewController.h"
 
-@interface HomeMViewController : UIViewController<ValueClickDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UIAlertViewDelegate,UITableViewDelegate,UITableViewDataSource>
+#import "SearchViewController.h"
+#import "ProductViewController.h"
+
+
+#import <JTMaterialSpinner/JTMaterialSpinner.h>
+
+@interface HomeMViewController : UIViewController<ValueClickDelegate,UIAlertViewDelegate>
 {
     
     dispatch_queue_t queue ;
     
     NSMutableArray * SlidingImageArray;
-    NSMutableArray * NewsListArray;
-    NewsTableViewCell *tempCell;
-    
-    NSMutableArray * HotOfferListArray;
-    HotOfferCollectionViewCell *tempCellHot;
-
-    
+    NSMutableArray * SlidingHotDealImageArray;
     
 }
 @property(nonatomic,strong)NSString * selectedLanguage;
 
-//FOr storing of Parsed Response
+
+@property (weak, nonatomic) IBOutlet JTMaterialSpinner *spinnerView;
 
 
-
-
-//News Web Service
-@property(strong,nonatomic)NSString * NewsTitle;
-@property(strong,nonatomic)NSString * PublishDate;
-@property(strong,nonatomic)NSString * ExpireDate;
-@property(strong,nonatomic)NSString * Summary;
-@property(strong,nonatomic)NSString * ArticleImage;
-
-//Hot Offers Service
-@property(strong,nonatomic)NSString * GalleryID;
-@property(strong,nonatomic)NSString * GalleryName;
-@property(strong,nonatomic)NSNumber * NumberOfViews;
-@property(strong,nonatomic)NSString * PortalID;
-@property(strong,nonatomic)NSString * Image;
 
 //Slide Image Service
 @property(strong,nonatomic)NSString * imgNameSli;
 
-
-
-
-
-
-@property (strong, nonatomic) IBOutlet UICollectionView *collViewHotOffers;
-
-@property (strong, nonatomic) IBOutlet UITableView *tableViewNews;
-
+//Slide Image Service Hot Deals
+@property(strong,nonatomic)NSString * FileName;
 
 
 
 @property (strong, nonatomic) IBOutlet UIView *slideView;
 
-@property (strong, nonatomic) IBOutlet UILabel *lblHotOffer;
 
-@property (strong, nonatomic) IBOutlet UILabel *lblNews;
+@property (strong, nonatomic) IBOutlet UIView *slideViewHotDeals;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (strong, nonatomic) IBOutlet UIButton *btnIKU;
+
+@property (strong, nonatomic) IBOutlet UIButton *btnSearch;
+
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
+@property (strong, nonatomic) IBOutlet UILabel *lblAboutUsInfo;
+@property (strong, nonatomic) IBOutlet UILabel *lblHotDeals;
+@property (strong, nonatomic) IBOutlet UILabel *lblAbout;
+
+
+- (IBAction)searchClicked:(id)sender;
+
+- (IBAction)IKUClicked:(id)sender;
 
 @end

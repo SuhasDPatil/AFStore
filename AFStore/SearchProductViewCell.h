@@ -15,6 +15,9 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgProductImage;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicatorV;
+
+
 @property(nonatomic,retain)NSMutableDictionary *cellDict;
 
 

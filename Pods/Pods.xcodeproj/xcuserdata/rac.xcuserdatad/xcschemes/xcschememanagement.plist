@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>JTMaterialSpinner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AFStoreNew.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25A0C58F26B22750777663B47558B632</key>
+		<key>17C7FE03E64DA102D916D1A1B0B51EC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D1DB953EC1FB959F80877322148A710</key>
+		<key>47C6160540E8F02CCC0C9FF605E5F5E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA5D54DF57E494F0D9A55EE63EB32686</key>
+		<key>4C681207461FFC08A365D577D32CCCA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA4A85C998FC0B8A0C09381C7111A6F6</key>
+		<key>5809D3B84989E7562FA0D38AF139B592</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C54517B1EE852F7D180717BF2A89E6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

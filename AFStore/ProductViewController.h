@@ -24,6 +24,9 @@
 
 }
 
+@property(readwrite)NSString *BrandID;
+@property(strong,nonatomic)NSString *Brand_name;
+
 
 
 @property(readwrite)NSNumber *SubCatID;
@@ -44,6 +47,18 @@
 @property(strong,nonatomic)NSString * ProductCost;
 
 
+@property(strong,nonatomic)NSString * Condition;
+@property(strong,nonatomic)NSString * BrandModel;
+@property(strong,nonatomic)NSString * BrandName;
+@property(strong,nonatomic)NSString * ColorName;
+@property(strong,nonatomic)NSString * DiamondPrice;
+@property(strong,nonatomic)NSString * GoldPrice;
+@property(strong,nonatomic)NSString * MobileID;
+@property(strong,nonatomic)NSString * MobileStatus;
+@property(strong,nonatomic)NSString * Model;
+@property(strong,nonatomic)NSString * PhotoCount;
+@property(strong,nonatomic)NSString * PhotoPath;
+@property(strong,nonatomic)NSString * Price;
 
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionview;

@@ -24,7 +24,10 @@
     [self.collectionview registerNib:[UINib nibWithNibName:@"ProductViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
     [self.navigationController.navigationBar setHidden:NO];
-    self.title=_subCateName;
+//    self.title=_subCateName;
+
+    self.title=_Brand_name;
+    
     
     [self getProductWebService];
     
@@ -40,7 +43,7 @@
 
 -(BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 
@@ -50,8 +53,8 @@
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:223.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
@@ -115,18 +118,18 @@
     
     tempCell.cellDict=[ProductsListArray objectAtIndex:indexPath.row];
     
-    NSString * str=tempCell.cellDict[@"ProductName"];
+    NSString * str=tempCell.cellDict[@"BrandModel"];
     
     NSLog(@"Str::::::::%@",str);
     
     cell.lblProductName.text=str;
     
     NSString * strDoller=@"$ ";
-    NSString * strCost=tempCell.cellDict[@"ProductCost"];
+    NSString * strCost=tempCell.cellDict[@"Price"];
     
     cell.lblProductCost.text=[NSString stringWithFormat:@"%@ %@",strDoller,strCost];
     
-    cell.lblFree1.text=tempCell.cellDict[@"Free1"];
+    cell.lblFree1.text=tempCell.cellDict[@"ColorName"];
     
     NSString *detStrHTML=tempCell.cellDict[@"Details"];
     NSLog(@"Product Detail in HTML format:%@",detStrHTML);
@@ -147,13 +150,14 @@
     // Configure the cell...
     dispatch_async(queue, ^(){
         
-        NSString * imgURL = tempCell.cellDict[@"ProductImage"];
+        NSString * imgURL = tempCell.cellDict[@"PhotoPath"];
         
-        NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
+        NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
         
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
-        NSURL * url = [NSURL URLWithString:replacedStr];
+        NSString * replacedStr1=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
+
+        NSURL * url = [NSURL URLWithString:replacedStr1];
         
         
         
@@ -206,7 +210,8 @@
     NSLog(@"Sub Cate Name .......%@",detProd.detStrFinalBackView);
     
     // Push the view controller.
-    [self.navigationController pushViewController:detProd animated:YES];
+    
+//    [self.navigationController pushViewController:detProd animated:YES];
     
     
 
@@ -255,7 +260,9 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-    [dict setObject:_SubCatID forKey:@"SubCatID"];
+    [dict setObject:_BrandID forKey:@"BrandID"];
+    [dict setObject:@"1" forKey:@"Condition"];
+
     
     NSLog(@"%@",dict);
     
@@ -274,21 +281,26 @@
              ProductsListArray=[responseObject objectForKey:@"Data"];
              if(ProductsListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)ProductsListArray.count);
+                 NSLog(@"Product Array Count:::%ld",(unsigned long)ProductsListArray.count);
                  int i;
                  for (i=0; i<ProductsListArray.count; i++)
                  {
                      NSDictionary * d = [ProductsListArray objectAtIndex:i];
                      
-                     _ProductName=[d valueForKey:@"ProductName"];
-                     _Details=[d valueForKey:@"Details"];
-                     _ProductID=[d valueForKey:@"ProductID"];
-                     _ProductImage=[d valueForKey:@"ProductImage"];
-                     _Free1=[d valueForKey:@"Free1"];
-                     _ProductCost=[d valueForKey:@"ProductCost"];
-                     NSLog(@"CategoriesID: %@", _ProductID);
-                     //              NSLog(@"CategoriesName: %@",_CategoriesName);
-                     //            NSLog(@"CategoryImages: %@", _CategoryImages);
+                     _BrandID=[d valueForKey:@"BrandID"];
+                     _Condition=[d valueForKey:@"Condition"];
+                     _BrandModel=[d valueForKey:@"BrandModel"];
+                     _BrandName=[d valueForKey:@"BrandName"];
+                     _ColorName=[d valueForKey:@"ColorName"];
+                     _DiamondPrice=[d valueForKey:@"DiamondPrice"];
+                     _GoldPrice=[d valueForKey:@"GoldPrice"];
+                     _MobileID=[d valueForKey:@"MobileID"];
+                     _MobileStatus=[d valueForKey:@"MobileStatus"];
+                     _Model=[d valueForKey:@"Model"];
+                     _PhotoCount=[d valueForKey:@"PhotoCount"];
+                     _PhotoPath=[d valueForKey:@"PhotoPath"];
+                     _Price=[d valueForKey:@"Price"];
+                 
                  }
                  
              }

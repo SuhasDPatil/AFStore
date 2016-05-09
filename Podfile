@@ -5,6 +5,7 @@ target 'AFStoreNew' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
   pod 'PopMenu'
+  pod 'JTMaterialSpinner', '~> 1.0'
 
   # Pods for AFStoreNew
 

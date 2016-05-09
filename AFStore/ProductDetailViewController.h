@@ -15,8 +15,7 @@
 #import "MBProgressHUD.h"
 #import "ContactUSViewController.h"
 #import "ProductImageViewCell.h"
-#import "KIImagePager.h"
-
+#import "ProductDetailTableViewCell.h"
 #import "EXPhotoViewer.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -24,67 +23,37 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
 
-@interface ProductDetailViewController : UIViewController<KIImagePagerDelegate, KIImagePagerDataSource,UIAlertViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ProductDetailViewController : UIViewController< UIAlertViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource>
 {
     dispatch_queue_t queue ;
     NSMutableArray * ProductDetailArray;
-    
-    
     BOOL isfirstTimeTransform;
-
     NSMutableArray * ProductsImageArray;
-
-    NSArray * productDetImgArray;
-    
     ProductImageViewCell *tempCellIm;
     
 }
 
-@property (strong, nonatomic) IBOutlet UILabel *lblProductName;
-
-
-
-
-
-
 
 @property (strong, nonatomic) IBOutlet UIButton *btnTweeter;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnFacebook;
-
-@property(nonatomic,strong)IBOutlet KIImagePager *imagePager;
-
-
-@property (strong, nonatomic) IBOutlet UILabel *lblFree1;
-
 @property (strong, nonatomic) IBOutlet UILabel *lblProductCost;
-
-
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionViewDetails;
-
-
-
-
-
+@property (strong, nonatomic) IBOutlet UITableView *tableViewDet;
 
 
 
 
 //outlets for if all image array gets false
 @property (strong, nonatomic) IBOutlet UILabel *lblBorder1;
-
 @property (strong, nonatomic) IBOutlet UILabel *lblBorder2;
-
 @property (strong, nonatomic) IBOutlet UIImageView *imgProdImage;
-
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnImageView;
 
 
-
+//GetData from Product Listing
+@property(strong,nonatomic)NSString * ProductName_title;
+@property(strong,nonatomic)NSString * mobile_ID;
 
 
 @property(strong,nonatomic)NSString * subCateName;

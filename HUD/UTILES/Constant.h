@@ -20,22 +20,34 @@
 
 #define API_BASE_URL @"http://209.208.62.172/Afwebservices/Service1.svc/"
 
+#define API_BASE_URL_Store @"http://209.208.62.172/AFStoreWS/Service1.svc/"
 
 #define API_ALL_IMAGES @"http://aynalfahad.com/"
+
+#define API_ALL_IMAGES_Store @"http://store.aynalfahad.com/"
+
+
+//Home
+#define API_GET_SLIDING_IMAGES (API_BASE_URL @"GetLiveRotatorSlides")
+#define API_GET_SLIDING_IMAGES_HOT_DEALS (API_BASE_URL @"GetHotOffersImages")
+#define API_SEARCH_PRODUCT_BY_TEXT (API_BASE_URL_Store @"GetProductListByFreeTextSearch")
+
+
+//Store
+#define API_GET_PRODUCT_LIST (API_BASE_URL_Store @"ProductListByBrand")
+#define API_GET_PRODUCT_IMAGES (API_BASE_URL_Store @"ProductImagesByID")
 
 
 
 #define API_GET_MAIN_CATEGORY (API_BASE_URL @"GetCategories")
 #define API_GET_SUB_CATEGORY (API_BASE_URL @"GetSubCategories")
-#define API_GET_PRODUCT_LIST (API_BASE_URL @"GetProductList")
 #define API_GET_PRODUCT_DETAIL (API_BASE_URL @"GetProductsAllDetails")
-#define API_GET_PRODUCT_IMAGES (API_BASE_URL @"GetProductAllImagesByProductID")
 
 #define API_SEND_EMAIL_FOR_PRICE (API_BASE_URL @"SendEmail")
 
 
 
-#define API_SEARCH_PRODUCT_BY_TEXT (API_BASE_URL @"SearchProductBy_SubCategoryText")
+
 #define API_GET_NEWS_ALL (API_BASE_URL @"GetEasyDNNNewsArchive")
 #define API_GET_NEWS_DETAILS (API_BASE_URL @"GetEasyDNNNewsByArticalID")
 
@@ -46,7 +58,6 @@
 #define API_GET_HOT_OFFERS_BY_GALLERY_ID (API_BASE_URL @"GetHotOffersByGalleryID")
 
 
-#define API_GET_SLIDING_IMAGES (API_BASE_URL @"GetLiveRotatorSlides")
 #define API_GET_PRODUCTS_FOR_SEARCH (API_BASE_URL @"GetProductListforSearch")
 
 
