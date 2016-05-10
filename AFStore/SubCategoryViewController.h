@@ -16,7 +16,8 @@
 @interface SubCategoryViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
 {
     NSMutableArray * subCategoryListArray;
-    
+    dispatch_queue_t queue ;
+
     SubCategoryViewCell *tempCell;
     
 }
@@ -33,10 +34,9 @@
 
 //FOr storing of Parsed Restaurant Response
 
-@property(strong,nonatomic)NSString *CategoriesID;
-@property(strong,nonatomic)NSString *CategoriesName;
-@property(strong,nonatomic)NSString *SubCategoriesID;
-@property(strong,nonatomic)NSString *SubCategoriesName;
+@property(strong,nonatomic)NSString *BrandID;
+@property(strong,nonatomic)NSString *BrandName;
+@property(strong,nonatomic)NSString *Logo;
 
 
 

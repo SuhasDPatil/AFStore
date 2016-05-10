@@ -41,6 +41,7 @@
                     <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="177" y="103"/>
         </view>
     </objects>

@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblProductCost;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 
 @property(nonatomic,retain)NSMutableDictionary *cellDict;

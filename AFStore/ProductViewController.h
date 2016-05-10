@@ -47,6 +47,10 @@
 @property(strong,nonatomic)NSString * ProductCost;
 
 
+
+
+
+
 @property(strong,nonatomic)NSString * Condition;
 @property(strong,nonatomic)NSString * BrandModel;
 @property(strong,nonatomic)NSString * BrandName;

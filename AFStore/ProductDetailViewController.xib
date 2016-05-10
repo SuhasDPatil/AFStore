@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailViewController">
             <connections>
-                <outlet property="btnFacebook" destination="G2w-nj-wlX" id="13v-0T-RPp"/>
+                <outlet property="btnFacebook" destination="G2w-nj-wlX" id="SjT-Aq-v2x"/>
                 <outlet property="btnImageView" destination="ppI-at-vAv" id="LRp-d3-csF"/>
                 <outlet property="btnTweeter" destination="leN-t3-IAi" id="EXG-UZ-poG"/>
                 <outlet property="collectionView" destination="OiJ-ay-77V" id="Hiq-pR-AUY"/>
@@ -16,6 +16,7 @@
                 <outlet property="lblBorder1" destination="s94-YH-iOK" id="toB-3N-QMg"/>
                 <outlet property="lblBorder2" destination="93y-DC-aV6" id="qXw-3b-dMe"/>
                 <outlet property="lblProductCost" destination="Ah5-gL-DUS" id="53B-Ze-tew"/>
+                <outlet property="segWarranty" destination="a1U-WW-Feh" id="iS5-2F-SrC"/>
                 <outlet property="tableViewDet" destination="iIv-on-T9u" id="I2t-Zb-KI6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -74,32 +75,6 @@
                         <outlet property="delegate" destination="-1" id="nGR-GB-mIm"/>
                     </connections>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G2w-nj-wlX">
-                    <rect key="frame" x="0.0" y="538" width="160" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.32156862749999998" green="0.32549019610000002" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <state key="normal" title="FB Share">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="posttoFacebook:" destination="-1" eventType="touchUpInside" id="Wlh-Tc-Z6l"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="leN-t3-IAi">
-                    <rect key="frame" x="160" y="538" width="160" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.34901960780000002" green="0.56862745100000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <state key="normal" title="Tweet">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="postToTweeter:" destination="-1" eventType="touchUpInside" id="RXw-iF-fcE"/>
-                    </connections>
-                </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="a1U-WW-Feh">
                     <rect key="frame" x="20" y="202" width="281" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -109,32 +84,74 @@
                         <segment title="DIAMOND"/>
                     </segments>
                     <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="warrantyChanged:" destination="-1" eventType="valueChanged" id="8hH-ez-FKb"/>
+                    </connections>
                 </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Price " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mBl-Pz-qbT">
-                    <rect key="frame" x="11" y="241" width="116" height="25"/>
+                    <rect key="frame" x="37" y="241" width="116" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ah5-gL-DUS">
-                    <rect key="frame" x="135" y="241" width="169" height="25"/>
+                    <rect key="frame" x="161" y="241" width="116" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iIv-on-T9u">
-                    <rect key="frame" x="0.0" y="274" width="320" height="259"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iIv-on-T9u">
+                    <rect key="frame" x="0.0" y="274" width="320" height="227"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="S4D-Rk-GTQ"/>
                         <outlet property="delegate" destination="-1" id="JZz-cC-40q"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share On" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Opi-fk-wUT">
+                    <rect key="frame" x="83" y="504" width="148" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="13"/>
+                    <color key="textColor" red="0.84341299020000005" green="0.4920228915" blue="0.016336320129999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social_with_bg" id="Ico-Yt-2lL">
+                    <rect key="frame" x="-22" y="528" width="364" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="leN-t3-IAi">
+                    <rect key="frame" x="160" y="528" width="160" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="postToTweeter:" destination="-1" eventType="touchUpInside" id="RXw-iF-fcE"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G2w-nj-wlX">
+                    <rect key="frame" x="0.0" y="528" width="160" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="posttoFacebook:" destination="-1" eventType="touchUpInside" id="Wlh-Tc-Z6l"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="478" y="-791"/>
@@ -142,5 +159,6 @@
     </objects>
     <resources>
         <image name="AF_Placeholder_Logo" width="108" height="89"/>
+        <image name="social_with_bg" width="628" height="68"/>
     </resources>
 </document>

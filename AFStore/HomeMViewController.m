@@ -104,7 +104,7 @@
 -(void)ImageSliderWebService
 {
     
-    [_spinnerView beginRefreshing];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
     [[AFAppAPIClient WSsharedClient] POST:API_GET_SLIDING_IMAGES
                                parameters:nil
@@ -113,8 +113,7 @@
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          NSMutableArray * newarray=[[NSMutableArray alloc]init];
 
-         [_spinnerView endRefreshing];
-
+         [hud show:YES];
          if(result)
          {
              NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
@@ -159,7 +158,7 @@
              alt1.tag=111;
              [alt1 show];
          }
-         
+         [hud hide:YES];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
@@ -172,10 +171,14 @@
 
 -(void)ImageSliderHotDealsWebService
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     [[AFAppAPIClient WSsharedClient] POST:API_GET_SLIDING_IMAGES_HOT_DEALS
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         [hud show:YES];
+         
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          NSMutableArray * newarray=[[NSMutableArray alloc]init];
          
@@ -213,7 +216,6 @@
              {
                  UIAlertView *alt=[[UIAlertView alloc]initWithTitle:@"**SORRY**" message:@"Hot Deals Not Available!!!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                  [alt show];
-                 [self.navigationController popViewControllerAnimated:YES];
              }
          }
          else
@@ -230,6 +232,8 @@
              [self.slideViewHotDeals addSubview:aSV];
 
          }
+        
+         [hud hide:YES];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          

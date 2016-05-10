@@ -18,21 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
-    
     [self.collectionview registerNib:[UINib nibWithNibName:@"ProductViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    
     [self.navigationController.navigationBar setHidden:NO];
-//    self.title=_subCateName;
-
     self.title=_Brand_name;
-    
-    
     [self getProductWebService];
-    
-
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -45,10 +35,6 @@
 {
     return NO;
 }
-
-
-
-
 
 
 -(void)setNavBar
@@ -84,15 +70,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 - (void)goHome
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,143 +96,58 @@
     
     ProductViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     tempCell=[[ProductViewCell alloc]init];
-    
     tempCell.cellDict=[ProductsListArray objectAtIndex:indexPath.row];
-    
     NSString * str=tempCell.cellDict[@"BrandModel"];
-    
-    NSLog(@"Str::::::::%@",str);
-    
     cell.lblProductName.text=str;
-    
     NSString * strDoller=@"$ ";
     NSString * strCost=tempCell.cellDict[@"Price"];
-    
     cell.lblProductCost.text=[NSString stringWithFormat:@"%@ %@",strDoller,strCost];
-    
     cell.lblFree1.text=tempCell.cellDict[@"ColorName"];
     
-    NSString *detStrHTML=tempCell.cellDict[@"Details"];
-    NSLog(@"Product Detail in HTML format:%@",detStrHTML);
-    
-    
-//    self.detStrfinal=[[detStrHTML stringByStrippingTags]stringByDecodingHTMLEntities];
-    NSLog(@"*************************------------------------");
-    NSLog(@"*************************------------------------");
-    NSLog(@"*************************------------------------");
-    NSLog(@"*************************------------------------");
-    NSLog(@"*************************------------------------");
-    
-    NSLog(@"Product Detail without HTML tag  :%@",_detStrfinal);
-    NSLog(@"*************************------------------------");
-    NSLog(@"*************************------------------------");
     
     
     // Configure the cell...
     dispatch_async(queue, ^(){
         
+        [cell.indicator startAnimating];
+        
         NSString * imgURL = tempCell.cellDict[@"PhotoPath"];
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
-        
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSString * replacedStr1=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
-
         NSURL * url = [NSURL URLWithString:replacedStr1];
-        
-        
-        
         NSData * imgData = [NSData dataWithContentsOfURL:url];
-        
         UIImage * image = [UIImage imageWithData:imgData];
-        
-        // It is very IMP  :::: [cell.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
         dispatch_async( dispatch_get_main_queue() , ^(){
             
-            
             cell.imgProductImage.image=image;
-            
-            
+            [cell.indicator stopAnimating];
         });
         
     });
     return cell;
-    
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     NSLog(@"DID SELECT");
-    
     
     ProductDetailViewController *detProd = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     
     tempCell.cellDict=[ProductsListArray objectAtIndex:indexPath.row];
 
-    detProd.productID=tempCell.cellDict[@"ProductID"];
-    detProd.productName=tempCell.cellDict[@"ProductName"];
-    detProd.prodimage=tempCell.cellDict[@"ProductImage"];
-    detProd.prodFree1=tempCell.cellDict[@"Free1"];
-    detProd.prodcost=tempCell.cellDict[@"ProductCost"];
+    detProd.ProductName_title=tempCell.cellDict[@"Model"];
+    detProd.mobile_ID=tempCell.cellDict[@"MobileID"];
+    detProd.gold_Price=tempCell.cellDict[@"GoldPrice"];
+    detProd.silver_Price=tempCell.cellDict[@"Price"];
+    detProd.diamond_Price=tempCell.cellDict[@"DiamondPrice"];
+    detProd.photo_path=tempCell.cellDict[@"PhotoPath"];
     
+    [self.navigationController pushViewController:detProd animated:YES];
     
-    
-    detProd.subCateName=self.subCateName;
-    
-    
-    
-    detProd.detStrFinalBackView=self.detStrfinal;
-      
-    NSLog(@"Prod ID ........%@",detProd.productID);
-    NSLog(@"Prod Name ........%@",detProd.productName);
-    NSLog(@"Sub Cate Name .......%@",detProd.subCateName);
-    NSLog(@"Sub Cate Name .......%@",detProd.detStrFinalBackView);
-    
-    // Push the view controller.
-    
-//    [self.navigationController pushViewController:detProd animated:YES];
-    
-    
-
 }
 
-
-
--(NSString *)convertHTML:(NSString *)html {
-    
-    NSScanner *myScanner;
-    NSString *text = nil;
-    myScanner = [NSScanner scannerWithString:html];
-    
-    while ([myScanner isAtEnd] == NO) {
-        
-        [myScanner scanUpToString:@"<" intoString:NULL] ;
-        
-        [myScanner scanUpToString:@">" intoString:&text] ;
-        
-        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@""];
-    }
-    //
-    html = [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    return html;
-}
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 #pragma mark Webservices
 
 -(void)getProductWebService
@@ -300,21 +196,17 @@
                      _PhotoCount=[d valueForKey:@"PhotoCount"];
                      _PhotoPath=[d valueForKey:@"PhotoPath"];
                      _Price=[d valueForKey:@"Price"];
-                 
                  }
-                 
              }
              else
              {
                  UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                  alt1.tag=111;
                  [alt1 show];
-
              }
          }
          else
          {
-             
              UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
              alt1.tag=111;
              [alt1 show];
@@ -334,18 +226,16 @@
     
 }
 
-
-
 #pragma mark - UIAlertView
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag==111) {
-        if (buttonIndex==0) {
+    if (alertView.tag==111)
+    {
+        if (buttonIndex==0)
+        {
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
 }
-
-
 
 @end

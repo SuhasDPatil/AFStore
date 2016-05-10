@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubCategoryViewController">
             <connections>
-                <outlet property="collectionView" destination="wYZ-Lf-UrZ" id="GGp-vg-MxC"/>
+                <outlet property="collectionView" destination="nL1-vA-VdF" id="rBK-ZF-Rtg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,29 +16,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" id="wYZ-Lf-UrZ">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" id="nL1-vA-VdF">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.53883044550000003" green="0.53883044550000003" blue="0.53883044550000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="3Df-2C-ReH">
-                        <size key="itemSize" width="312" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="GJ1-Yb-vx2">
+                        <size key="itemSize" width="154" height="86"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="4" minY="2" maxX="4" maxY="2"/>
+                        <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="4"/>
                     </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="Wvp-oa-HH4"/>
-                        <outlet property="delegate" destination="-1" id="kGq-ZU-VYp"/>
+                        <outlet property="dataSource" destination="-1" id="UVk-uT-ypG"/>
+                        <outlet property="delegate" destination="-1" id="gnI-II-k33"/>
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.53883044550000003" green="0.53883044550000003" blue="0.53883044550000003" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="359" y="139"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="269" y="148"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

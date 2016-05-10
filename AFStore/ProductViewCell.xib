@@ -55,6 +55,11 @@
                         <rect key="frame" x="18" y="8" width="117" height="107"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" id="0Ec-pu-iym">
+                        <rect key="frame" x="66" y="53" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -62,11 +67,12 @@
             <size key="customSize" width="154" height="220"/>
             <connections>
                 <outlet property="imgProductImage" destination="AHD-qd-o1Q" id="k73-ua-SJN"/>
+                <outlet property="indicator" destination="0Ec-pu-iym" id="sCm-ji-rel"/>
                 <outlet property="lblFree1" destination="lXa-JN-Umq" id="fjr-Fe-2Pu"/>
                 <outlet property="lblProductCost" destination="Iwr-G4-0ev" id="nM5-UY-tWQ"/>
                 <outlet property="lblProductName" destination="aTs-QP-mJM" id="Ya6-kC-B9Q"/>
             </connections>
-            <point key="canvasLocation" x="153" y="147"/>
+            <point key="canvasLocation" x="361" y="145"/>
         </collectionViewCell>
     </objects>
 </document>

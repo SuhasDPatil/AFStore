@@ -107,39 +107,27 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SearchProductViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     tempCell=[[SearchProductViewCell alloc]init];
-    
     tempCell.cellDict=[SearchListArray objectAtIndex:indexPath.row];
     
     // Configure the cell...
-    
-    
     cell.lblProductName.text = tempCell.cellDict[@"Model"];
     
     dispatch_async(queue, ^(){
         
         [cell.indicatorV startAnimating];
         NSString * imgURL = tempCell.cellDict[@"PhotoPath"];
-        
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
-        
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
         NSString * replacedStr1=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
-
         NSURL * url = [NSURL URLWithString:replacedStr1];
-        
         NSData * imgData = [NSData dataWithContentsOfURL:url];
-        
         UIImage * image = [UIImage imageWithData:imgData];
-        
         dispatch_async( dispatch_get_main_queue() , ^(){
 
             cell.imgProductImage.image=image;
-            
             [cell.indicatorV stopAnimating];
                        
         });
-        
     });
     return cell;
   
@@ -153,20 +141,10 @@
     tempCell.cellDict=[SearchListArray objectAtIndex:indexPath.row];
     detSearch.ProductName_title=tempCell.cellDict[@"Model"];
     detSearch.mobile_ID=tempCell.cellDict[@"MobileID"];
-    
-//    detSearch.productName=tempCell.cellDict[@"ProductName"];
-//    detSearch.prodimage=tempCell.cellDict[@"ProductImage"];
-//    detSearch.subCateName=tempCell.cellDict[@"ProductName"];
-//    detSearch.prodFree1=tempCell.cellDict[@"Free1"];
-//    detSearch.prodcost=tempCell.cellDict[@"ProductCost"];
-//    
-//    
-//    NSLog(@"%@",tempCell.cellDict);
-//    
-//    NSLog(@"Prod ID ........%@",detSearch.productID);
-//    NSLog(@"Prod Name ........%@",detSearch.productName);
-//    NSLog(@"Sub Cate Name .......%@",detSearch.subCateName);
-//    NSLog(@"Sub Cate Name .......%@",detSearch.detStrFinalBackView);
+    detSearch.gold_Price=tempCell.cellDict[@"GoldPrice"];
+    detSearch.silver_Price=tempCell.cellDict[@"Price"];
+    detSearch.diamond_Price=tempCell.cellDict[@"DiamondPrice"];
+    detSearch.photo_path=tempCell.cellDict[@"PhotoPath"];
     
     // Push the view controller.
     
@@ -177,20 +155,22 @@
     
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_searchBar2 resignFirstResponder];
+}
 
 #pragma mark SearchBarDelegate
 
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
 {
     _txtSearch=[NSString stringWithString:text];
-    
+    [self SearchWebService];
+
 }
 
 -(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
 {
-    
-    [self SearchWebService];
-    
     return YES;
 }
 
@@ -220,19 +200,18 @@
 
 -(void)SearchWebService
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_txtSearch forKey:@"FreeTextSearch"];
     
-    [_spinnerView beginRefreshing];
-
     NSLog(@"%@ \n \n%@",API_SEARCH_PRODUCT_BY_TEXT, dict);
     
     [[AFAppAPIClient WSsharedClient] POST:API_SEARCH_PRODUCT_BY_TEXT
                                parameters:dict
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        [_spinnerView endRefreshing];
+        [hud show:YES];
 
         BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          
@@ -275,6 +254,7 @@
              [alt1 show];
          }
         
+        [hud hide:YES];
          [self.collectionView reloadData];
          
          
@@ -298,6 +278,5 @@
         }
     }
 }
-
 
 @end

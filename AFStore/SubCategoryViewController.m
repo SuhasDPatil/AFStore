@@ -18,9 +18,9 @@
 {
     [super viewDidLoad];
 
-    self.title=_cateName;
+    queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
 
-
+    self.title=@"Store";
     [self.collectionView registerNib:[UINib nibWithNibName:@"SubCategoryViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
     [self subCategoryWebService];
@@ -38,7 +38,7 @@
 }
 -(BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 
@@ -46,11 +46,12 @@
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:223.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
+    
     
     //Back Button
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -132,34 +133,24 @@
     
     tempCell.cellDict=[subCategoryListArray objectAtIndex:indexPath.row];
     
-    cell.lblSubCateName.text=tempCell.cellDict[@"SubCategoriesName"];
+//    cell.lblSubCateName.text=tempCell.cellDict[@"SubCategoriesName"];
     
-    
-    if ([_catImageName isEqual:@"C"])
-    {
-        cell.imgSubCateImage.image=[UIImage imageNamed:@"card.png"];
-    }
-    else if ([_catImageName isEqual:@"M"])
-    {
-        cell.imgSubCateImage.image=[UIImage imageNamed:@"mobile.png"];
-    }
-    else if ([_catImageName isEqual:@"T"])
-    {
-        cell.imgSubCateImage.image=[UIImage imageNamed:@"tablet.png"];
-    }
-    else if ([_catImageName isEqual:@"A"])
-    {
-        cell.imgSubCateImage.image=[UIImage imageNamed:@"accessories.png"];
-    }
-    else if ([_catImageName isEqual:@"M"])
-    {
-        cell.imgSubCateImage.image=[UIImage imageNamed:@"mobile.png"];
-    }
-    else
-    {
-        cell.imgSubCateImage.image=[UIImage imageNamed:@"mobile.png"];
-    }
-    
+    dispatch_async(queue, ^(){
+        [cell.indicator startAnimating];
+        NSString * imgURL = tempCell.cellDict[@"Logo"];
+        NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
+        NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        NSString * replacedStr1=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
+        
+        NSURL * url = [NSURL URLWithString:replacedStr1];
+        NSData * imgData = [NSData dataWithContentsOfURL:url];
+        UIImage * image = [UIImage imageWithData:imgData];
+        dispatch_async( dispatch_get_main_queue() , ^(){
+            cell.imgSubCateImage.image=image;
+            [cell.indicator stopAnimating];
+        });
+    });
+
     return cell;
 }
 
@@ -176,23 +167,13 @@
     tempCell.cellDict=[subCategoryListArray objectAtIndex:indexPath.row];
     
     
+    prod.BrandID=tempCell.cellDict[@"BrandID"];
     
-    NSLog(@"Indexpath=========%@",[subCategoryListArray objectAtIndex:indexPath.row]);
+    prod.Brand_name=tempCell.cellDict[@"BrandName"];
+
     
     NSLog(@"Selected cell index===%ld",(long)indexPath.row);
     
-    
-    prod.SubCatID=tempCell.cellDict[@"SubCategoriesID"];
-    prod.subCateName=tempCell.cellDict[@"SubCategoriesName"];
-    
-    NSLog(@"-----------------------");
-    NSLog(@"-----------------------");
-
-    NSLog(@"%@",tempCell.cellDict);
-    NSLog(@"-----------------------");
-    NSLog(@"%@",prod.SubCatID);
-    NSLog(@"%@",prod.subCateName);
-
     [self.navigationController pushViewController:prod animated:YES];
   
 }
@@ -205,12 +186,9 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-    [dict setObject:_CatID forKey:@"CategoriesID"];
-    NSLog(@"Request Dictionary: %@",dict);
     
-    [[AFAppAPIClient WSsharedClient] POST:API_GET_SUB_CATEGORY
-                               parameters:dict
+    [[AFAppAPIClient WSsharedClient] POST:API_GET_BRAND_LIST
+                               parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [hud show:YES];
@@ -231,15 +209,10 @@
                  {
                      NSDictionary * d = [subCategoryListArray objectAtIndex:i];
                      
-                     _CategoriesID=[d valueForKey:@"CategoriesID"];
-                     _CategoriesName=[d valueForKey:@"CategoriesName"];
-                     _SubCategoriesID=[d valueForKey:@"SubCategoriesID"];
-                     _SubCategoriesName=[d valueForKey:@"SubCategoriesName"];
+                     _BrandID=[d valueForKey:@"BrandID"];
+                     _BrandName=[d valueForKey:@"BrandName"];
+                     _Logo=[d valueForKey:@"Logo"];
                      
-                     NSLog(@"CategoriesID: %@", _CategoriesID);
-                     NSLog(@"CategoriesName: %@",_CategoriesName);
-                     NSLog(@"SubCategoriesID: %@", _SubCategoriesID);
-                     NSLog(@"SubCategoriesName: %@",_SubCategoriesName);
                  }
              }
              else
@@ -267,8 +240,7 @@
          alt1.tag=111;
          [alt1 show];
          
-     }
-     ];
+     }];
     
 }
 

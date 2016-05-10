@@ -162,23 +162,6 @@
     
     tempCell.cellDict=[MostPArray objectAtIndex:indexPath.row];
     
-    detProd.productID=tempCell.cellDict[@"ProductID"];
-    detProd.productName=tempCell.cellDict[@"ProductName"];
-    detProd.prodimage=tempCell.cellDict[@"ProductImage"];
-    detProd.prodFree1=tempCell.cellDict[@"Free1"];
-    detProd.prodcost=tempCell.cellDict[@"ProductCost"];
-
-    
-    
-    detProd.subCateName=LocalizedString(@"Most Popular");
-    
-    detProd.detStrFinalBackView=self.detStrfinal;
-    
-    NSLog(@"Prod ID ........%@",detProd.productID);
-    NSLog(@"Prod Name ........%@",detProd.productName);
-    NSLog(@"Sub Cate Name .......%@",detProd.subCateName);
-    NSLog(@"Sub Cate Name .......%@",detProd.detStrFinalBackView);
-    
     // Push the view controller.
     [self.navigationController pushViewController:detProd animated:YES];
     

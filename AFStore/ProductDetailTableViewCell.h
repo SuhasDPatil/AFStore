@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblSpec;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblHeader;
 
 @end

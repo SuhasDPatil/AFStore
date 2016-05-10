@@ -41,10 +41,9 @@
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <point key="canvasLocation" x="264" y="102"/>
+            <point key="canvasLocation" x="246" y="54"/>
         </view>
     </objects>
 </document>

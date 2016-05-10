@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactUSViewController">
@@ -22,17 +22,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash2_bg.jpg" id="Rnm-lC-gIH">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" id="Rnm-lC-gIH">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="222.png" id="G1P-S0-Zsj">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="31" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="SsT-Lx-hVx">
-                    <rect key="frame" x="25" y="87" width="271" height="29"/>
+                    <rect key="frame" x="25" y="110" width="271" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Reseller"/>
@@ -40,10 +40,10 @@
                         <segment title="Supplier"/>
                         <segment title="AF Care"/>
                     </segments>
-                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" id="Dkz-f3-v03">
-                    <rect key="frame" x="41" y="136" width="238" height="30"/>
+                    <rect key="frame" x="41" y="159" width="238" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,7 +54,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" id="wPU-6u-jka">
-                    <rect key="frame" x="41" y="174" width="238" height="30"/>
+                    <rect key="frame" x="41" y="197" width="238" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,7 +65,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile" minimumFontSize="17" id="bOt-cF-ICm">
-                    <rect key="frame" x="41" y="212" width="238" height="30"/>
+                    <rect key="frame" x="41" y="235" width="238" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,7 +76,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" id="kGr-Ws-rkY">
-                    <rect key="frame" x="41" y="250" width="238" height="30"/>
+                    <rect key="frame" x="41" y="273" width="238" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" minimumFontSize="17" id="2BC-fD-7CS">
-                    <rect key="frame" x="41" y="288" width="238" height="30"/>
+                    <rect key="frame" x="41" y="311" width="238" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,11 +92,11 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6a5-Li-FAT">
-                    <rect key="frame" x="85" y="338" width="150" height="30"/>
+                    <rect key="frame" x="85" y="361" width="150" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="SUBMIT">
+                    <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="Submit">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
@@ -105,19 +105,19 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="555.png" id="sp4-wf-YjS">
-                    <rect key="frame" x="0.0" y="401" width="320" height="54"/>
+                    <rect key="frame" x="0.0" y="424" width="320" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="TgE-n3-TAk">
-                    <rect key="frame" x="159" y="473" width="146" height="41"/>
+                    <rect key="frame" x="159" y="496" width="146" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inquiry Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8zR-Oj-xlu">
-                    <rect key="frame" x="119" y="61" width="82" height="23"/>
+                    <rect key="frame" x="99" y="85" width="123" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                    <color key="textColor" red="0.54296875" green="0.54296875" blue="0.54296875" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -129,12 +129,7 @@
     <resources>
         <image name="222.png" width="1067" height="116"/>
         <image name="555.png" width="1209" height="189"/>
+        <image name="bg2" width="640" height="1136"/>
         <image name="logo.png" width="314" height="87"/>
-        <image name="splash2_bg.jpg" width="640" height="1137"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

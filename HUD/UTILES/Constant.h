@@ -34,13 +34,15 @@
 
 
 //Store
+#define API_GET_BRAND_LIST (API_BASE_URL_Store @"BrandList")
+
 #define API_GET_PRODUCT_LIST (API_BASE_URL_Store @"ProductListByBrand")
 #define API_GET_PRODUCT_IMAGES (API_BASE_URL_Store @"ProductImagesByID")
+#define API_GET_PRODUCT_DETAILS_BY_ID (API_BASE_URL_Store @"ProductDetailsByID")
 
 
 
 #define API_GET_MAIN_CATEGORY (API_BASE_URL @"GetCategories")
-#define API_GET_SUB_CATEGORY (API_BASE_URL @"GetSubCategories")
 #define API_GET_PRODUCT_DETAIL (API_BASE_URL @"GetProductsAllDetails")
 
 #define API_SEND_EMAIL_FOR_PRICE (API_BASE_URL @"SendEmail")

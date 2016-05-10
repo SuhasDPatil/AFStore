@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblSubCateName;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+
 @property(nonatomic,retain)NSMutableDictionary *cellDict;
 
 @end

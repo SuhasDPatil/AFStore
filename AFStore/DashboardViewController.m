@@ -121,7 +121,7 @@
         }
         else if ([selectedItem.title isEqualToString:@"Store"]||[selectedItem.title isEqualToString:@"المتجر"])
         {
-            CategoryViewController *cvc=[[CategoryViewController alloc]init];
+            SubCategoryViewController *cvc=[[SubCategoryViewController alloc]init];
             
             [self.navigationController pushViewController:cvc animated:YES];
             
@@ -360,4 +360,23 @@
         [self showMenuArabic];
 }
 
+
+#pragma mark UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag==100)
+    {
+        if (buttonIndex==0)
+        {
+            [self showMenuEnglish];
+        }
+    }
+    else if (alertView.tag==101)
+    {
+        if (buttonIndex==0)
+        {
+            [self showMenuEnglish];
+        }
+    }
+}
 @end

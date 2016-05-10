@@ -46,7 +46,7 @@
 
 -(BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 
@@ -82,8 +82,8 @@
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:223.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
@@ -231,7 +231,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     
-    [self.view setFrame:CGRectMake(0, 44, 320, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, 64, 320, self.view.frame.size.height)];
 
     [UIView commitAnimations];
     
@@ -265,7 +265,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     
-    [self.view setFrame:CGRectMake(0, 44, 320, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, 64, 320, self.view.frame.size.height)];
     
     [UIView commitAnimations];
 
@@ -310,10 +310,6 @@
         [Utiles showAlert:APP_NAME Message:@"Enter Your Message"];
         return;
     }
-    
-    
-
-    
     
     [self ContactUsWebService];
     

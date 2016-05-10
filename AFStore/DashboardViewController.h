@@ -14,6 +14,7 @@
 
 #import "HomeMViewController.h"
 #import "CategoryViewController.h"
+#import "SubCategoryViewController.h"
 #import "HotOfferCategoryViewController.h"
 #import "MostPopularViewController.h"
 #import "NewsViewController.h"
@@ -24,7 +25,7 @@
 #import "WarrantyViewController.h"
 #import "ChkYrPhoneViewController.h"
 
-@interface DashboardViewController : UIViewController
+@interface DashboardViewController : UIViewController<UIAlertViewDelegate>
 
 @property (nonatomic, strong) PopMenu *popMenu;
 

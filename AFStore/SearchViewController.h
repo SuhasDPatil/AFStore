@@ -61,12 +61,7 @@
 
 
 
-
-
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-
-
-
 
 
 @end

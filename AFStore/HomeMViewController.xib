@@ -33,20 +33,21 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <searchBar contentMode="redraw" placeholder="Search an Item..." id="xcy-hr-1Dc">
-                            <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search an Item..." id="xcy-hr-1Dc">
+                            <rect key="frame" x="0.0" y="106" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.86823615771812079" green="0.86587667785234901" blue="0.86792156040268453" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qpP-Za-dKo">
-                            <rect key="frame" x="0.0" y="109" width="320" height="45"/>
+                            <rect key="frame" x="0.0" y="106" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <action selector="searchClicked:" destination="-1" eventType="touchUpInside" id="7fq-NV-mCj"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot Deals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NR3-Ak-Eh5">
-                            <rect key="frame" x="8" y="162" width="304" height="24"/>
+                            <rect key="frame" x="0.0" y="149" width="320" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
@@ -54,24 +55,22 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" id="2iY-6V-CII">
-                            <rect key="frame" x="0.0" y="194" width="320" height="220"/>
+                            <rect key="frame" x="0.0" y="172" width="320" height="220"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_iku_icon" id="Skv-yY-b6f">
-                            <rect key="frame" x="0.0" y="422" width="320" height="104"/>
+                            <rect key="frame" x="0.0" y="390" width="320" height="123"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5GN-tY-gS0">
-                            <rect key="frame" x="0.0" y="422" width="320" height="104"/>
+                            <rect key="frame" x="0.0" y="390" width="320" height="123"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" backgroundImage="home_iku_icon"/>
                             <connections>
                                 <action selector="IKUClicked:" destination="-1" eventType="touchUpInside" id="iaY-zu-epw"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Ayn Al Fahad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3tq-BR-dWQ">
-                            <rect key="frame" x="8" y="534" width="304" height="24"/>
+                            <rect key="frame" x="0.0" y="513" width="320" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
@@ -79,7 +78,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QLQ-s1-ng1">
-                            <rect key="frame" x="8" y="566" width="304" height="250"/>
+                            <rect key="frame" x="8" y="537" width="304" height="263"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <string key="text">           Launched in 2004 with clear vision and objectives reflecting the absolute commitment towards its customers in providing the best solutions and products in the world of telecommunications. AynAlFahad became a leading company in Iraq providing the latest innovations in the world of mobile phones and services.
 

@@ -26,27 +26,12 @@
     self.collectionView.tag=111;
     isfirstTimeTransform = YES;
     [self.collectionView registerNib:[UINib nibWithNibName:@"ProductImageViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    
-    [self.tableViewDet registerNib:[UINib nibWithNibName:@"ProductDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    
-
+    [self.tableViewDet registerNib:[UINib nibWithNibName:@"ProductDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    self.segWarranty.selectedSegmentIndex=0;
+    NSString * proPrice=[NSString stringWithFormat:@"$%@",_silver_Price];
+    self.lblProductCost.text=proPrice;
     [self getProductImagesWebService];
-    
-    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    NSString *urlString=[NSString stringWithFormat:@"http://www.aynAlFahad.com/"];
-    NSLog(@"Shre Link :%@",urlString);
-    
-    content.contentURL = [NSURL URLWithString:urlString];
-    content.contentTitle=[NSString stringWithFormat:@"%@ : %@",_subCateName,_productName];
-    content.contentDescription=[NSString stringWithFormat:@"\n   %@\n   Price: $%@  ",self.prodFree1,_prodcost];
-    NSString * imgURL = self.prodimage;
-    NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-    NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    content.imageURL=[NSURL URLWithString:replacedStr];
-    FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(220, 485, 80, 30)];
-    Sharebutton.shareContent = content;
-    
-    [self.view addSubview:Sharebutton];
+    [self getProductDetailsWebService];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,123 +56,199 @@
 #pragma mark TabkeView Delegate and Datasource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger i;
-    if (section==0) {
-        
-        i=3;
-    }
-    else
-    {
-        i=13;
-    }
-    return i;
-}
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString * titleH;
-    if (section==0) {
-        titleH=@"Product Details";
-    }
-    else
-    {
-        titleH=@"Product Specification";
-    }
-    return titleH;
+    return 18;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ProductDetailTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (indexPath.section==0) {
+    ProductDetailTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
         if (indexPath.row==0) {
+            cell.lblHeader.hidden=NO;
+            cell.lblLabel.hidden=YES;
+            cell.lblSpec.hidden=YES;
+            cell.lblHeader.text=@"PRODUCT DETAILS";
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:1.0 ];
+        }
+        else if (indexPath.row==1)
+        {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
             cell.lblLabel.text=@"Brand Model";
-            cell.lblSpec.text=@"";
+            cell.lblSpec.text=_BrandModel;
+            cell.lblHeader.hidden=YES;
+            cell.backgroundColor=[UIColor whiteColor];
         }
-        else if (indexPath.row==1)
+        else if (indexPath.row==2)
         {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
             cell.lblLabel.text=@"Color";
-            cell.lblSpec.text=@"";
-        }
-        else if (indexPath.row==2)
-        {
-            cell.lblLabel.text=@"Memory";
-            cell.lblSpec.text=@"";
-        }
-    }
-    else if (indexPath.section==1)
-    {
-        if (indexPath.row==0) {
-            cell.lblLabel.text=@"Battery";
-            cell.lblSpec.text=@"";
-        }
-        else if (indexPath.row==1)
-        {
-            cell.lblLabel.text=@"Bluetooth";
-            cell.lblSpec.text=@"";
-        }
-        else if (indexPath.row==2)
-        {
-            cell.lblLabel.text=@"Brand Name";
-            cell.lblSpec.text=@"";
+            cell.lblSpec.text=_ColorName;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==3)
         {
-            cell.lblLabel.text=@"FM Radio";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Memory";
+            cell.lblSpec.text=_Memory;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==4)
         {
-            cell.lblLabel.text=@"GPS";
-            cell.lblSpec.text=@"";
+            cell.lblHeader.hidden=NO;
+            cell.lblLabel.hidden=YES;
+            cell.lblSpec.hidden=YES;
+            cell.lblHeader.text=@"PRODUCT SPECIFICATION";
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:1.0 ];
+
         }
+
         else if (indexPath.row==5)
         {
-            cell.lblLabel.text=@"Multitouch";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Battery";
+            cell.lblSpec.text=_Battery;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==6)
         {
-            cell.lblLabel.text=@"Operating System";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Bluetooth";
+            cell.lblSpec.text=_Bluetooth;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==7)
         {
-            cell.lblLabel.text=@"Primary Camera";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Brand Name";
+            cell.lblSpec.text=_BrandName;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==8)
         {
-            cell.lblLabel.text=@"Processor";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"FM Radio";
+            cell.lblSpec.text=_FM_Radio;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==9)
         {
-            cell.lblLabel.text=@"RAM";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"GPS";
+            cell.lblSpec.text=_GPS;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==10)
         {
-            cell.lblLabel.text=@"Secondary Camera";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Multitouch";
+            cell.lblSpec.text=_Multitouch;
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==11)
         {
-            cell.lblLabel.text=@"Sound";
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Operating System";
             cell.lblSpec.text=@"";
+            cell.backgroundColor=[UIColor whiteColor];
+
         }
         else if (indexPath.row==12)
         {
-            cell.lblLabel.text=@"USB";
-            cell.lblSpec.text=@"";
-        }
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Primary Camera";
+            cell.lblSpec.text=_PrimaryCamera;
+            cell.backgroundColor=[UIColor whiteColor];
 
-    }
-    
+        }
+        else if (indexPath.row==13)
+        {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Processor";
+            cell.lblSpec.text=_Processor;
+            cell.backgroundColor=[UIColor whiteColor];
+
+        }
+        else if (indexPath.row==14)
+        {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"RAM";
+            cell.lblSpec.text=_Ram;
+            cell.backgroundColor=[UIColor whiteColor];
+
+        }
+        else if (indexPath.row==15)
+        {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Secondary Camera";
+            cell.lblSpec.text=_SecondaryCamera;
+            cell.backgroundColor=[UIColor whiteColor];
+
+        }
+        else if (indexPath.row==16)
+        {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"Sound";
+            cell.lblSpec.text=_Sound;
+            cell.backgroundColor=[UIColor whiteColor];
+
+        }
+        else if (indexPath.row==17)
+        {
+            cell.lblLabel.hidden=NO;
+            cell.lblSpec.hidden=NO;
+            cell.lblHeader.hidden=YES;
+            cell.lblLabel.text=@"USB";
+            cell.lblSpec.text=_USB;
+            cell.backgroundColor=[UIColor whiteColor];
+
+        }
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 48.0f;
 }
 
 
@@ -331,7 +392,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 - (void)goHome
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -340,48 +400,33 @@
 #pragma mark Button Clicked Methods
 - (IBAction)postToTweeter:(id)sender
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud show:YES];
+
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet addURL:[NSURL URLWithString:@"http://www.aynAlFahad.com/"]];
-        NSString * imgURL = self.prodimage;
-        NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-        NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        NSURL * url = [NSURL URLWithString:replacedStr];
+        [tweetSheet addURL:[NSURL URLWithString:@"http://www.store.aynalfahad.com/"]];
+
+        NSURL * url = [NSURL URLWithString:_shareImageURL];
         NSData * imgData = [NSData dataWithContentsOfURL:url];
         [tweetSheet addImage:[UIImage imageWithData:imgData]];
-        [tweetSheet setInitialText:[NSString stringWithFormat:@"%@\nModel:%@\nCost:%@\nFree:%@\n%@",self.subCateName,self.productName,self.prodcost,self.prodFree1,self.ProductDetailsInfo]];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"\nModel:%@\nCost:%@\n",self.ProductName_title,self.silver_Price]];
+        [hud hide:YES];
         [self presentViewController:tweetSheet animated:YES completion:nil];
+        
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter" message:@"Twitter integration is not available.  Make sure you have setup your Twitter account on your device." delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"OK", nil];
-        [alert show];
-        alert.tag=101;
+        SLComposeViewController *TWITTER = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [hud hide:YES];
+        [self presentViewController:TWITTER animated:YES completion:nil];
     }
 }
 
 - (IBAction)posttoFacebook:(id)sender
 {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-    {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [controller addURL:[NSURL URLWithString:@"http://www.aynAlFahad.com/"]];
-        NSString * imgURL = self.prodimage;
-        NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-        NSLog(@"Image URL====%@",combined);
-        NSURL * url = [NSURL URLWithString:combined];
-        NSData * imgData = [NSData dataWithContentsOfURL:url];
-        [controller addImage:[UIImage imageWithData:imgData]];
-        [controller setInitialText:[NSString stringWithFormat:@"Brand: %@ \nModel: %@ \n",self.subCateName,self.productName]];
-        [self presentViewController:controller animated:YES completion:nil];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook" message:@"Facebook integration is not available.  Make sure you have setup your Facebook account on your device." delegate:self cancelButtonTitle:@"Settings" otherButtonTitles:@"OK", nil];
-        [alert show];
-        alert.tag=101;
-    }
+    
 }
 
 -(void)btnImageClicked:(id)sender
@@ -389,11 +434,30 @@
     [EXPhotoViewer showImageFrom:_imgProdImage];
 }
 
+- (IBAction)warrantyChanged:(id)sender
+{
+    NSString * proPrice;
+    if (self.segWarranty.selectedSegmentIndex==0)
+    {
+        proPrice=[NSString stringWithFormat:@"$%@",_silver_Price];
+        self.lblProductCost.text=proPrice;
+    }
+    else if (self.segWarranty.selectedSegmentIndex==1)
+    {
+        proPrice=[NSString stringWithFormat:@"$%@",_gold_Price];
+        self.lblProductCost.text=proPrice;
+    }
+    else if (self.segWarranty.selectedSegmentIndex==2)
+    {
+        proPrice=[NSString stringWithFormat:@"$%@",_diamond_Price];
+        self.lblProductCost.text=proPrice;
+    }
+}
+
 #pragma mark WebServices
 
 -(void)getProductImagesWebService
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_mobile_ID forKey:@"MobileID"];
 
@@ -401,7 +465,6 @@
                                parameters:dict
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         [hud show:YES];
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          if(result)
          {
@@ -410,7 +473,6 @@
              _imgProdImage.hidden=YES;
              _btnImageView.hidden=YES;
              _collectionView.hidden=NO;
-             
              NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              ProductsImageArray=[[NSMutableArray alloc]init];
@@ -432,7 +494,6 @@
                  UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                  alt1.tag=111;
                  [alt1 show];
-                 
              }
          }
          else
@@ -444,10 +505,16 @@
              _collectionView.hidden=YES;
              dispatch_async(queue, ^(){
                  [self.indicator startAnimating];
-                 NSString * imgURL = self.prodimage;
-                 NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
+                 NSString * imgURL = self.photo_path;
+//                 NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
+//                 NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+//                 NSURL * url = [NSURL URLWithString:replacedStr];
+                 
+                 NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
                  NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-                 NSURL * url = [NSURL URLWithString:replacedStr];
+                 NSString * replacedStr1=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
+                 NSURL * url = [NSURL URLWithString:replacedStr1];
+                 
                  NSData * imgData = [NSData dataWithContentsOfURL:url];
                  UIImage * image = [UIImage imageWithData:imgData];
                  dispatch_async( dispatch_get_main_queue() , ^(){
@@ -456,8 +523,30 @@
                  });
              });
          }
-         [hud hide:YES];
          [self.collectionView reloadData];
+         
+         FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+         NSString *urlString=[NSString stringWithFormat:@"http://www.aynAlFahad.com/"];
+         NSLog(@"Shre Link :%@",urlString);
+         content.contentURL = [NSURL URLWithString:urlString];
+         
+         content.contentTitle=[NSString stringWithFormat:@"%@\n",_ProductName_title];
+         content.contentDescription=[NSString stringWithFormat:@"\nPrice: $%@  ",_silver_Price];
+         NSDictionary * dict=[ProductsImageArray objectAtIndex:0];
+         NSString * imgURL = [dict valueForKey:@"PhotoPath"];
+         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
+         NSLog(@"Image URL====%@",combined);
+         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+         _shareImageURL=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
+         content.imageURL=[NSURL URLWithString:_shareImageURL];
+         NSLog(@"%@",content);
+         FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(0, 465, 130, 35)];
+         Sharebutton.shareContent = content;
+         [Sharebutton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+         [Sharebutton setBackgroundColor:[UIColor clearColor]];
+         [Sharebutton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
+         [Sharebutton setTintColor:[UIColor clearColor]];
+         [self.view addSubview:Sharebutton];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
@@ -465,6 +554,82 @@
          alt1.tag=111;
          [alt1 show];
          
+     }];
+}
+
+-(void)getProductDetailsWebService
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
+    [dict setObject:_mobile_ID forKey:@"MobileID"];
+    
+    [[AFAppAPIClient WSsharedClient] POST:API_GET_PRODUCT_DETAILS_BY_ID
+                               parameters:dict
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         [hud show:YES];
+         BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
+         if(result)
+         {
+             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
+             // NSArray *list=[responseObject objectForKey:@"Data"];
+             ProductDetailArray=[[NSMutableArray alloc]init];
+             ProductDetailArray=[responseObject objectForKey:@"Data"];
+             if(ProductDetailArray.count>0)
+             {
+                 int i;
+                 NSArray *d;
+                 
+                 for (i=0; i<ProductDetailArray.count; i++)
+                 {
+                     d = [ProductDetailArray objectAtIndex:i];
+                     
+                     _Battery=[d valueForKey:@"Battery"];
+                     _Bluetooth=[d valueForKey:@"Bluetooth"];
+                     _BrandModel=[d valueForKey:@"BrandModel"];
+                     _BrandName=[d valueForKey:@"BrandName"];
+                     _ColorName=[d valueForKey:@"ColorName"];
+                     _Condition=[d valueForKey:@"Condition"];
+                     _Description=[d valueForKey:@"Description"];
+                     _DisplaySize=[d valueForKey:@"DisplaySize"];
+                     _DisplayType=[d valueForKey:@"DisplayType"];
+                     _FM_Radio=[d valueForKey:@"FM_Radio"];
+                     _GPS=[d valueForKey:@"GPS"];
+                     _Memory=[d valueForKey:@"Memory"];
+                     _Multitouch=[d valueForKey:@"Multitouch"];
+                     _OperatingSystem=[d valueForKey:@"OperatingSystem"];
+                     _Price=[d valueForKey:@"Price"];
+                     _PrimaryCamera=[d valueForKey:@"PrimaryCamera"];
+                     _Processor=[d valueForKey:@"Processor"];
+                     _Ram=[d valueForKey:@"Ram"];
+                     _SecondaryCamera=[d valueForKey:@"SecondaryCamera"];
+                     _SimType=[d valueForKey:@"SimType"];
+                     _Sound=[d valueForKey:@"Sound"];
+                     _TouchScreen=[d valueForKey:@"TouchScreen"];
+                     _USB=[d valueForKey:@"USB"];
+                 }
+             }
+             else
+             {
+                 UIAlertView *alt=[[UIAlertView alloc]initWithTitle:@"**SORRY**" message:@"Slider Images Not Available!!!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                 [alt show];
+                 [self.navigationController popViewControllerAnimated:YES];
+             }
+         }
+         else
+         {
+             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+             alt1.tag=111;
+             [alt1 show];
+         }
+         [hud hide:YES];
+         [_tableViewDet reloadData];
+         
+     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+         alt1.tag=111;
+         [alt1 show];
      }];
 }
 
@@ -479,8 +644,10 @@
             [[UIApplication sharedApplication] openURL:[NSURL  URLWithString:UIApplicationOpenSettingsURLString]];
         }
     }
-    if (alertView.tag==111) {
-        if (buttonIndex==0) {
+    if (alertView.tag==111)
+    {
+        if (buttonIndex==0)
+        {
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
