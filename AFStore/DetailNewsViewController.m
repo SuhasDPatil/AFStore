@@ -40,14 +40,6 @@
         
         NSURL * url = [NSURL URLWithString:replacedStr];
         
-        NSLog(@"***************************************************************");
-        NSLog(@"***************************************************************");
-
-        NSLog(@"News Details Image URL:%@",replacedStr);
-        
-        NSLog(@"***************************************************************");
-        NSLog(@"***************************************************************");
-
         NSData * imgData = [NSData dataWithContentsOfURL:url];
         
         UIImage * image = [UIImage imageWithData:imgData];
@@ -64,65 +56,7 @@
 
     
     
-    
-    
-    
-    
-    
-    
-    
-    FBSDKLikeControl *button = [[FBSDKLikeControl alloc]initWithFrame:CGRectMake(10, 490, 100, 50)];
-    
-    button.objectID = @"https://www.aynalfahad.com/Productdetails/tabid/298/ProductID/199/";
-    
-    
-    [self.view addSubview:button];
-    
-    button.likeControlStyle=FBSDKLikeControlStyleBoxCount;
-    button.likeControlHorizontalAlignment=FBSDKLikeControlHorizontalAlignmentRight;
-    
-    // Center Button
-    //    CGRect bounds = self.view.bounds;
-    //    button.center = CGPointMake(
-    //                                CGRectGetMidX(bounds), CGRectGetMidY(bounds)
-    //                                );
-    
-    
-    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    
-    NSString *urlString=[NSString stringWithFormat:@"http://www.aynAlFahad.com/"];
-    
-    
-    NSLog(@"Shre Link :%@",urlString);
-    
-    content.contentURL = [NSURL URLWithString:urlString];
-    
-    
-    
-    content.contentTitle=[NSString stringWithFormat:@"%@",_newsTitle];
-    
-    content.contentDescription=[NSString stringWithFormat:@"Publish Date:%@ \n%@ ",self.newsPubDate,self.newssummery];
-    
-    
-    NSString * imgURL = self.newsImage;
-    
-    NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-    
-    NSLog(@"Image URL====%@",combined);
 
-    
-    content.imageURL=[NSURL URLWithString:combined];
-    
-    
-    FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(220, 490, 80, 30)];
-    Sharebutton.shareContent = content;
-    
-    [self.view addSubview:Sharebutton];
-
-    
-    
-    
-    
     
     
  //   self.imgNewsImage.image=self.newsImage;
@@ -132,7 +66,7 @@
 
 -(BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 
@@ -161,8 +95,8 @@
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
@@ -263,7 +197,7 @@
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
-        [tweetSheet addURL:[NSURL URLWithString:@"http://www.aynAlFahad.com/"]];
+        [tweetSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://aynalfahad.com/News/TabId/143/ArtMID/921/ArticleID/%@",_newsArticleID]]];
         
         
         NSString * imgURL = self.newsImage;
@@ -283,7 +217,7 @@
         [tweetSheet addImage:[UIImage imageWithData:imgData]];
         
         
-        [tweetSheet setInitialText:[NSString stringWithFormat:@"%@\nNo. of View:%@ \nDate: %@ \n %@",self.newsTitle,self.NumberOfViews,self.newsPubDate, self.newssummery]];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"%@\nNo. of View:%@ \nDate: %@",self.newsTitle,self.NumberOfViews,self.newsPubDate]];
         
         
         
@@ -344,27 +278,7 @@
                      
                      _Article=[d valueForKey:@"Article"];
                      _NumberOfViews=[d valueForKey:@"NumberOfViews"];
-                     
-                     
-                     NSLog(@"News Summery : %@", _Article);
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     
-                     NSLog(@"\n\n NumberOfViews : %@\n\n",_NumberOfViews);
-                     
-                     
-                     
-                     
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     NSLog(@"***************************************************");
-                     
-                     
+                    
                  }
                  
                  self.lblNoOfViews.text=[NSString stringWithFormat:@"Number Of Views :%@",_NumberOfViews];
@@ -383,6 +297,55 @@
               
 
                  [_webView loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",con] baseURL:nil];
+                 
+                 
+                 
+                 
+                 
+                 //facebook sharing
+                 
+                 
+                 FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+                 
+                 
+                 NSString *urlString=[NSString stringWithFormat:@"http://aynalfahad.com/News/TabId/143/ArtMID/921/ArticleID/%@",_newsArticleID];
+                 
+                 
+                 NSLog(@"Shre Link :%@",urlString);
+                 
+                 content.contentURL = [NSURL URLWithString:urlString];
+                 
+                 
+                 
+                 content.contentTitle=[NSString stringWithFormat:@"%@",_newsTitle];
+                 
+                 content.contentDescription=[NSString stringWithFormat:@"Publish Date:%@ \n%@ ",self.newsPubDate,strSummery];
+                 
+                 
+                 NSString * imgURL = self.newsImage;
+                 
+                 NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
+                 
+                 NSLog(@"Image URL====%@",combined);
+                 
+                 
+                 content.imageURL=[NSURL URLWithString:combined];
+                 
+                 
+                 FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(0, 465, 150, 36)];
+                 Sharebutton.shareContent = content;
+                 
+                 [Sharebutton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+                 [Sharebutton setBackgroundColor:[UIColor clearColor]];
+                 [Sharebutton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
+                 [Sharebutton setTintColor:[UIColor clearColor]];
+                 
+                 [self.view addSubview:Sharebutton];
+
+                 
+                 
+                 
+                 
                  
                  
              }

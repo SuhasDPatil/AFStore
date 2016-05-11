@@ -40,16 +40,15 @@
 
 -(BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 
 #pragma mark User Defined
-
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
@@ -62,7 +61,6 @@
     backBtn.frame = CGRectMake(0, 0, 10, 16);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
-    
     
 }
 
@@ -104,7 +102,7 @@
     
     dispatch_async(queue, ^(){
         
-        
+        [cell.indicatorV startAnimating];
         // NSString * webURL=@"http://192.168.1.9/MenupicsServices/DishPhoto/";
         
         NSString * imgURL = tempCell.cellDict[@"ArticleImage"];
@@ -124,7 +122,7 @@
                
             cell.imgNewsImage.image=image;
             
-            
+               [cell.indicatorV stopAnimating];
         });
         
     });

@@ -22,7 +22,7 @@
     self.btnAboutUs.backgroundColor=[UIColor orangeColor];
 //    self.txtViewInfo.text=LocalizedString(@"About_Us");
 //    [_webView loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",con] baseURL:nil];
-    self.txtViewInfo.text=[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",LocalizedString(@"About_Us")];
+    self.txtViewInfo.text=LocalizedString(@"About_Us");
     [self.btnAboutUs setTitle:LocalizedString(@"About_us") forState:UIControlStateNormal];
     [self.btnQualityPolicy setTitle:LocalizedString(@"Quality Policy") forState:UIControlStateNormal];
     [self.btnVisionMission setTitle:LocalizedString(@"Vision Mission") forState:UIControlStateNormal];
@@ -41,15 +41,15 @@
 
 -(BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 #pragma mark User Defined
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;

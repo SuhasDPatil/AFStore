@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblNoOfViews;
 
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicatorV;
 
 
 @property(nonatomic,retain)NSMutableDictionary *cellDict;

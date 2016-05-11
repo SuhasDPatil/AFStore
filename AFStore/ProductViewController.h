@@ -26,7 +26,7 @@
 
 @property(readwrite)NSString *BrandID;
 @property(strong,nonatomic)NSString *Brand_name;
-
+@property(strong,nonatomic)NSString *Condition_newUsed;
 
 
 @property(readwrite)NSNumber *SubCatID;
@@ -67,6 +67,8 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionview;
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segCondition;
 
+- (IBAction)conditionChanged:(id)sender;
 
 @end

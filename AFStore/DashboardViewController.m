@@ -242,13 +242,11 @@
         }
         else if ([selectedItem.title isEqualToString:@"Store"]||[selectedItem.title isEqualToString:@"المتجر"])
         {
-            CategoryViewController *cvc=[[CategoryViewController alloc]init];
+            SubCategoryViewController *cvc=[[SubCategoryViewController alloc]init];
             
-            [self.navigationController pushViewController:cvc animated:NO];
+            [self.navigationController pushViewController:cvc animated:YES];
             
         }
-        
-        
         
         else if ([selectedItem.title isEqualToString:@"News"]||[selectedItem.title isEqualToString:@"أخبار عالم الهواتف"])
         {

@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *btnPhotoSelect;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicatorV;
 
 
 @property(nonatomic,retain)NSMutableDictionary *cellDict;

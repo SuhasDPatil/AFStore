@@ -16,8 +16,9 @@
                 <outlet property="lblBorder1" destination="s94-YH-iOK" id="toB-3N-QMg"/>
                 <outlet property="lblBorder2" destination="93y-DC-aV6" id="qXw-3b-dMe"/>
                 <outlet property="lblProductCost" destination="Ah5-gL-DUS" id="53B-Ze-tew"/>
+                <outlet property="scrollview" destination="m1e-bq-upg" id="XxC-7M-9Xn"/>
                 <outlet property="segWarranty" destination="a1U-WW-Feh" id="iS5-2F-SrC"/>
-                <outlet property="tableViewDet" destination="iIv-on-T9u" id="I2t-Zb-KI6"/>
+                <outlet property="tableViewDet" destination="bL6-Fh-Af2" id="0Fo-v8-w3V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -104,19 +105,24 @@
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iIv-on-T9u">
-                    <rect key="frame" x="0.0" y="274" width="320" height="227"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="m1e-bq-upg">
+                    <rect key="frame" x="0.0" y="274" width="320" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="S4D-Rk-GTQ"/>
-                        <outlet property="delegate" destination="-1" id="JZz-cC-40q"/>
-                    </connections>
-                </tableView>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bL6-Fh-Af2">
+                            <rect key="frame" x="0.0" y="3" width="320" height="870"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Vdm-ct-GVK"/>
+                                <outlet property="delegate" destination="-1" id="MPk-0o-AHx"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share On" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Opi-fk-wUT">
-                    <rect key="frame" x="83" y="504" width="148" height="22"/>
+                    <rect key="frame" x="83" y="501" width="148" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="13"/>
                     <color key="textColor" red="0.84341299020000005" green="0.4920228915" blue="0.016336320129999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,7 +160,7 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="478" y="-791"/>
+            <point key="canvasLocation" x="476" y="-997"/>
         </view>
     </objects>
     <resources>

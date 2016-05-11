@@ -33,7 +33,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgNewsImage;
 
-@property (strong, nonatomic) IBOutlet UITextView *txtNewsSummery;
+//@property (strong, nonatomic) IBOutlet UITextView *txtNewsSummery;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblPubDate;
 

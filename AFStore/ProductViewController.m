@@ -22,8 +22,26 @@
     [self.collectionview registerNib:[UINib nibWithNibName:@"ProductViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     [self.navigationController.navigationBar setHidden:NO];
     self.title=_Brand_name;
+    self.segCondition.selectedSegmentIndex=0;
+    _Condition_newUsed=@"1";
+    
     [self getProductWebService];
+    
     // Do any additional setup after loading the view from its nib.
+}
+- (IBAction)conditionChanged:(id)sender
+{
+    if (self.segCondition.selectedSegmentIndex==0)
+    {
+        _Condition_newUsed=@"1";
+    }
+    else if (self.segCondition.selectedSegmentIndex==1)
+    {
+        _Condition_newUsed=@"2";
+    }
+
+    [self getProductWebService];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -39,7 +57,7 @@
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:223.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -99,7 +117,7 @@
     tempCell.cellDict=[ProductsListArray objectAtIndex:indexPath.row];
     NSString * str=tempCell.cellDict[@"BrandModel"];
     cell.lblProductName.text=str;
-    NSString * strDoller=@"$ ";
+    NSString * strDoller=@"$";
     NSString * strCost=tempCell.cellDict[@"Price"];
     cell.lblProductCost.text=[NSString stringWithFormat:@"%@ %@",strDoller,strCost];
     cell.lblFree1.text=tempCell.cellDict[@"ColorName"];
@@ -157,7 +175,7 @@
     
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_BrandID forKey:@"BrandID"];
-    [dict setObject:@"1" forKey:@"Condition"];
+    [dict setObject:_Condition_newUsed forKey:@"Condition"];
 
     
     NSLog(@"%@",dict);
@@ -201,14 +219,13 @@
              else
              {
                  UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                 alt1.tag=111;
                  [alt1 show];
              }
          }
          else
          {
              UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-             alt1.tag=111;
+             alt1.tag=20;
              [alt1 show];
              
          }
@@ -236,6 +253,14 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
+    if (alertView.tag==20)
+    {
+        if (buttonIndex==0)
+        {
+            self.segCondition.selectedSegmentIndex=0;
+        }
+    }
+
 }
 
 @end

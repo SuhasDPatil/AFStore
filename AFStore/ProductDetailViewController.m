@@ -27,11 +27,17 @@
     isfirstTimeTransform = YES;
     [self.collectionView registerNib:[UINib nibWithNibName:@"ProductImageViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     [self.tableViewDet registerNib:[UINib nibWithNibName:@"ProductDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+
     self.segWarranty.selectedSegmentIndex=0;
     NSString * proPrice=[NSString stringWithFormat:@"$%@",_silver_Price];
     self.lblProductCost.text=proPrice;
     [self getProductImagesWebService];
     [self getProductDetailsWebService];
+    
+    _scrollview.contentSize=CGSizeMake(320, 800);
+    
+    self.navigationController.navigationBarHidden=NO;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,9 +71,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ProductDetailTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    ProductDetailTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-        if (indexPath.row==0) {
+        if (indexPath.row==0)
+        {
             cell.lblHeader.hidden=NO;
             cell.lblLabel.hidden=YES;
             cell.lblSpec.hidden=YES;
@@ -251,6 +258,11 @@
     return 48.0f;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
 
 #pragma mark Collection View Delegate
 
@@ -361,7 +373,7 @@
 
 -(void)setNavBar
 {
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:223.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255.0f/255.0f green:128.0f/255.0f blue:0.0f/255.0f alpha:1.0];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -406,12 +418,13 @@
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet addURL:[NSURL URLWithString:@"http://www.store.aynalfahad.com/"]];
+        NSString *urlStr=[NSString stringWithFormat:@"http://store.aynalfahad.com/mobileDetail.aspx?MobileID=%@",_mobile_ID];
+        [tweetSheet addURL:[NSURL URLWithString:urlStr]];
 
         NSURL * url = [NSURL URLWithString:_shareImageURL];
         NSData * imgData = [NSData dataWithContentsOfURL:url];
         [tweetSheet addImage:[UIImage imageWithData:imgData]];
-        [tweetSheet setInitialText:[NSString stringWithFormat:@"\nModel:%@\nCost:%@\n",self.ProductName_title,self.silver_Price]];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"\n%@\n Cost:%@\n",self.ProductName_title,self.silver_Price]];
         [hud hide:YES];
         [self presentViewController:tweetSheet animated:YES completion:nil];
         
@@ -526,7 +539,7 @@
          [self.collectionView reloadData];
          
          FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-         NSString *urlString=[NSString stringWithFormat:@"http://www.aynAlFahad.com/"];
+         NSString *urlString=[NSString stringWithFormat:@"http://store.aynalfahad.com/mobileDetail.aspx?MobileID=%@",_mobile_ID];
          NSLog(@"Shre Link :%@",urlString);
          content.contentURL = [NSURL URLWithString:urlString];
          
@@ -540,7 +553,7 @@
          _shareImageURL=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
          content.imageURL=[NSURL URLWithString:_shareImageURL];
          NSLog(@"%@",content);
-         FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(0, 465, 130, 35)];
+         FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(0, 465, 150, 35)];
          Sharebutton.shareContent = content;
          [Sharebutton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
          [Sharebutton setBackgroundColor:[UIColor clearColor]];

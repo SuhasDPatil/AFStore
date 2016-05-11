@@ -50,6 +50,7 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segWarranty;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
 
 //outlets for if all image array gets false
