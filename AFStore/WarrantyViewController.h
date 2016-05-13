@@ -8,11 +8,31 @@
 
 #import <UIKit/UIKit.h>
 #import "WarrantyDeytailsViewController.h"
+#import "AFAppAPIClient.h"
+#import "Constant.h"
+#import "MBProgressHUD.h"
 #import "Localization.h"
 @interface WarrantyViewController : UIViewController
 {
     WarrantyDeytailsViewController * wdvc;
+    
+    NSMutableArray *goldArray, *silverArray, *diamondArray;
+
 }
+
+//Store Parsed Respomse
+
+@property (strong, nonatomic) NSString * tempGold;
+@property (strong, nonatomic) NSString * tempSilver;
+@property (strong, nonatomic) NSString * tempDiamond;
+
+
+@property (strong, nonatomic) NSString * diamond;
+@property (strong, nonatomic) NSString * gold;
+@property (strong, nonatomic) NSString * silver;
+
+
+
 @property (strong, nonatomic) IBOutlet UIButton *btnDiamondG;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnGoldG;

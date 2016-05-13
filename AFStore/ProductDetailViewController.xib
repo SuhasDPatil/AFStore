@@ -15,7 +15,9 @@
                 <outlet property="indicator" destination="S9T-QD-Mw1" id="YB2-wX-sWp"/>
                 <outlet property="lblBorder1" destination="s94-YH-iOK" id="toB-3N-QMg"/>
                 <outlet property="lblBorder2" destination="93y-DC-aV6" id="qXw-3b-dMe"/>
+                <outlet property="lblLabPrice" destination="mBl-Pz-qbT" id="Bi0-2q-V3t"/>
                 <outlet property="lblProductCost" destination="Ah5-gL-DUS" id="53B-Ze-tew"/>
+                <outlet property="lblShareOn" destination="Opi-fk-wUT" id="x0w-XT-T90"/>
                 <outlet property="scrollview" destination="m1e-bq-upg" id="XxC-7M-9Xn"/>
                 <outlet property="segWarranty" destination="a1U-WW-Feh" id="iS5-2F-SrC"/>
                 <outlet property="tableViewDet" destination="bL6-Fh-Af2" id="0Fo-v8-w3V"/>
@@ -62,7 +64,7 @@
                     </connections>
                 </button>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="OiJ-ay-77V">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="188"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="10" id="wj8-39-IG9">
@@ -76,21 +78,8 @@
                         <outlet property="delegate" destination="-1" id="nGR-GB-mIm"/>
                     </connections>
                 </collectionView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="a1U-WW-Feh">
-                    <rect key="frame" x="20" y="202" width="281" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <segments>
-                        <segment title="SILVER"/>
-                        <segment title="GOLD"/>
-                        <segment title="DIAMOND"/>
-                    </segments>
-                    <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="warrantyChanged:" destination="-1" eventType="valueChanged" id="8hH-ez-FKb"/>
-                    </connections>
-                </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Price " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mBl-Pz-qbT">
-                    <rect key="frame" x="37" y="241" width="116" height="25"/>
+                    <rect key="frame" x="37" y="257" width="116" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,7 +87,7 @@
                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ah5-gL-DUS">
-                    <rect key="frame" x="161" y="241" width="116" height="25"/>
+                    <rect key="frame" x="161" y="257" width="116" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,11 +95,11 @@
                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="m1e-bq-upg">
-                    <rect key="frame" x="0.0" y="274" width="320" height="222"/>
+                    <rect key="frame" x="0.0" y="290" width="320" height="206"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bL6-Fh-Af2">
-                            <rect key="frame" x="0.0" y="3" width="320" height="870"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="880"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -158,9 +147,22 @@
                         <action selector="posttoFacebook:" destination="-1" eventType="touchUpInside" id="Wlh-Tc-Z6l"/>
                     </connections>
                 </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="a1U-WW-Feh">
+                    <rect key="frame" x="20" y="221" width="281" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="SILVER"/>
+                        <segment title="GOLD"/>
+                        <segment title="DIAMOND"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="warrantyChanged:" destination="-1" eventType="valueChanged" id="8hH-ez-FKb"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="476" y="-997"/>
+            <point key="canvasLocation" x="580" y="-1120"/>
         </view>
     </objects>
     <resources>

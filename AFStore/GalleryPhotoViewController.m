@@ -13,12 +13,16 @@
 @end
 
 @implementation GalleryPhotoViewController
+#define TRANSFORM_CELL_VALUE CGAffineTransformMakeScale(0.8, 0.8)
+#define ANIMATION_SPEED 0.2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=_GallryName;
-
+    self.title=LocalizedString(@"Photo Gallery");
+    
+    self.lblbranchName.text=self.GallryName;
+    
     queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
     
     [self.photoCollectionView registerNib:[UINib nibWithNibName:@"PhotoViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
@@ -101,10 +105,7 @@
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
         
-        NSLog(@"Image URL======================%@",combined);
-        NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
-        NSURL * url = [NSURL URLWithString:replacedStr];
+        NSURL * url = [NSURL URLWithString:[combined stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
         
         NSData * imgData = [NSData dataWithContentsOfURL:url];
         
@@ -119,8 +120,6 @@
         
     });
 
-
-    
     return cell;
     
 }
@@ -141,6 +140,65 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark PRoduct Image scroll Animation
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    
+    float pageWidth = 250 + 15; // width + space
+    
+    float currentOffset = scrollView.contentOffset.x;
+    float targetOffset = targetContentOffset->x;
+    float newTargetOffset = 0;
+    
+    if (targetOffset > currentOffset)
+        newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth;
+    else
+        newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth;
+    
+    if (newTargetOffset < 0)
+        newTargetOffset = 0;
+    else if (newTargetOffset > scrollView.contentSize.width)
+        newTargetOffset = scrollView.contentSize.width;
+    
+    targetContentOffset->x = currentOffset;
+    [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
+    
+    int index = newTargetOffset / pageWidth;
+    
+    if (index == 0) { // If first index
+        UICollectionViewCell *cell = [self.photoCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index  inSection:0]];
+        
+        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+            cell.transform = CGAffineTransformIdentity;
+        }];
+        cell = [self.photoCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index + 1  inSection:0]];
+        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+            cell.transform = TRANSFORM_CELL_VALUE;
+        }];
+    }
+    else{
+        UICollectionViewCell *cell = [self.photoCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+            cell.transform = CGAffineTransformIdentity;
+        }];
+        
+        index --; // left
+        cell = [self.photoCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+            cell.transform = TRANSFORM_CELL_VALUE;
+        }];
+        
+        index ++;
+        index ++; // right
+        cell = [self.photoCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+        [UIView animateWithDuration:ANIMATION_SPEED animations:^{
+            cell.transform = TRANSFORM_CELL_VALUE;
+        }];
+    }
+}
+
 
 
 
@@ -180,7 +238,6 @@
                  for (i=0; i<photoArray.count; i++)
                  {
                      NSDictionary * d = [photoArray objectAtIndex:i];
-                     
                      _ThumbUrl=[d valueForKey:@"ThumbUrl"];
                      _FileName=[d valueForKey:@"FileName"];
                      
@@ -214,7 +271,6 @@
          [alt1 show];
          
      }];
-    
 }
 
 

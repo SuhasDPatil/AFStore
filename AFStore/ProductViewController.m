@@ -18,6 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.segCondition.selectedSegmentIndex=0;
+
+    [_segCondition setTitle:LocalizedString(@"New") forSegmentAtIndex:0];
+    [_segCondition setTitle:LocalizedString(@"Used") forSegmentAtIndex:1];
+
     queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
     [self.collectionview registerNib:[UINib nibWithNibName:@"ProductViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     [self.navigationController.navigationBar setHidden:NO];

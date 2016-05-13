@@ -22,6 +22,14 @@
     [super viewDidLoad];
 
     self.title=_ProductName_title;
+    
+    self.lblLabPrice.text=LocalizedString(@"Product Price");
+    self.lblShareOn.text=LocalizedString(@"Share On");
+    [_segWarranty setTitle:LocalizedString(@"SILVER") forSegmentAtIndex:0];
+    [_segWarranty setTitle:LocalizedString(@"GOLD") forSegmentAtIndex:1];
+    [_segWarranty setTitle:LocalizedString(@"DIAMOND") forSegmentAtIndex:2];
+
+    
     queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
     self.collectionView.tag=111;
     isfirstTimeTransform = YES;
@@ -78,14 +86,14 @@
             cell.lblHeader.hidden=NO;
             cell.lblLabel.hidden=YES;
             cell.lblSpec.hidden=YES;
-            cell.lblHeader.text=@"PRODUCT DETAILS";
+            cell.lblHeader.text=LocalizedString(@"PRODUCT DETAILS");
             cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:1.0 ];
         }
         else if (indexPath.row==1)
         {
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
-            cell.lblLabel.text=@"Brand Model";
+            cell.lblLabel.text=LocalizedString(@"Brand Model");
             cell.lblSpec.text=_BrandModel;
             cell.lblHeader.hidden=YES;
             cell.backgroundColor=[UIColor whiteColor];
@@ -95,7 +103,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Color";
+            cell.lblLabel.text=LocalizedString(@"Color");
             cell.lblSpec.text=_ColorName;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -105,7 +113,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Memory";
+            cell.lblLabel.text=LocalizedString(@"Memory");
             cell.lblSpec.text=_Memory;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -115,7 +123,7 @@
             cell.lblHeader.hidden=NO;
             cell.lblLabel.hidden=YES;
             cell.lblSpec.hidden=YES;
-            cell.lblHeader.text=@"PRODUCT SPECIFICATION";
+            cell.lblHeader.text=LocalizedString(@"PRODUCT SPECIFICATION");
             cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:1.0 ];
 
         }
@@ -125,7 +133,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Battery";
+            cell.lblLabel.text=LocalizedString(@"Battery");
             cell.lblSpec.text=_Battery;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -135,7 +143,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Bluetooth";
+            cell.lblLabel.text=LocalizedString(@"Bluetooth");
             cell.lblSpec.text=_Bluetooth;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -145,7 +153,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Brand Name";
+            cell.lblLabel.text=LocalizedString(@"Brand Name");
             cell.lblSpec.text=_BrandName;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -155,7 +163,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"FM Radio";
+            cell.lblLabel.text=LocalizedString(@"FM Radio");
             cell.lblSpec.text=_FM_Radio;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -165,7 +173,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"GPS";
+            cell.lblLabel.text=LocalizedString(@"GPS");
             cell.lblSpec.text=_GPS;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -175,7 +183,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Multitouch";
+            cell.lblLabel.text=LocalizedString(@"Multitouch");
             cell.lblSpec.text=_Multitouch;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -185,8 +193,8 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Operating System";
-            cell.lblSpec.text=@"";
+            cell.lblLabel.text=LocalizedString(@"Operating System");
+            cell.lblSpec.text=_OperatingSystem;
             cell.backgroundColor=[UIColor whiteColor];
 
         }
@@ -195,7 +203,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Primary Camera";
+            cell.lblLabel.text=LocalizedString(@"Primary Camera");
             cell.lblSpec.text=_PrimaryCamera;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -205,7 +213,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Processor";
+            cell.lblLabel.text=LocalizedString(@"Processor");
             cell.lblSpec.text=_Processor;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -215,7 +223,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"RAM";
+            cell.lblLabel.text=LocalizedString(@"RAM");
             cell.lblSpec.text=_Ram;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -225,7 +233,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Secondary Camera";
+            cell.lblLabel.text=LocalizedString(@"Secondary Camera");
             cell.lblSpec.text=_SecondaryCamera;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -235,7 +243,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"Sound";
+            cell.lblLabel.text=LocalizedString(@"Sound");
             cell.lblSpec.text=_Sound;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -245,7 +253,7 @@
             cell.lblLabel.hidden=NO;
             cell.lblSpec.hidden=NO;
             cell.lblHeader.hidden=YES;
-            cell.lblLabel.text=@"USB";
+            cell.lblLabel.text=LocalizedString(@"USB");
             cell.lblSpec.text=_USB;
             cell.backgroundColor=[UIColor whiteColor];
 
@@ -255,7 +263,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 48.0f;
+    if (indexPath.row==0 || indexPath.row==4)
+        return 32.0f;
+    else
+        return 48.0f;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

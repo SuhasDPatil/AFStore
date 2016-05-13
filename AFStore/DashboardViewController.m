@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _defaults=[NSUserDefaults standardUserDefaults];
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -54,10 +56,9 @@
     }
     else
     {
-        [self showMenuEnglish];
+          [self showMenuEnglish];
     }
     
-
     [self.navigationController.navigationBar setHidden:YES];
     
 }
@@ -68,47 +69,49 @@
 }
 
 - (void)showMenuEnglish {
-    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:2];
+    items = [[NSMutableArray alloc] initWithCapacity:2];
     
-    MenuItem *menuItem = [MenuItem itemWithTitle:@"Home" iconName:@"Home" glowColor:[UIColor colorWithRed:254.0f/255.0f green:201.0f/255.0f blue:125.0f/255.0f alpha:0.800]];
+    menuItem=[[MenuItem alloc]init];
+
+    menuItem = [MenuItem itemWithTitle:@"Home" iconName:@"Home" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
 
-    menuItem = [MenuItem itemWithTitle:@"Store" iconName:@"Store" glowColor:[UIColor colorWithRed:126.0f/255.0f green:230.0f/255.0f blue:243.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"Store" iconName:@"Store" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"News" iconName:@"News" glowColor:[UIColor colorWithRed:137.0f/255.0f green:211.0f/255.0f blue:127.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"News" iconName:@"News" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"About Us" iconName:@"About_Us" glowColor:[UIColor colorWithRed:193.0f/255.0f green:114.0f/255.0f blue:75.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"About Us" iconName:@"About_Us" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"Gallery" iconName:@"Gallery" glowColor:[UIColor colorWithRed:75.0f/255.0f green:136.0f/255.0f blue:193.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"Gallery" iconName:@"Gallery" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"Contact Us" iconName:@"Contact_Us" glowColor:[UIColor colorWithRed:75.0f/255.0f green:193.0f/255.0f blue:153.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"Contact Us" iconName:@"Contact_Us" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"Warranty" iconName:@"Warranty" glowColor:[UIColor colorWithRed:232.0f/255.0f green:122.0f/255.0f blue:119.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"Warranty" iconName:@"Warranty" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"Check Your Phone" iconName:@"Check_Your_Phone" glowColor:[UIColor colorWithRed:133.0f/255.0f green:118.0f/255.0f blue:178.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"Check Your Phone" iconName:@"Check_Your_Phone" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
 
-    menuItem = [MenuItem itemWithTitle:@"Other Services" iconName:@"Other_Services" glowColor:[UIColor colorWithRed:193.0f/255.0f green:172.0f/255.0f blue:75.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"Other Services" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
 
-    if (!_popMenu)
+    if (!_popMenuEnglish)
     {
-//        _popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
-        _popMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0, 60, 320, 500) items:items];
-        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+//        _popMenuEnglish = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
+        _popMenuEnglish = [[PopMenu alloc] initWithFrame:CGRectMake(0, 60, 320, 500) items:items];
+        _popMenuEnglish.menuAnimationType = kPopMenuAnimationTypeNetEase;
     
     }
-    if (_popMenu.isShowed) {
+    if (_popMenuEnglish.isShowed) {
         return;
     }
-    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+    _popMenuEnglish.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
         
         if ([selectedItem.title isEqualToString:@"Home"]||[selectedItem.title isEqualToString:@"عين الفهد"])
         {
@@ -183,53 +186,62 @@
         
     };
     
-    [_popMenu showMenuAtView:self.view];
+    [_popMenuEnglish showMenuAtView:self.view];
     
 }
 
 
 - (void)showMenuArabic {
     
-    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:2];
+    items = [[NSMutableArray alloc] initWithCapacity:2];
     
-    MenuItem *menuItem = [MenuItem itemWithTitle:@"عين الفهد" iconName:@"Home"];
+    menuItem=[[MenuItem alloc]init];
+    
+    menuItem = [MenuItem itemWithTitle:@"عين الفهد" iconName:@"Home"];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"المتجر" iconName:@"Store" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"المتجر" iconName:@"Store" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"أخبار عالم الهواتف" iconName:@"News" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"أخبار عالم الهواتف" iconName:@"News" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"عن عين الفهد" iconName:@"About_Us" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"عن عين الفهد" iconName:@"About_Us" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"الصور" iconName:@"Gallery" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"الصور" iconName:@"Gallery" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"اتصل بنا" iconName:@"Contact_Us" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"اتصل بنا" iconName:@"Contact_Us" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"ضمان" iconName:@"Warranty" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"ضمان" iconName:@"Warranty" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"افحص هاتفك" iconName:@"Check_Your_Phone" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"افحص هاتفك" iconName:@"Check_Your_Phone" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"خدمات أخرى" iconName:@"Other_Services" glowColor:[UIColor colorWithRed:254.0f/255.0f green:254.0f/255.0f blue:254.0f/255.0f alpha:0.800]];
+    menuItem = [MenuItem itemWithTitle:@"خدمات أخرى" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    if (!_popMenu)
+    menuItem = [MenuItem itemWithTitle:@"" iconName:@"" glowColor:[UIColor clearColor]];
+    [items addObject:menuItem];
+    
+    menuItem = [MenuItem itemWithTitle:@"خدمات أخرى" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
+    [items addObject:menuItem];
+
+    
+    if (!_popMenuArabic)
     {
-        //        _popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
-        _popMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0, 60, 320, 500) items:items];
-        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+        //        _popMenuEnglish = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
+        _popMenuArabic = [[PopMenu alloc] initWithFrame:CGRectMake(0, 80, 320, 500) items:items];
+        _popMenuArabic.menuAnimationType = kPopMenuAnimationTypeNetEase;
         
     }
-    if (_popMenu.isShowed) {
+    if (_popMenuArabic.isShowed) {
         return;
     }
-    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+    _popMenuArabic.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
         
         if ([selectedItem.title isEqualToString:@"Home"]||[selectedItem.title isEqualToString:@"عين الفهد"])
         {
@@ -305,7 +317,7 @@
         
     };
     
-    [_popMenu showMenuAtView:self.view];
+    [_popMenuArabic showMenuAtView:self.view];
     
 }
 
@@ -327,6 +339,9 @@
     
     NSLog(@"%@",str);
     
+    [_popMenuArabic setHidden:YES];
+    [_popMenuEnglish setHidden:NO];
+    
     [self showMenuEnglish];
 }
 
@@ -345,17 +360,29 @@
     
     NSLog(@"%@",str);
 
+    [_popMenuEnglish setHidden:YES];
+    [_popMenuArabic setHidden:NO];
     [self showMenuArabic];
 
 }
 
-- (IBAction)menuClicked:(id)sender
-{
-    [self showMenuEnglish];
-}
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSString *str=[_defaults valueForKey:@"Language"];
+    
+    if ([str isEqualToString:@"English"])
+    {
+        [self showMenuEnglish];
+    }
+    else if ([str isEqualToString:@"Arabic"])
+    {
         [self showMenuArabic];
+    }
+    else
+    {
+        [self showMenuEnglish];
+    }
 }
 
 
@@ -377,4 +404,5 @@
         }
     }
 }
+
 @end

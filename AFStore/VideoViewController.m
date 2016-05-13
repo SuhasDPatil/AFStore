@@ -24,7 +24,7 @@
     
     NSLog(@"Youtube===%@",strYouTube);
     
-    UIView *videoContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
+    UIView *videoContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
     [self.view addSubview:videoContainerView];
     XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:strYouTube];
     [videoPlayerViewController presentInView:videoContainerView];

@@ -10,31 +10,18 @@
 #import "EXPhotoViewer.h"
 #import "Localization.h"
 
-@interface WarrantyDeytailsViewController : UIViewController<UIWebViewDelegate>
+@interface WarrantyDeytailsViewController : UIViewController<UIWebViewDelegate,NSLayoutManagerDelegate  >
 
 
-@property(strong,nonatomic)NSString * getLink;
-@property(strong,nonatomic)NSString * btnInfo;
+@property(strong,nonatomic)NSString * warrantyData;
+@property(strong,nonatomic)NSString * strTitle;
 
-@property(strong,nonatomic)NSString *tab1;
-@property(strong,nonatomic)NSString *tab2;
+@property(nonatomic,strong)NSUserDefaults * defaults;
+@property(nonatomic,strong)NSString * selectedLang;
 
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentView;
-
-
-@property (strong, nonatomic) IBOutlet UIImageView *imgWarrantyImage;
-
-@property (strong, nonatomic) IBOutlet UILabel *lblDetailsText;
-
-@property (strong, nonatomic) IBOutlet UIButton *btnImagView;
-
-
-
-- (IBAction)tabChanged:(id)sender;
-
-- (IBAction)btnImageClicked:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UITextView *textView;
 
 
 

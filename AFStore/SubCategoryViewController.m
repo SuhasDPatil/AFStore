@@ -20,7 +20,8 @@
 
     queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
 
-    self.title=@"Store";
+    self.title=LocalizedString(@"Store");
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"SubCategoryViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
     [self subCategoryWebService];

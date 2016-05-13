@@ -20,6 +20,13 @@
     
     self.title=LocalizedString(@"Home");
     
+    [_searchBar setPlaceholder:LocalizedString(@"Search Bar")];
+    
+    self.lblHotDeals.text=LocalizedString(@"Hot Deals");
+    self.lblAbout.text=LocalizedString(@"About Ayn Al Fahad");
+    self.lblAboutUsInfo.text=LocalizedString(@"About Info");
+    
+    
     [self ImageSliderWebService];
 
     [self ImageSliderHotDealsWebService];
@@ -137,9 +144,7 @@
                      
                      NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
                      [newarray addObject:replacedStr];
-                     
                  }
-                 
                  AOScrollerView *aSV = [[AOScrollerView alloc]initWithNameArr:newarray titleArr:nil height:105];
                  aSV.tag=100;
                  aSV.vDelegate=self;
@@ -275,7 +280,7 @@
     pvc.Brand_name=@"IKU";
     pvc.Condition_newUsed=@"1";
     
-//    [self.navigationController pushViewController:pvc animated:YES];
+    [self.navigationController pushViewController:pvc animated:YES];
     
 }
 @end

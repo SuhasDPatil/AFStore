@@ -27,7 +27,13 @@
 
 @interface DashboardViewController : UIViewController<UIAlertViewDelegate>
 
-@property (nonatomic, strong) PopMenu *popMenu;
+{
+    NSMutableArray *items;
+    MenuItem *menuItem;
+}
+@property (nonatomic, strong) PopMenu *popMenuEnglish;
+
+@property (nonatomic, strong) PopMenu *popMenuArabic;
 
 @property(nonatomic,strong)NSUserDefaults * defaults;
 

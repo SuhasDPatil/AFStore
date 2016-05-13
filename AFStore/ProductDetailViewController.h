@@ -38,6 +38,11 @@
 
 
 
+@property (strong, nonatomic) IBOutlet UILabel *lblLabPrice;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblShareOn;
+
+
 
 
 @property (strong, nonatomic) IBOutlet UIButton *btnTweeter;

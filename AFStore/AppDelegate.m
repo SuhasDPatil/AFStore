@@ -26,6 +26,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:@"English" forKey:@"Language"];
+    
+    [defaults synchronize];
+    
+    NSString * str=[defaults valueForKey:@"Language"];
+
   //  MainVC * begin = [[MainVC alloc] init];
     BeginViewController * begin=[[BeginViewController alloc]init];
     
@@ -37,7 +45,6 @@
     navC.navigationBar.backgroundColor = [UIColor orangeColor];
     
     
-    
     [NSThread sleepForTimeInterval:2.5];
     
     self.window.rootViewController = navC;
@@ -47,8 +54,6 @@
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
-    
-
     
     return YES;
 }

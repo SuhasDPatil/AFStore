@@ -42,6 +42,14 @@
 
 
 
+//About Us
+#define API_GET_ALL_ABOUT_US (API_BASE_URL @"GetContentsFromHtmlIOS")
+
+
+//Warrantty
+#define API_GET_ALL_WARRANTY (API_BASE_URL @"GetContentsFromHtmlWarranty")
+
+
 #define API_GET_MAIN_CATEGORY (API_BASE_URL @"GetCategories")
 #define API_GET_PRODUCT_DETAIL (API_BASE_URL @"GetProductsAllDetails")
 

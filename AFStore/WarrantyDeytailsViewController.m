@@ -17,34 +17,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    NSLog(@"WebAddress link for %@ is :%@",_tab2,_getLink);
-    [self setNavBar];
     
-    if ([_btnInfo isEqualToString:@"Diamod Warranty"]) {
+    if ([_strTitle isEqualToString:@"Diamod Warranty"])
+    {
         self.title=LocalizedString(@"Diamod Warranty");
     }
-    else if ([_btnInfo isEqualToString:@"Gold Warranty"])
+    else if ([_strTitle isEqualToString:@"Gold Warranty"])
     {
         self.title=LocalizedString(@"Gold Warranty");
         
     }
-    else if ([_btnInfo isEqualToString:@"Silver Warranty"])
+    else if ([_strTitle isEqualToString:@"Silver Warranty"])
     {
         self.title=LocalizedString(@"Silver Warranty");
     }
     
+    [self setNavBar];
+    _selectedLang=[_defaults valueForKey:@"Language"];
     
+    self.textView.layoutManager.delegate=self;
+    
+    self.textView.textAlignment=NSTextAlignmentRight;
+    self.textView.text=_warrantyData;
+    self.textView.textAlignment=NSTextAlignmentRight;
 
-    
-    if (_segmentView.selectedSegmentIndex==0) {
-        _lblDetailsText.text=_tab1;
-        
-    }
-    
-    
-    
         // Do any additional setup after loading the view from its nib.
+}
+- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect
+{
+    return 5; // Line spacing of 19 is roughly equivalent to 5 here.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,74 +108,4 @@
 */
 
 
-#pragma mark UiWebViewDelegate
-
-//- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
-//    return allowLoad;
-//}
-//
-//- (void)webViewDidFinishLoad:(UIWebView*)webView {
-//    allowLoad = NO;
-//}
-
-- (IBAction)tabChanged:(id)sender
-{
-    
-    NSUInteger index = sender ? [(UISegmentedControl*)sender selectedSegmentIndex] : 0;
-
-    switch (index) {
-        case 0:
-            _lblDetailsText.hidden=NO;
-            _imgWarrantyImage.hidden=YES;
-            _btnImagView.hidden=YES;
-
-            _lblDetailsText.text=_tab1;
-            
-            break;
-            
-        case 1:
-            _lblDetailsText.hidden=NO;
-            _imgWarrantyImage.hidden=YES;
-            _btnImagView.hidden=YES;
-            
-            _lblDetailsText.text=_tab2;
-            
-            break;
-            
-        case 2:
-            _imgWarrantyImage.hidden=NO;
-            _btnImagView.hidden=NO;
-            
-            _lblDetailsText.hidden=YES;
-            
-            if ([_btnInfo isEqualToString:@"Diamod Warranty"])
-            {
-                _imgWarrantyImage.image=[UIImage imageNamed:@"TabDiamondImg.jpg"];
-            }
-            else if ([_btnInfo isEqualToString:@"Gold Warranty"])
-            {
-                _imgWarrantyImage.image=[UIImage imageNamed:@"TabGoldImg.jpg"];
-
-            }
-            else if ([_btnInfo isEqualToString:@"Silver Warranty"])
-            {
-                _imgWarrantyImage.image=[UIImage imageNamed:@"TabSilverImg.jpg"];
-                
-            }
-
-            break;
-            
-        default:
-            
-            break;
-    }
-
-}
-
-- (IBAction)btnImageClicked:(id)sender
-{
-    
-    [EXPhotoViewer showImageFrom:self.imgWarrantyImage];
-
-}
 @end

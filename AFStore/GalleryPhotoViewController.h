@@ -27,6 +27,8 @@
 }
 @property (strong, nonatomic) IBOutlet UICollectionView *photoCollectionView;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblbranchName;
+
 
 @property(readwrite)NSNumber *GallryID;
 

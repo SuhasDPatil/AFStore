@@ -30,6 +30,7 @@
 
     
     
+    [self WarrantyWebService];
     
     
     
@@ -89,15 +90,8 @@
 - (IBAction)diamondGClicked:(id)sender
 {
     wdvc=[[WarrantyDeytailsViewController alloc]init];
-    wdvc.btnInfo=@"Diamod Warranty";
-    
-    
-    wdvc.tab1=@"\n الصيانه تكون مجانيه لمدة سنة كامله \n يجب احضار وصل الشراء عند المطالبة بحق الضمان وحتى ان انتقلت ملكية الجهاز لشخص اخر. \n تكون مدة الصيانه كحد اقصى 10 أيام .  \n لا يسمح للعميل استرجاع القيمه النقديه للشراء وفي حال قرر مركز الصيانة تبديل الجهاز ولم يتوفر نفس الموديل سيتم التعويض بنفس مواصفات الجهاز. \n الشاشه تخرج من الضمان في حالة سوء الاستخدام (كسر الشاشه) . \n لايدخل الجهاز بالضمان في حال تعرضه لسوائل او تيار كهربائي. \n من حق صيانة الشركة فتح الاجهزه لأصلاحها ان تطلب ذلك دون الرجوع للعميل. \n الضمان لا يشمل ملحقات الجهاز (شاحن , السماعات , البطاريه ..الخ). \n ";
-    
-    
-    
-    wdvc.tab2=@"\n  الشاشه تخرج من الضمان في حالة سوء الاستخدام (كسر الشاشه) . \n محاولة صيانة الجهاز خارج مركز صاينة الشركة . \n فقدان أو تضرر الرقم التسلسلي (IMEI) او اضافة (JAILBREAK ) أو (  ROOT). \n ";
-    
+    wdvc.strTitle=@"Diamod Warranty";
+    wdvc.warrantyData=_diamond;
     
     [self.navigationController pushViewController:wdvc animated:YES];
     
@@ -106,33 +100,104 @@
 - (IBAction)goldGClicked:(id)sender
 {
     wdvc=[[WarrantyDeytailsViewController alloc]init];
-    wdvc.btnInfo=@"Gold Warranty";
-    
-    wdvc.tab1=@"\n صيانة السوفتوير مجاناً  مدي الحياة (تشمل الضمان الفضي) \n صيانة الهاردوير مناصفة بين الشركة والزبون\n يجب احضار وصل الشراء عند المطالبة بحق الضمان وحتى ان انتقلت ملكية الجهاز لشخص اخر. \n تكون مدة الصيانه كحد اقصى 10 أيام. \n الشاشه تخرج من الضمان في حالة سوء الاستخدام (كسر الشاشه) . \n من حق صيانة الشركة فتح الاجهزه لأصلاحها ان تطلب ذلك دون الرجوع للعميل. \n لايدخل الجهاز بالضمان في حال تعرضه لسوائل او تيار كهربائي. \n الضمان لا يشمل ملحقات الجهاز (شاحن , السماعات , البطاريه ..الخ). \n ";
-    
-    
-    wdvc.tab2=@"يخرج الجهاز من الضمان في الحالات التالية: \n  محاولة صيانة الجهاز خارج مركز صيانة الشركة. \n فقدان أو تضرر الرقم التسلسلي (IMEI).  إضافة (JAILBREAK) أو (ROOT). \n لايدخل الجهاز بالضمان في حال تعرضه لسوائل او تيار كهربائي. \n الضمان لا يشمل ملحقات الجهاز (شاحن , السماعات , البطاريه ..الخ). \n  الشاشه تخرج من الضمان في حالة سوء الاستخدام (كسر الشاشه) . \n ";
-    
-    
+    wdvc.strTitle=@"Gold Warranty";
+    wdvc.warrantyData=_gold;
     [self.navigationController pushViewController:wdvc animated:YES];
-    
 }
 
 - (IBAction)silverGClicked:(id)sender
 {
     
     wdvc=[[WarrantyDeytailsViewController alloc]init];
-    wdvc.btnInfo=@"Silver Warranty";
-    
-    wdvc.tab1=@"\n ضمان سوفتوير مدى الحياة. \n  يجب إحضار وصل الشراء عند المطالبة بحق الضمان وحتى إن انتقلت ملكية الجهاز لشخص أخر. \n تكون مدة الصيانة كحد أقصى 10 أيام. \n مركز الصيانة غير مسؤول عن فقدان البيانات المخزونة في الجهاز. \n ";
-
-    wdvc.tab2=@"\n يخرج الجهاز من الضمان في الحالات التالية:  \n محاولة صيانة الجهاز خارج مركز صيانة الشركة.  \n فقدان أو تضرر الرقم التسلسلي (IMEI).  \n إضافة (JAILBREAK) أو (ROOT). \n ";
-
-    
-    
+    wdvc.strTitle=@"Silver Warranty";
+    wdvc.warrantyData=_silver;
     [self.navigationController pushViewController:wdvc animated:YES];
     
 }
+
+#pragma mark WebService
+
+-(void)WarrantyWebService
+{
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [[AFAppAPIClient WSsharedClient] POST:API_GET_ALL_WARRANTY
+                               parameters:nil
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         [hud show:YES];
+         BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
+         
+         if(result)
+         {
+             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
+             // NSArray *list=[responseObject objectForKey:@"Data"];
+             goldArray=[[NSMutableArray alloc]init];
+             silverArray=[[NSMutableArray alloc]init];
+             diamondArray=[[NSMutableArray alloc]init];
+             
+             goldArray=[responseObject objectForKey:@"gold"];
+             silverArray=[responseObject objectForKey:@"silver"];
+             diamondArray=[responseObject objectForKey:@"diamond"];
+             
+             NSDictionary * goldD = [goldArray objectAtIndex:0];
+             _tempGold=[goldD valueForKey:@"value"];
+             
+             NSDictionary * silvreD = [silverArray objectAtIndex:0];
+             _tempSilver=[silvreD valueForKey:@"value"];
+             
+             NSDictionary * diamondD = [diamondArray objectAtIndex:0];
+             _tempDiamond=[diamondD valueForKey:@"value"];
+             
+             
+             
+             
+             //             NSString * replacedStr=[_tempAboutUs_EN stringByReplacingOccurrencesOfString:@" " withString:@"&nbsp"];
+             
+             _gold=[_tempGold stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
+             
+             _gold=[_tempGold stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
+             
+             
+             NSLog(@"\nGOLD ===\n%@\n\n",_gold);
+             
+             _silver=[_tempSilver stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
+             
+             _silver=[_tempSilver stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
+             
+             
+             NSLog(@"\nSILVERE===\n%@\n\n",_silver);
+             
+             _diamond=[_tempDiamond stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
+             
+             _diamond=[_tempDiamond stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
+             
+             
+             NSLog(@"\nDIAMOND==\n%@\n\n",_diamond);
+             
+         }
+         else
+         {
+             
+             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+             alt1.tag=111;
+             [alt1 show];
+             
+         }
+         [hud hide:YES];
+         
+     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+         alt1.tag=111;
+         [alt1 show];
+         
+     }];
+    
+}
+
+
 
 
 @end

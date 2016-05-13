@@ -32,6 +32,20 @@
 "Detail"="Details";
 "Search Result For"="Search Result For";
 
+
+
+
+//Home Screen
+"Hot Deals"="Hot Deals";
+"About Ayn Al Fahad"="About Ayn Al Fahad";
+"About Info"="           Launched in 2004 with clear vision and objectives reflecting the absolute commitment towards its customers in providing the best solutions and products in the world of telecommunications. AynAlFahad became a leading company in Iraq providing the latest innovations in the world of mobile phones and services.
+
+Shortly afterwards, and as a result of the company's commitment towards its customers and business partners, AynAlFahad in a ugurated retail outlets covering the governorate of Baghdad.";
+
+"Search Bar"="Search an item...";
+
+
+
 //Store Screen
     // **** CateGory Screen
 
@@ -69,122 +83,43 @@
 "Silver"="SILVER";
 "Guarantee"="Guarantee";
 
-
-
-
-
-
-
-// **** SubCategory Screen
-
-
-
-
-    // **** Product List View Screen
-
-
-
-
-
-    // **** Product Detail Screen
-
-
-
-
-
-    // **** Email for Price Screen
-
-
-
-
-
-
-
-
-
-
-
-//Search Screen
-    // **** Serach Product Screen
-
-
-
-
-    // **** Searched Product detail screen
-
-
-
-
-
-
-
-
-
-
-//Hot Offers Screen
-    // **** Hot Offer View Screen
-
-
-
-
-    // **** Detail Hot Offer View Scrween
-
-
-
-
-
-
-
-
-
-
-
-//Notification Screen
-
-
-
-
-
-
-
-
-
-//NEws Sreen
-    // **** News View Screen
-
-
-
-    // **** details News view screen
-
-
-
-
-
-
-
-
-//Gallery Screen
-    // **** Select option View screen
-
-
-    // **** Image view screen
-
-
-
-
-    // **** Videos view screen
-
-
-
-
-
-
-
+"New"="New";
+"Used"="Used";
+
+
+//Product Details Screen
+
+"PRODUCT DETAILS"="PRODUCT DETAILS";
+"Brand Model"="Brand Model";
+"Color"="Color";
+"Memory"="Memory";
+"PRODUCT SPECIFICATION"="PRODUCT SPECIFICATION";
+"Battery"="Battery";
+"Bluetooth"="Bluetooth";
+"Brand Name"="Brand Name";
+"FM Radio"="FM Radio";
+"GPS"="GPS";
+"Multitouch"="Multitouch";
+"Operating System"="Operating System";
+"Primary Camera"="Primary Camera";
+"Processor"="Processor";
+"RAM"="RAM";
+"Secondary Camera"="Secondary Camera";
+"Sound"="Sound";
+"USB"="USB";
+
+"Product Price"="Product Price";
+
+"GOLD"="GOLD";
+"SILVER"="SILVER";
+"DIAMOND"="DIAMOND";
+
+"Share On"="Share On";
 
 
 
 //About Us Screen
-
+"Ayn Al Fahad Company"="Ayn Al Fahad Company";
 
 "About_Us"="        Launched in 2004 with clear vision and objectives reflecting the absolute commitment towards its customers in providing the best solutions and products in the world of telecommunications. AynAlFahad became a leading company in Iraq providing the latest innovations in the world of mobile phones and services.
 
