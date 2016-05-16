@@ -25,6 +25,7 @@
 #import "WarrantyViewController.h"
 #import "ChkYrPhoneViewController.h"
 
+#import "OurLocationsViewController.h"
 @interface DashboardViewController : UIViewController<UIAlertViewDelegate>
 
 {

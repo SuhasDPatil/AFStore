@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		099D9F8E96995ED05916BCCE /* libPods-AFStoreNewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E5F630BD683F520C2DF538 /* libPods-AFStoreNewTests.a */; };
+		190217A31CE9CDED00D824C4 /* OurLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190217A11CE9CDED00D824C4 /* OurLocationsViewController.m */; };
+		190217A41CE9CDED00D824C4 /* OurLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 190217A21CE9CDED00D824C4 /* OurLocationsViewController.xib */; };
+		190217A61CE9CE5D00D824C4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190217A51CE9CE5D00D824C4 /* MapKit.framework */; };
 		191CC87D1B4D174A00DC9730 /* 555.png in Resources */ = {isa = PBXBuildFile; fileRef = 191CC87C1B4D174A00DC9730 /* 555.png */; };
 		191F3B461BFB5CBE007F4A70 /* ChkYrPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191F3B441BFB5CBE007F4A70 /* ChkYrPhoneViewController.m */; };
 		191F3B471BFB5CBE007F4A70 /* ChkYrPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191F3B451BFB5CBE007F4A70 /* ChkYrPhoneViewController.xib */; };
@@ -206,6 +209,10 @@
 
 /* Begin PBXFileReference section */
 		114950870A50D895CB3C4912 /* Pods-AFStoreNewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFStoreNewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AFStoreNewTests/Pods-AFStoreNewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		190217A01CE9CDED00D824C4 /* OurLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurLocationsViewController.h; sourceTree = "<group>"; };
+		190217A11CE9CDED00D824C4 /* OurLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OurLocationsViewController.m; sourceTree = "<group>"; };
+		190217A21CE9CDED00D824C4 /* OurLocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OurLocationsViewController.xib; sourceTree = "<group>"; };
+		190217A51CE9CE5D00D824C4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		191CC87C1B4D174A00DC9730 /* 555.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 555.png; sourceTree = "<group>"; };
 		191F3B431BFB5CBE007F4A70 /* ChkYrPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChkYrPhoneViewController.h; sourceTree = "<group>"; };
 		191F3B441BFB5CBE007F4A70 /* ChkYrPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChkYrPhoneViewController.m; sourceTree = "<group>"; };
@@ -508,6 +515,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190217A61CE9CE5D00D824C4 /* MapKit.framework in Frameworks */,
 				195A89CA1B42BD450051795D /* Social.framework in Frameworks */,
 				19882BA21BB910AB007B33BA /* FBSDKCoreKit.framework in Frameworks */,
 				198AED991ACD833200A13F40 /* JavaScriptCore.framework in Frameworks */,
@@ -540,6 +548,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191115631CE5FB1000678633 /* Our Locations */ = {
+			isa = PBXGroup;
+			children = (
+				190217A01CE9CDED00D824C4 /* OurLocationsViewController.h */,
+				190217A11CE9CDED00D824C4 /* OurLocationsViewController.m */,
+				190217A21CE9CDED00D824C4 /* OurLocationsViewController.xib */,
+			);
+			name = "Our Locations";
+			sourceTree = "<group>";
+		};
 		191F3B421BFB5C83007F4A70 /* Check Your Phone */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +799,7 @@
 		19762CAD1A8A0E23007D153B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				190217A51CE9CE5D00D824C4 /* MapKit.framework */,
 				1956E5581B7B8BCF0028B0BC /* Social Frameworks */,
 				195A89C91B42BD450051795D /* Social.framework */,
 				198AED981ACD833200A13F40 /* JavaScriptCore.framework */,
@@ -815,6 +834,7 @@
 				198105631AAEC63600602778 /* Contact Us */,
 				19AE74651B74758A00719089 /* Warranty */,
 				191F3B421BFB5C83007F4A70 /* Check Your Phone */,
+				191115631CE5FB1000678633 /* Our Locations */,
 				19762CC51A8A0E23007D153B /* Images.xcassets */,
 				19762CC21A8A0E23007D153B /* AFStore.xcdatamodeld */,
 				19762CB71A8A0E23007D153B /* Supporting Files */,
@@ -1288,6 +1308,7 @@
 				19ADBE211B4AAFCA00AD61C3 /* 444.png in Resources */,
 				19DC03851CDA03860021E2E2 /* DashboardViewController.xib in Resources */,
 				19956E6C1B57D5D60087496B /* ProductImageViewCell.xib in Resources */,
+				190217A41CE9CDED00D824C4 /* OurLocationsViewController.xib in Resources */,
 				19B2EA471B786C860043A8A7 /* GalleryBranchViewController.xib in Resources */,
 				193EAF901A8B479A000C6263 /* CategoryViewController.xib in Resources */,
 				19AE74771B7486BB00719089 /* c_about_us.png in Resources */,
@@ -1518,6 +1539,7 @@
 				194453E31A8A196C00815D1E /* AFHTTPRequestOperationManager.m in Sources */,
 				198AED8E1ACD791800A13F40 /* XCDYouTubePlayerScript.m in Sources */,
 				198AED911ACD791800A13F40 /* XCDYouTubeVideoPlayerViewController.m in Sources */,
+				190217A31CE9CDED00D824C4 /* OurLocationsViewController.m in Sources */,
 				198105771AAEC6E200602778 /* NewsViewController.m in Sources */,
 				198105B11AAF1D4900602778 /* AOScrollerView.m in Sources */,
 				198105B01AAF1D4900602778 /* AOImageView.m in Sources */,

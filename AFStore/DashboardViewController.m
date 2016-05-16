@@ -98,7 +98,7 @@
     menuItem = [MenuItem itemWithTitle:@"Check Your Phone" iconName:@"Check_Your_Phone" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
 
-    menuItem = [MenuItem itemWithTitle:@"Other Services" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
+    menuItem = [MenuItem itemWithTitle:@"Our Locations" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
 
     if (!_popMenuEnglish)
@@ -173,15 +173,11 @@
             [alt show];
             
         }
-        else if ([selectedItem.title isEqualToString:@"Other Services"]||[selectedItem.title isEqualToString:@"خدمات أخرى"])
+        else if ([selectedItem.title isEqualToString:@"Our Locations"]||[selectedItem.title isEqualToString:@"مواقعنا"])
         {
-            NSString * strTitle=[NSString stringWithFormat:@"%@\nComing Soon...",LocalizedString(@"Other Services")];
-            NSString * strMsg=[NSString stringWithFormat:@"1.%@\n 2.%@ \n 3.%@ ",LocalizedString(@"Installments"),LocalizedString(@"Used Mobile Phones"),LocalizedString(@"Door-to-Door Delivery")];
+            OurLocationsViewController *olvc=[[OurLocationsViewController alloc]init];
             
-            UIAlertView *alt=[[UIAlertView alloc]initWithTitle: strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alt.tag=101;
-            [alt show];
-            
+            [self.navigationController pushViewController:olvc animated:YES];
         }
         
     };
@@ -221,14 +217,9 @@
     menuItem = [MenuItem itemWithTitle:@"افحص هاتفك" iconName:@"Check_Your_Phone" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"خدمات أخرى" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
+    menuItem = [MenuItem itemWithTitle:@"مواقعنا" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
     [items addObject:menuItem];
     
-    menuItem = [MenuItem itemWithTitle:@"" iconName:@"" glowColor:[UIColor clearColor]];
-    [items addObject:menuItem];
-    
-    menuItem = [MenuItem itemWithTitle:@"خدمات أخرى" iconName:@"Other_Services" glowColor:[UIColor clearColor]];
-    [items addObject:menuItem];
 
     
     if (!_popMenuArabic)
@@ -304,14 +295,11 @@
             [alt show];
             
         }
-        else if ([selectedItem.title isEqualToString:@"Other Services"]||[selectedItem.title isEqualToString:@"خدمات أخرى"])
+        else if ([selectedItem.title isEqualToString:@"Our Locations"]||[selectedItem.title isEqualToString:@"مواقعنا"])
         {
-            NSString * strTitle=[NSString stringWithFormat:@"%@\nComing Soon...",LocalizedString(@"Other Services")];
-            NSString * strMsg=[NSString stringWithFormat:@"1.%@\n 2.%@ \n 3.%@ ",LocalizedString(@"Installments"),LocalizedString(@"Used Mobile Phones"),LocalizedString(@"Door-to-Door Delivery")];
+            OurLocationsViewController *olvc=[[OurLocationsViewController alloc]init];
             
-            UIAlertView *alt=[[UIAlertView alloc]initWithTitle: strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alt.tag=101;
-            [alt show];
+            [self.navigationController pushViewController:olvc animated:YES];
             
         }
         

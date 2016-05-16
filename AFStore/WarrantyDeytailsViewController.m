@@ -45,7 +45,7 @@
 }
 - (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect
 {
-    return 5; // Line spacing of 19 is roughly equivalent to 5 here.
+    return 9; // Line spacing of 19 is roughly equivalent to 5 here.
 }
 
 - (void)didReceiveMemoryWarning {

@@ -207,15 +207,11 @@
 
 -(void)PhotoWebService
 {
-    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-    
     [dict setObject:_GallryID forKey:@"GalleryID"];
     
     NSLog(@"%@",dict);
-
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_GALLERY_IMAGES
                                parameters:dict
@@ -223,7 +219,6 @@
      {
          [hud show:YES];
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
-         
          if(result)
          {
              NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
@@ -240,10 +235,6 @@
                      NSDictionary * d = [photoArray objectAtIndex:i];
                      _ThumbUrl=[d valueForKey:@"ThumbUrl"];
                      _FileName=[d valueForKey:@"FileName"];
-                     
-                     NSLog(@"Thumb URL: %@",_ThumbUrl);
-                     NSLog(@"File Name: %@",_FileName);
-                     
                  }
              }
              else
@@ -258,10 +249,8 @@
              UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
              alt1.tag=111;
              [alt1 show];
-             
          }
          [hud hide:YES];
-         
          [self.photoCollectionView reloadData];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -269,7 +258,6 @@
          UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
          alt1.tag=111;
          [alt1 show];
-         
      }];
 }
 
