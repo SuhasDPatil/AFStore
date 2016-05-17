@@ -97,6 +97,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoryViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
     tempCell=[[CategoryViewCell alloc]init];
     tempCell.cellDict=[BranchListArray objectAtIndex:indexPath.row];
     // Configure the cell...

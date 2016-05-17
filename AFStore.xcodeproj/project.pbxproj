@@ -63,6 +63,8 @@
 		1944544A1A8A2D4F00815D1E /* SubCategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 194454481A8A2D4F00815D1E /* SubCategoryViewCell.m */; };
 		1944544B1A8A2D4F00815D1E /* SubCategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194454491A8A2D4F00815D1E /* SubCategoryViewCell.xib */; };
 		194F43281AB3141D00AAEF29 /* search30.png in Resources */ = {isa = PBXBuildFile; fileRef = 194F43271AB3141D00AAEF29 /* search30.png */; };
+		19552E621CEAF87D00AF352E /* LocationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19552E601CEAF87D00AF352E /* LocationViewCell.m */; };
+		19552E631CEAF87D00AF352E /* LocationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19552E611CEAF87D00AF352E /* LocationViewCell.xib */; };
 		19561ED01B3D2CD90006F725 /* splash2_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 19561ECF1B3D2CD90006F725 /* splash2_bg.jpg */; };
 		19561ED21B3D2D6D0006F725 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 19561ED11B3D2D6D0006F725 /* logo.png */; };
 		1956E0E21AADD50F002D257E /* eng.png in Resources */ = {isa = PBXBuildFile; fileRef = 1956E0E01AADD50F002D257E /* eng.png */; };
@@ -307,6 +309,9 @@
 		194454481A8A2D4F00815D1E /* SubCategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewCell.m; sourceTree = "<group>"; };
 		194454491A8A2D4F00815D1E /* SubCategoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCategoryViewCell.xib; sourceTree = "<group>"; };
 		194F43271AB3141D00AAEF29 /* search30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search30.png; sourceTree = "<group>"; };
+		19552E5F1CEAF87D00AF352E /* LocationViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewCell.h; sourceTree = "<group>"; };
+		19552E601CEAF87D00AF352E /* LocationViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewCell.m; sourceTree = "<group>"; };
+		19552E611CEAF87D00AF352E /* LocationViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationViewCell.xib; sourceTree = "<group>"; };
 		19561ECF1B3D2CD90006F725 /* splash2_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splash2_bg.jpg; sourceTree = "<group>"; };
 		19561ED11B3D2D6D0006F725 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		1956E0E01AADD50F002D257E /* eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eng.png; sourceTree = "<group>"; };
@@ -554,6 +559,9 @@
 				190217A01CE9CDED00D824C4 /* OurLocationsViewController.h */,
 				190217A11CE9CDED00D824C4 /* OurLocationsViewController.m */,
 				190217A21CE9CDED00D824C4 /* OurLocationsViewController.xib */,
+				19552E5F1CEAF87D00AF352E /* LocationViewCell.h */,
+				19552E601CEAF87D00AF352E /* LocationViewCell.m */,
+				19552E611CEAF87D00AF352E /* LocationViewCell.xib */,
 			);
 			name = "Our Locations";
 			sourceTree = "<group>";
@@ -1334,6 +1342,7 @@
 				19762CBB1A8A0E23007D153B /* InfoPlist.strings in Resources */,
 				1981057D1AAEC6F500602778 /* GalleryViewController.xib in Resources */,
 				19AE74791B7486BB00719089 /* c_contact_us.png in Resources */,
+				19552E631CEAF87D00AF352E /* LocationViewCell.xib in Resources */,
 				19AE748F1B7492CC00719089 /* WarrantyDeytailsViewController.xib in Resources */,
 				197B79171B46D01A00AC98DB /* MostPopularViewController.xib in Resources */,
 				19D13D0A1AB1B7950061F620 /* Localizable.strings in Resources */,
@@ -1549,6 +1558,7 @@
 				19D13CFE1AB1B2390061F620 /* Localization.m in Sources */,
 				19B2C1611A91FD310007D936 /* ProductDetailViewController.m in Sources */,
 				194453E61A8A196C00815D1E /* AFSecurityPolicy.m in Sources */,
+				19552E621CEAF87D00AF352E /* LocationViewCell.m in Sources */,
 				193EAF8F1A8B479A000C6263 /* CategoryViewController.m in Sources */,
 				194453E91A8A196C00815D1E /* AFURLResponseSerialization.m in Sources */,
 				19DB3A541AB6DC4500713501 /* DetailNewsViewController.m in Sources */,

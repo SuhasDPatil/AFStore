@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"LocationViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+
     self.title=LocalizedString(@"Our Locations");
     
     [self setNavBar];
@@ -61,13 +63,10 @@
 
 -(void)addAllPins
 {
-    
     _name=[[NSArray alloc]initWithObjects:@"بغداد المنصور شارع 14 رمضان. مقابل مطعم الساعة تلفون", @"بغداد العامرية شارع العمل الشعبي - مقابل الكوختلفون",@"فرع الجامعة - شارع الربيع - مقابل عمارة الصميدعيتلفون",@"فرع الغزالية - شارع الصديق مجاور مجمع الفهد الطبيتلفون",@"حي الخضراء – مجاورمركز الشرطة",@" بغداد المنصور شارع 14 رمضان. مجاور اللطيف للتحويل المالي",@"بغداد المنصور شارع 14 رمضان. مقابل ستي ماكس",@"بغداد الغزالية - شارع البدالة",@"بغداد زيونة - شارع الربيعي عمارة ماستر",@"فرع الدورة - داية شارع أبو طيارة  ", nil];
-    
     
     _subName=[[NSArray alloc]initWithObjects:@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298",@"009647822229298\n009647722229298", nil];
 
-    
     _arrCoordinateStr = [[NSMutableArray alloc] initWithCapacity:_name.count];
     
     [_arrCoordinateStr addObject:@"33.320223, 44.338508"];
@@ -108,11 +107,7 @@
     mapPin.subtitle=subTit;
     mapPin.coordinate = coordinate;
     
-    
-    
     [self.mapView addAnnotation:mapPin];
-    
-    
 }
 
 
@@ -137,33 +132,63 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    }
+    LocationViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NSString *ml = [_name objectAtIndex:indexPath.row];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    NSString * subTi=[_subName objectAtIndex:indexPath.row];
+    NSString *brName = [_name objectAtIndex:indexPath.row];
+    NSString * contNo=[_subName objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = ml;
+    cell.lblBranchName.text=brName;
+    cell.lblContactNum.text=contNo;
     
-    cell.detailTextLabel.text=subTi;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSString * brName=[_name objectAtIndex:indexPath.row];
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:brName delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Call: 009647822229298",@"Call: 009647722229298", nil];
+    
+    popup.tag = 1;
+    [popup showInView:self.view];
     
 }
+
+#pragma mark ActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (popup.tag==1)
+    {
+        if (buttonIndex==0)
+        {
+            NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647822229298"];
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
+            
+            NSLog(@"phone btn touch %@", phoneCallNum);
+        }
+        else if (buttonIndex==1)
+        {
+            NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647722229298"];
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
+            
+            NSLog(@"phone btn touch %@", phoneCallNum);
+
+        }
+    }
+}
+
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {

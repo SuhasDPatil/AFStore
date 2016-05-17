@@ -10,8 +10,9 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
 #import "Localization.h"
+#import "LocationViewCell.h"
 
-@interface OurLocationsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate>
+@interface OurLocationsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
