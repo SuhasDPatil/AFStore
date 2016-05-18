@@ -143,6 +143,8 @@
                      NSString *combined = [NSString stringWithFormat:@"%@%@", strAPI,_imgNameSli];
                      
                      NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                     
+
                      [newarray addObject:replacedStr];
                  }
                  AOScrollerView *aSV = [[AOScrollerView alloc]initWithNameArr:newarray titleArr:nil height:105];
@@ -209,6 +211,9 @@
                      NSString *combined = [NSString stringWithFormat:@"%@%@", strAPI,_FileName];
                      
                      NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+                     
+//                     NSString * url = [replacedStr stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+
                      [newarray addObject:replacedStr];
                      
                  }

@@ -12,6 +12,8 @@
 #import "Localization.h"
 #import "LocationViewCell.h"
 
+#import "Annotation.h"
+
 @interface OurLocationsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;

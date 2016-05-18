@@ -26,16 +26,20 @@
     
     [self initViews];
     
+    
+    
+    
+    
     [self addAllPins];
     
-    CLLocationCoordinate2D geos = CLLocationCoordinate2DMake(0.2344, 45.324);
-    MKPlacemark* marker = [[MKPlacemark alloc] initWithCoordinate:geos addressDictionary:nil];
     
-    
-    [_mapView addAnnotation:marker];
-
 
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(void)initViews
@@ -111,17 +115,46 @@
 }
 
 
-- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id ) annotation
-{
+//- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id ) annotation
+//{
+//
+//    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation1"];
+//    newAnnotation.pinColor = MKPinAnnotationColorRed;
+//    newAnnotation.animatesDrop = YES;
+//    newAnnotation.canShowCallout = NO;
+//    [newAnnotation setSelected:YES animated:YES];
+//    
+//
+//    return newAnnotation;
+//}
 
-    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation1"];
-    newAnnotation.pinColor = MKPinAnnotationColorRed;
-    newAnnotation.animatesDrop = YES;
-    newAnnotation.canShowCallout = NO;
-    [newAnnotation setSelected:YES animated:YES];
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    static BOOL seeded = NO;
+    if(!seeded)
+    {
+        seeded = YES;
+        srandom(time(NULL));
+    }
     
-
-    return newAnnotation;
+    MKAnnotationView *aV;
+    for (aV in views) {
+        if([aV isKindOfClass:[MKUserLocation class]]) continue;
+        
+        CGRect endFrame = aV.frame;
+        
+        aV.frame = CGRectMake(aV.frame.origin.x, aV.frame.origin.y, aV.frame.size.width/2, aV.frame.size.height/2);
+        
+        [UIView beginAnimations:nil context:NULL];
+        
+        CGFloat randTime = (CGFloat) random()/(CGFloat) RAND_MAX;
+        [UIView setAnimationDuration:randTime];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [aV setFrame:endFrame];
+        [UIView commitAnimations];
+        
+        
+    }
 }
 
 
@@ -226,10 +259,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
 #pragma mark - Navigation

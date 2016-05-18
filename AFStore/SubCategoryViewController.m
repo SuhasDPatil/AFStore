@@ -144,6 +144,7 @@
         NSString * replacedStr1=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
         
         NSURL * url = [NSURL URLWithString:replacedStr1];
+    
         NSData * imgData = [NSData dataWithContentsOfURL:url];
         UIImage * image = [UIImage imageWithData:imgData];
         dispatch_async( dispatch_get_main_queue() , ^(){

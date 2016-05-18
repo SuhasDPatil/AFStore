@@ -191,52 +191,32 @@
 
 - (IBAction)TweetClicked:(id)sender
 {
-    
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud show:YES];
+
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        
         [tweetSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://aynalfahad.com/News/TabId/143/ArtMID/921/ArticleID/%@",_newsArticleID]]];
-        
-        
         NSString * imgURL = self.newsImage;
-        
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-        
-        NSLog(@"Image URL====%@",combined);
-        
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
-        
         NSURL * url = [NSURL URLWithString:replacedStr];
-        
         NSData * imgData = [NSData dataWithContentsOfURL:url];
-        
-        
         [tweetSheet addImage:[UIImage imageWithData:imgData]];
-        
-        
         [tweetSheet setInitialText:[NSString stringWithFormat:@"%@\nNo. of View:%@ \nDate: %@",self.newsTitle,self.NumberOfViews,self.newsPubDate]];
         
-        
-        
+        [hud hide:YES];
+
         [self presentViewController:tweetSheet animated:YES completion:nil];
-    
-    
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-                                                        message:@"Twitter integration is not available.  Make sure you have setup your Twitter account on your device."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Settings"
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        alert.tag=101;
-    }
+        SLComposeViewController *TWITTER = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [hud hide:YES];
 
-    
+        [self presentViewController:TWITTER animated:YES completion:nil];
+    }
 }
 
 

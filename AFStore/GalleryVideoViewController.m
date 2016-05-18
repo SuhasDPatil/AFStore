@@ -125,7 +125,6 @@
         NSString * imgURL = tempCell.cellDict[@"ThumbUrl"];
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-        
         NSLog(@"Image URL======================%@",combined);
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         

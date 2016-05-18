@@ -28,7 +28,7 @@
     self.title=LocalizedString(@"Contact Us");
     [self setNavBar];
     
-    [self setKeyboard];
+//    [self setKeyboard];
     
     _txtEmail.delegate=self;
     _txtFirstName.delegate=self;
@@ -52,29 +52,29 @@
 
 
 #pragma mark - TextField Delegate
-
-
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    
-    
-    [self SlideupScreen:textField];
-    
-    //  [self setKeyboard];
-    return YES;
-}
-
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    
-    [self SlideDownScreen:textField];
-    
-    [textField resignFirstResponder];
-    
-    return YES;
-}
-
+//
+//
+//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+//{
+//    
+//    
+//    [self SlideupScreen:textField];
+//    
+//    //  [self setKeyboard];
+//    return YES;
+//}
+//
+//
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    
+//    [self SlideDownScreen:textField];
+//    
+//    [textField resignFirstResponder];
+//    
+//    return YES;
+//}
+//
 
 
 
@@ -105,7 +105,7 @@
 }
 
 
-
+/*
 -(void)setKeyboard
 {
     
@@ -238,11 +238,7 @@
 }
 
 
-
-
-
-
-/*
+ 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -321,35 +317,24 @@
 
 -(void)ContactUsWebService
 {
-    
-    
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_txtFirstName.text forKey:@"FName"];
     [dict setObject:_txtLastName.text forKey:@"LName"];
     [dict setObject:_txtMobileNo.text forKey:@"ContactNumber"];
     [dict setObject:_txtEmail.text forKey:@"emailFrom"];
     [dict setObject:_txtMessage.text forKey:@"body"];
-
-    NSLog(@"Request Dictionary: %@",dict);
-   
     
     [[AFAppAPIClient WSsharedClient] POST:API_SEND_EMAIL_FOR_CONTACT_US
                                parameters:dict
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
-         
          if(result)
          {
-            
-             
              UIAlertView *alt=[[UIAlertView alloc]initWithTitle:@"Thank You" message:@"Thank you for contacting AynAlfahad. Your message has been received and we will be contacting you within 48 hours to answer you inquiry." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
              
              [alt show];
-
-             
              alt.tag=101;
-             
          }
          else
          {
@@ -357,13 +342,11 @@
              alt1.tag=111;
              [alt1 show];
          }
-         
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
          alt1.tag=111;
          [alt1 show];
-         
      }];
     
 }
@@ -377,14 +360,11 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }
-    
     if (alertView.tag==111) {
         if (buttonIndex==0) {
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
-    
- 
 }
 
 
