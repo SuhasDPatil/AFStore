@@ -67,7 +67,7 @@
     [super viewDidAppear:animated];
 }
 
-#pragma mark TabkeView Delegate and Datasource
+#pragma mark TableView Delegate and Datasource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;

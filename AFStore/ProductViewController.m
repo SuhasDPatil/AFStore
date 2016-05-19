@@ -30,6 +30,9 @@
     self.segCondition.selectedSegmentIndex=0;
     _Condition_newUsed=@"1";
     
+    NSLog(@"BRAND_ID===%@",_BrandID);
+    
+    
     [self getProductWebService];
     
     // Do any additional setup after loading the view from its nib.

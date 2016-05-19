@@ -20,6 +20,8 @@
     queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT);
 
     self.title=LocalizedString(@"Search");
+    [_searchBar2 setPlaceholder:LocalizedString(@"Search Bar")];
+
     [self setNavBar];
     self.collectionView.delegate=self;
     

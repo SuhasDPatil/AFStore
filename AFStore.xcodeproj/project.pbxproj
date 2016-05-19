@@ -211,6 +211,8 @@
 		19DB3A641AB7074800713501 /* HomeMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DB3A621AB7074800713501 /* HomeMViewController.xib */; };
 		19DC03841CDA03860021E2E2 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC03821CDA03860021E2E2 /* DashboardViewController.m */; };
 		19DC03851CDA03860021E2E2 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DC03831CDA03860021E2E2 /* DashboardViewController.xib */; };
+		19F904831CED83A300257307 /* BannerIKUViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F904811CED83A300257307 /* BannerIKUViewCell.m */; };
+		19F904841CED83A300257307 /* BannerIKUViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F904821CED83A300257307 /* BannerIKUViewCell.xib */; };
 		19FEFD861B5CDFFE0029DD41 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FEFD851B5CDFFE0029DD41 /* home.png */; };
 		661EC7EE7D2E013D9C3C6191 /* libPods-AFStoreNew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C64C99FB96153CE375F8650F /* libPods-AFStoreNew.a */; };
 /* End PBXBuildFile section */
@@ -555,6 +557,9 @@
 		19DC03811CDA03860021E2E2 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		19DC03821CDA03860021E2E2 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		19DC03831CDA03860021E2E2 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		19F904801CED83A300257307 /* BannerIKUViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerIKUViewCell.h; sourceTree = "<group>"; };
+		19F904811CED83A300257307 /* BannerIKUViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerIKUViewCell.m; sourceTree = "<group>"; };
+		19F904821CED83A300257307 /* BannerIKUViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerIKUViewCell.xib; sourceTree = "<group>"; };
 		19FEFD851B5CDFFE0029DD41 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		34F63AE17981B9F9CC410EB7 /* Pods-AFStoreNewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFStoreNewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AFStoreNewTests/Pods-AFStoreNewTests.release.xcconfig"; sourceTree = "<group>"; };
 		4A0527CF35FD76313261F21A /* Pods-AFStoreNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFStoreNew.release.xcconfig"; path = "Pods/Target Support Files/Pods-AFStoreNew/Pods-AFStoreNew.release.xcconfig"; sourceTree = "<group>"; };
@@ -1129,6 +1134,9 @@
 				19DB3A601AB7074800713501 /* HomeMViewController.h */,
 				19DB3A611AB7074800713501 /* HomeMViewController.m */,
 				19DB3A621AB7074800713501 /* HomeMViewController.xib */,
+				19F904801CED83A300257307 /* BannerIKUViewCell.h */,
+				19F904811CED83A300257307 /* BannerIKUViewCell.m */,
+				19F904821CED83A300257307 /* BannerIKUViewCell.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1435,6 +1443,7 @@
 				19AE747E1B7486BB00719089 /* c_news.png in Resources */,
 				193EAFBE1A8B6358000C6263 /* back.png in Resources */,
 				191F3B471BFB5CBE007F4A70 /* ChkYrPhoneViewController.xib in Resources */,
+				19F904841CED83A300257307 /* BannerIKUViewCell.xib in Resources */,
 				19AE74821B7486BB00719089 /* c_warranty.png in Resources */,
 				198D7A8D1AB856E600BA2396 /* ProductViewController.xib in Resources */,
 				195C5B8E1AB0212A00229896 /* SearchProductViewCell.xib in Resources */,
@@ -1700,6 +1709,7 @@
 				194453F11A8A196C00815D1E /* UIRefreshControl+AFNetworking.m in Sources */,
 				1955F3251CEB6030001C498E /* IQKeyboardManager.m in Sources */,
 				19D13CFE1AB1B2390061F620 /* Localization.m in Sources */,
+				19F904831CED83A300257307 /* BannerIKUViewCell.m in Sources */,
 				1955F32C1CEB6030001C498E /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				19B2C1611A91FD310007D936 /* ProductDetailViewController.m in Sources */,
 				194453E61A8A196C00815D1E /* AFSecurityPolicy.m in Sources */,

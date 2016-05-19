@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeMViewController">
             <connections>
-                <outlet property="btnIKU" destination="5GN-tY-gS0" id="y00-ao-SRL"/>
                 <outlet property="btnSearch" destination="qpP-Za-dKo" id="Yli-WN-4gt"/>
+                <outlet property="collectionView" destination="dkn-H2-ObA" id="whm-2w-WmJ"/>
                 <outlet property="lblAbout" destination="3tq-BR-dWQ" id="ejl-Rb-udD"/>
                 <outlet property="lblAboutUsInfo" destination="QLQ-s1-ng1" id="2HX-Cr-OeX"/>
                 <outlet property="lblHotDeals" destination="NR3-Ak-Eh5" id="IPn-4q-KwR"/>
@@ -54,37 +54,41 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" id="dkn-H2-ObA">
+                            <rect key="frame" x="0.0" y="393" width="320" height="92"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="2" id="mAZ-zg-xpf">
+                                <size key="itemSize" width="316" height="90"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="geC-bk-i9v"/>
+                                <outlet property="delegate" destination="-1" id="tD5-F3-BF9"/>
+                            </connections>
+                        </collectionView>
                         <view contentMode="scaleToFill" id="2iY-6V-CII">
                             <rect key="frame" x="0.0" y="172" width="320" height="220"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_iku_icon" id="Skv-yY-b6f">
-                            <rect key="frame" x="0.0" y="390" width="320" height="123"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Ayn Al Fahad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3tq-BR-dWQ">
+                            <rect key="frame" x="0.0" y="486" width="320" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5GN-tY-gS0">
-                            <rect key="frame" x="0.0" y="390" width="320" height="123"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <connections>
-                                <action selector="IKUClicked:" destination="-1" eventType="touchUpInside" id="iaY-zu-epw"/>
-                            </connections>
-                        </button>
+                            <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QLQ-s1-ng1">
-                            <rect key="frame" x="8" y="537" width="304" height="263"/>
+                            <rect key="frame" x="8" y="510" width="304" height="263"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <string key="text">           Launched in 2004 with clear vision and objectives reflecting the absolute commitment towards its customers in providing the best solutions and products in the world of telecommunications. AynAlFahad became a leading company in Iraq providing the latest innovations in the world of mobile phones and services.
 
             Shortly afterwards, and as a result of the company's commitment towards its customers and business partners, AynAlFahad in a ugurated retail outlets covering the governorate of Baghdad.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Ayn Al Fahad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3tq-BR-dWQ">
-                            <rect key="frame" x="0.0" y="513" width="320" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -95,7 +99,4 @@
             <point key="canvasLocation" x="418" y="-1438"/>
         </view>
     </objects>
-    <resources>
-        <image name="home_iku_icon" width="640" height="168"/>
-    </resources>
 </document>

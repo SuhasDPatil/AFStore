@@ -189,38 +189,84 @@
     
     NSString * brName=[_name objectAtIndex:indexPath.row];
     
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:brName delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Call: 009647822229298",@"Call: 009647722229298", nil];
     
-    popup.tag = 1;
-    [popup showInView:self.view];
     
+//    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:brName delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Call: 009647822229298",@"Call: 009647722229298", nil];
+//    
+//    popup.tag = 1;
+//    [popup showInView:self.view];
+
+    
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:brName message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Call: 009647822229298" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647822229298"];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
+        
+        NSLog(@"phone btn touch %@", phoneCallNum);
+
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Call: 009647722229298" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647722229298"];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
+        
+        NSLog(@"phone btn touch %@", phoneCallNum);
+
+        // Distructive button tapped.
+        [self dismissViewControllerAnimated:YES completion:^{
+
+        }];
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tapped.
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+
 }
 
 #pragma mark ActionSheetDelegate
 
-- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (popup.tag==1)
-    {
-        if (buttonIndex==0)
-        {
-            NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647822229298"];
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
-            
-            NSLog(@"phone btn touch %@", phoneCallNum);
-        }
-        else if (buttonIndex==1)
-        {
-            NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647722229298"];
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
-            
-            NSLog(@"phone btn touch %@", phoneCallNum);
-
-        }
-    }
-}
+//- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (popup.tag==1)
+//    {
+//        if (buttonIndex==0)
+//        {
+//            NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647822229298"];
+//            
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
+//            
+//            NSLog(@"phone btn touch %@", phoneCallNum);
+//        }
+//        else if (buttonIndex==1)
+//        {
+//            NSString *phoneCallNum = [NSString stringWithFormat:@"tel://009647722229298"];
+//            
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneCallNum]];
+//            
+//            NSLog(@"phone btn touch %@", phoneCallNum);
+//
+//        }
+//    }
+//}
 
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view

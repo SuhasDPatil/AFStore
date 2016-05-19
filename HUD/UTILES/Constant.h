@@ -32,6 +32,8 @@
 #define API_GET_SLIDING_IMAGES_HOT_DEALS (API_BASE_URL @"GetHotOffersImages")
 #define API_SEARCH_PRODUCT_BY_TEXT (API_BASE_URL_Store @"GetProductListByFreeTextSearch")
 
+#define API_GET_BANNER_IKU_IMAGES (API_BASE_URL_Store @"BannerList")
+
 
 //Store
 #define API_GET_BRAND_LIST (API_BASE_URL_Store @"BrandList")
