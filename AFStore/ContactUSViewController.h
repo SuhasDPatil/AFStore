@@ -14,6 +14,11 @@
 
 @interface ContactUSViewController : UIViewController<UITextFieldDelegate,UIAlertViewDelegate>
 
+
+@property(nonatomic,strong)NSUserDefaults * defaults;
+
+
+
 @property (strong, nonatomic) IBOutlet UITextField *txtFirstName;
 
 @property (strong, nonatomic) IBOutlet UITextField *txtLastName;
@@ -27,6 +32,9 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentInqType;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnSubmit;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblInqType;
+
 
 
 - (IBAction)submitClicked:(id)sender;

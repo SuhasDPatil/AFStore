@@ -32,6 +32,9 @@
     NSMutableArray *items;
     MenuItem *menuItem;
 }
+
+@property(nonatomic,weak)IBOutlet UILabel *lblselectLang;
+
 @property (nonatomic, strong) PopMenu *popMenuEnglish;
 
 @property (nonatomic, strong) PopMenu *popMenuArabic;

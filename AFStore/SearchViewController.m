@@ -23,14 +23,16 @@
     [_searchBar2 setPlaceholder:LocalizedString(@"Search Bar")];
 
     [self setNavBar];
+    
+    
     self.collectionView.delegate=self;
     
     _searchBar2.delegate = (id)self;
 
     [self.searchBar2 becomeFirstResponder];
     
-//    [self GetProductListWebService];
-   // [self.collectionView registerNib:@"SearchProductViewCell" forCellWithReuseIdentifier:@"cell"];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor lightGrayColor],UITextAttributeTextColor,[UIColor whiteColor],UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 1)],UITextAttributeTextShadowOffset,nil]forState:UIControlStateNormal];
+
     
     _spinnerView.circleLayer.lineWidth = 2.0;
     
@@ -40,6 +42,28 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchProductViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
+    nomatchesView = [[UIView alloc] initWithFrame:self.view.frame];
+    nomatchesView.backgroundColor = [UIColor clearColor];
+    
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    matchesLabel.minimumFontSize = 12.0f;
+    matchesLabel.numberOfLines = 1;
+    matchesLabel.lineBreakMode = UILineBreakModeWordWrap;
+    matchesLabel.shadowColor = [UIColor lightTextColor];
+    matchesLabel.textColor = [UIColor darkGrayColor];
+    matchesLabel.shadowOffset = CGSizeMake(0, 1);
+    matchesLabel.backgroundColor = [UIColor clearColor];
+    matchesLabel.textAlignment =  UITextAlignmentCenter;
+    
+    //Here is the text for when there are no results
+    matchesLabel.text = @"No Matches";
+    
+    
+    nomatchesView.hidden = YES;
+    _collectionView.hidden = NO;
+    [nomatchesView addSubview:matchesLabel];
+    [self.view insertSubview:nomatchesView belowSubview:self.searchBar2];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -84,9 +108,25 @@
     btnHome.frame = CGRectMake(0, 0, 18, 17);
     UIBarButtonItem *home = [[UIBarButtonItem alloc] initWithCustomView:btnHome] ;
     
-    self.navigationItem.rightBarButtonItem=home;
+    //Contact Us Button
+    UIButton *btnCont = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *rightBtnImage4 = [UIImage imageNamed:@"call.png"]  ;
+    [btnCont setBackgroundImage:rightBtnImage4 forState:UIControlStateNormal];
+    [btnCont addTarget:self action:@selector(goContactUs) forControlEvents:UIControlEventTouchUpInside];
+    btnCont.frame = CGRectMake(0, 0,  20, 18);
+    UIBarButtonItem *ContUs = [[UIBarButtonItem alloc] initWithCustomView:btnCont] ;
+    
+    self.navigationItem.rightBarButtonItems=@[home,ContUs];
     
 }
+-(void)goContactUs
+{
+    ContactUSViewController *cuvc=[[ContactUSViewController alloc]init];
+    
+    [self.navigationController pushViewController:cuvc animated:YES];
+    
+}
+
 - (void)goHome
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -103,7 +143,16 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if([SearchListArray count] == 0 ){
+        _collectionView.hidden = YES;
+        nomatchesView.hidden = NO;
+    } else {
+        _collectionView.hidden = NO;
+        nomatchesView.hidden = YES;
+    }
+
     return SearchListArray.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,6 +186,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"DID SELECT");
+    [_searchBar2 resignFirstResponder];
     
     ProductDetailViewController *detSearch = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     
@@ -167,7 +217,6 @@
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
 {
     _txtSearch=[NSString stringWithString:text];
-    [self SearchWebService];
 
 }
 
@@ -179,6 +228,8 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     //User hit Search button on Keyboard
+    [self SearchWebService];
+
     [searchBar resignFirstResponder];
 }
 
@@ -225,6 +276,8 @@
              SearchListArray=[responseObject objectForKey:@"Data"];
              if(SearchListArray.count>0)
              {
+                 _collectionView.hidden = NO;
+
                  int i;
                  for (i=0; i<SearchListArray.count; i++)
                  {
@@ -243,23 +296,22 @@
                      _Price=[d valueForKey:@"Price"];
                      _SimType=[d valueForKey:@"SimType"];
                  }
+                 [hud hide:YES];
+                 [self.collectionView reloadData];
              }
              else
              {
-                 UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                 [alt1 show];
+                 _collectionView.hidden = YES;
+                 nomatchesView.hidden=NO;
              }
          }
          else
          {
-             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-             [alt1 show];
+             _collectionView.hidden = YES;
+             nomatchesView.hidden=NO;
          }
-        
         [hud hide:YES];
-         [self.collectionView reloadData];
-         
-         
+        
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          [_spinnerView endRefreshing];

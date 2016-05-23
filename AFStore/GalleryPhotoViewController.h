@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "Localization.h"
 #import "EXPhotoViewer.h"
+#import "ContactUSViewController.h"
 
 
 @interface GalleryPhotoViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIAlertViewDelegate>

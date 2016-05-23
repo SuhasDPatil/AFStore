@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EXPhotoViewer.h"
 #import "Localization.h"
+#import "ContactUSViewController.h"
 
 @interface WarrantyDeytailsViewController : UIViewController<UIWebViewDelegate,NSLayoutManagerDelegate  >
 

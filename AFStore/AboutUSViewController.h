@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ContactUSViewController.h"
+
 #import "AFAppAPIClient.h"
 #import "Constant.h"
 #import "MBProgressHUD.h"

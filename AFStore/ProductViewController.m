@@ -31,10 +31,31 @@
     _Condition_newUsed=@"1";
     
     NSLog(@"BRAND_ID===%@",_BrandID);
-    
-    
     [self getProductWebService];
+
+    nomatchesView = [[UIView alloc] initWithFrame:self.view.frame];
+    nomatchesView.backgroundColor = [UIColor clearColor];
     
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,220)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    matchesLabel.minimumFontSize = 12.0f;
+    matchesLabel.numberOfLines = 1;
+    matchesLabel.lineBreakMode = UILineBreakModeWordWrap;
+    matchesLabel.shadowColor = [UIColor lightTextColor];
+    matchesLabel.textColor = [UIColor darkGrayColor];
+    matchesLabel.shadowOffset = CGSizeMake(0, 1);
+    matchesLabel.backgroundColor = [UIColor clearColor];
+    matchesLabel.textAlignment =  UITextAlignmentCenter;
+    
+    //Here is the text for when there are no results
+    matchesLabel.text = @"No Record Found";
+    
+    
+    nomatchesView.hidden = YES;
+    _collectionview.hidden = NO;
+    [nomatchesView addSubview:matchesLabel];
+    [self.view insertSubview:nomatchesView belowSubview:self.segCondition];
+
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)conditionChanged:(id)sender
@@ -88,9 +109,25 @@
     btnHome.frame = CGRectMake(0, 0, 18, 17);
     UIBarButtonItem *home = [[UIBarButtonItem alloc] initWithCustomView:btnHome] ;
     
-    self.navigationItem.rightBarButtonItem=home;
+    //Home Button
+    UIButton *btnCont = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *rightBtnImage4 = [UIImage imageNamed:@"call.png"]  ;
+    [btnCont setBackgroundImage:rightBtnImage4 forState:UIControlStateNormal];
+    [btnCont addTarget:self action:@selector(goContactUs) forControlEvents:UIControlEventTouchUpInside];
+    btnCont.frame = CGRectMake(0, 0,  20, 18);
+    UIBarButtonItem *ContUs = [[UIBarButtonItem alloc] initWithCustomView:btnCont] ;
+
+    self.navigationItem.rightBarButtonItems=@[home,ContUs];
+
+}
+-(void)goContactUs
+{
+    ContactUSViewController *cuvc=[[ContactUSViewController alloc]init];
+    
+    [self.navigationController pushViewController:cuvc animated:YES];
     
 }
+
 - (void)goback
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -100,6 +137,8 @@
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,6 +154,14 @@
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if([ProductsListArray count] == 0 ){
+        _collectionview.hidden = YES;
+        nomatchesView.hidden = NO;
+    } else {
+        _collectionview.hidden = NO;
+        nomatchesView.hidden = YES;
+    }
+
     return ProductsListArray.count;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -203,6 +250,8 @@
              ProductsListArray=[responseObject objectForKey:@"Data"];
              if(ProductsListArray.count>0)
              {
+                 nomatchesView.hidden=YES;
+
                  NSLog(@"Product Array Count:::%ld",(unsigned long)ProductsListArray.count);
                  int i;
                  for (i=0; i<ProductsListArray.count; i++)
@@ -223,27 +272,34 @@
                      _PhotoPath=[d valueForKey:@"PhotoPath"];
                      _Price=[d valueForKey:@"Price"];
                  }
+                 [self.collectionview reloadData];
+
              }
              else
              {
+                 _collectionview.hidden=YES;
+                 nomatchesView.hidden=NO;
+
                  UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                  [alt1 show];
              }
          }
          else
          {
-             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+             _collectionview.hidden=YES;
+             nomatchesView.hidden=NO;
+
+             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"Goto New" otherButtonTitles:@"Cancel", nil];
              alt1.tag=20;
              [alt1 show];
              
          }
          [hud hide:YES];
          
-         [self.collectionview reloadData];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
-         UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+         UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"Goto New" otherButtonTitles:@"Cancel", nil];
          alt1.tag=111;
          [alt1 show];
          
@@ -266,6 +322,13 @@
         if (buttonIndex==0)
         {
             self.segCondition.selectedSegmentIndex=0;
+            _collectionview.hidden=NO;
+            nomatchesView.hidden=YES;
+        }
+        else
+        {
+            _collectionview.hidden=YES;
+            nomatchesView.hidden=NO;
         }
     }
 

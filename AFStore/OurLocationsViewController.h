@@ -12,6 +12,7 @@
 #import "Localization.h"
 #import "LocationViewCell.h"
 
+#import "ContactUSViewController.h"
 #import "Annotation.h"
 
 @interface OurLocationsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UIActionSheetDelegate>

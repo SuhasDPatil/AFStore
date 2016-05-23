@@ -72,9 +72,25 @@
     btnHome.frame = CGRectMake(0, 0, 18, 17);
     UIBarButtonItem *home = [[UIBarButtonItem alloc] initWithCustomView:btnHome] ;
     
-    self.navigationItem.rightBarButtonItem=home;
+    //Contact Us Button
+    UIButton *btnCont = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *rightBtnImage4 = [UIImage imageNamed:@"call.png"]  ;
+    [btnCont setBackgroundImage:rightBtnImage4 forState:UIControlStateNormal];
+    [btnCont addTarget:self action:@selector(goContactUs) forControlEvents:UIControlEventTouchUpInside];
+    btnCont.frame = CGRectMake(0, 0,  20, 18);
+    UIBarButtonItem *ContUs = [[UIBarButtonItem alloc] initWithCustomView:btnCont] ;
+    
+    self.navigationItem.rightBarButtonItems=@[home,ContUs];
     
 }
+-(void)goContactUs
+{
+    ContactUSViewController *cuvc=[[ContactUSViewController alloc]init];
+    
+    [self.navigationController pushViewController:cuvc animated:YES];
+    
+}
+
 - (void)goback
 {
     [self.navigationController popViewControllerAnimated:YES];

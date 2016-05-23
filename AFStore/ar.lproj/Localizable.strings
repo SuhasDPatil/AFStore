@@ -9,6 +9,9 @@
 
 //Slide Menu Screen
 
+"Select Your Language"="اختر لغتك";
+
+
 "Home"="عين الفهد";
 "Store"="المتجر";
 "Search"="بحث";
@@ -134,6 +137,36 @@
 "Gold"="الذهبى";
 "Silver"="الفضى";
 "Guarantee"="الضمان";
+
+
+
+
+"Number of Views"="عدد المشاهدات";
+
+"Inquiry Type"="نوع الاستفسار";
+"Reseller"="التجزئة";
+"Customer"="زبون";
+"Supplier"="المورد";
+"AF Care"="منظمة كير";
+"Submit"="عرض";
+
+"First Name"="الاسم الاول";
+"Last Name"="الكنية";
+"Mobile"="التليفون المحمول";
+"Email"="البريد الإلكتروني";
+"Message"="الرسالة";
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

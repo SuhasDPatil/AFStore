@@ -11,6 +11,7 @@
 #import "AFAppAPIClient.h"
 #import "Constant.h"
 #import "MBProgressHUD.h"
+#import "ContactUSViewController.h"
 
 #import <JTMaterialSpinner/JTMaterialSpinner.h>
 
@@ -22,8 +23,13 @@
 
     NSMutableArray * SearchListArray;
     SearchProductViewCell *tempCell;
+    UIView *nomatchesView;
 
 }
+
+@property(nonatomic,strong)NSUserDefaults * defaults;
+
+
 @property (weak, nonatomic) IBOutlet JTMaterialSpinner *spinnerView;
 
 //FOr storing of Parsed Search Product Response

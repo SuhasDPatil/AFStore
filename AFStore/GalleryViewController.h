@@ -10,6 +10,7 @@
 #import "Localization.h"
 #import "GalleryBranchViewController.h"
 #import "GalleryVideoViewController.h"
+#import "ContactUSViewController.h"
 
 
 @interface GalleryViewController : UIViewController

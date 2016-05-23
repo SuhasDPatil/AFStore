@@ -5,17 +5,20 @@ PODS:
     - pop
     - XHRealTimeBlur
   - XHRealTimeBlur (1.7)
+  - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - JTMaterialSpinner (~> 1.0)
   - PopMenu
+  - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC CHECKSUMS:
   JTMaterialSpinner: f9e825c80317023f479b7ecc2856785280d8a8c5
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PopMenu: 26b97baeaf250070f4f61b93727ca86d127d7bc5
   XHRealTimeBlur: 661fadd5691ba2d349758e8fd5fbdb499ac55f8c
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: f08f240ae9c6a0c2641d6ed0384971252ed2871a
+PODFILE CHECKSUM: d0bfd1958c7cfc69f54a638373181d762cf9dada
 
 COCOAPODS: 1.0.0.rc.1

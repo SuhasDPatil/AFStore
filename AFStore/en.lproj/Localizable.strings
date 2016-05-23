@@ -9,6 +9,9 @@
 
 
 //Slide Menu Screen
+"Select Your Language"="Select Your Language";
+
+
 
 "Home"="Home";
 "Store"="Store";
@@ -117,6 +120,25 @@ Shortly afterwards, and as a result of the company's commitment towards its cust
 "DIAMOND"="DIAMOND";
 
 "Share On"="Share On";
+
+"Number of Views"="Number of Views";
+
+"Inquiry Type"="Inquiry Type";
+"Reseller"="Reseller";
+"Customer"="Customer";
+"Supplier"="Supplier";
+"AF Care"="AF Care";
+"Submit"="Submit";
+
+"First Name"="First Name";
+"Last Name"="Last Name";
+"Mobile"="Mobile";
+"Email"="Email";
+"Message"="Message";
+
+
+
+
 
 
 

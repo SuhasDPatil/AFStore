@@ -14,6 +14,8 @@
 #import "SubCategoryViewController.h"
 #import "ProductDetailViewController.h"
 
+#import "ContactUSViewController.h"
+
 
 @interface ProductViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
 {
@@ -21,6 +23,7 @@
     
     NSMutableArray * ProductsListArray;
     ProductViewCell *tempCell;
+    UIView *nomatchesView;
 
 }
 

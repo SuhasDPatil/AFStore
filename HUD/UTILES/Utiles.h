@@ -16,6 +16,8 @@
 +(NSString *)getUserDataForKey:(NSString *)key;
 +(NSMutableArray *)SortArray:(NSMutableArray *) inputArray Key:(NSString  *) key;
 + (BOOL) validEmail:(NSString*) emailString;
++(BOOL)validName:(NSString *)name;
+
 - (NSTimeInterval) timeStamp;
 +(NSString * )getCurrentTime;
 

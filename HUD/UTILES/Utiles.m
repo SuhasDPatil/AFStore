@@ -106,8 +106,13 @@
         return YES;
     }
 }
-
-
++(BOOL)validName:(NSString *)name
+{
+    NSString *emailRegex = @"[a-zA-z]+([ '-][a-zA-Z]+)*$";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    BOOL isValid = [emailTest evaluateWithObject:name];
+    return isValid;
+}
 
 -(NSDictionary *) getEncodedNDDictionayValues:(NSDictionary *)dict
 {

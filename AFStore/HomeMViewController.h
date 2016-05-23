@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AOScrollerView.h"
 #import "Localization.h"
-
+#import "ContactUSViewController.h"
 
 #import "AFAppAPIClient.h"
 #import "Constant.h"

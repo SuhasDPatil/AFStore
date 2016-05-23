@@ -13,6 +13,8 @@
 #import "MBProgressHUD.h"
 #import "CategoryViewController.h"
 #import "ProductViewController.h"
+#import "ContactUSViewController.h"
+
 @interface SubCategoryViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
 {
     NSMutableArray * subCategoryListArray;

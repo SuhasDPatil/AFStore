@@ -62,7 +62,25 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
     
+    //Contact Us Button
+    UIButton *btnCont = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *rightBtnImage4 = [UIImage imageNamed:@"call.png"]  ;
+    [btnCont setBackgroundImage:rightBtnImage4 forState:UIControlStateNormal];
+    [btnCont addTarget:self action:@selector(goContactUs) forControlEvents:UIControlEventTouchUpInside];
+    btnCont.frame = CGRectMake(0, 0,  20, 18);
+    UIBarButtonItem *ContUs = [[UIBarButtonItem alloc] initWithCustomView:btnCont] ;
+    
+    self.navigationItem.rightBarButtonItems=@[ContUs];
+    
 }
+-(void)goContactUs
+{
+    ContactUSViewController *cuvc=[[ContactUSViewController alloc]init];
+    
+    [self.navigationController pushViewController:cuvc animated:YES];
+    
+}
+
 
 - (void)goback
 {
@@ -97,7 +115,7 @@
 //    cell.lblNewsSummery.text=tempCell.cellDict[@"Summary"];
     cell.lblPublishDate.text=tempCell.cellDict[@"PublishDate"];
     NSNumber * noOfVi=tempCell.cellDict[@"NumberOfViews"];
-    cell.lblNoOfViews.text=[NSString stringWithFormat:@"%@",noOfVi];
+    cell.lblNoOfViews.text=[NSString stringWithFormat:@"%@ : %@",LocalizedString(@"Number of Views"), noOfVi];
     
     
     dispatch_async(queue, ^(){
@@ -145,7 +163,7 @@
     detNews.newsPubDate=tempCell.cellDict[@"PublishDate"];
     detNews.newssummery=tempCell.cellDict[@"Summary"];
     
-    
+    detNews.newsNoOfViews=tempCell.cellDict[@"NumberOfViews"];
     detNews.newsExpDate=tempCell.cellDict[@"ExpireDate"];
     detNews.newsImage=tempCell.cellDict[@"ArticleImage"];
     detNews.newsArticleID=tempCell.cellDict[@"ArticleID"];

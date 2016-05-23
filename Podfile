@@ -6,8 +6,9 @@ target 'AFStoreNew' do
   # use_frameworks!
   pod 'PopMenu'
   pod 'JTMaterialSpinner', '~> 1.0'
-
-  # Pods for AFStoreNew
+  pod "youtube-ios-player-helper", "~> 0.1.4"
+  
+# Pods for AFStoreNew
 
   target 'AFStoreNewTests' do
     inherit! :search_paths

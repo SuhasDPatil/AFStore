@@ -12,6 +12,8 @@
 #import "Constant.h"
 #import "MBProgressHUD.h"
 #import "Localization.h"
+#import "ContactUSViewController.h"
+
 @interface WarrantyViewController : UIViewController
 {
     WarrantyDeytailsViewController * wdvc;

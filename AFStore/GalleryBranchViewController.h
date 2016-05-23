@@ -13,6 +13,7 @@
 #import "Constant.h"
 #import "MBProgressHUD.h"
 #import "Localization.h"
+#import "ContactUSViewController.h"
 
 
 @interface GalleryBranchViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>

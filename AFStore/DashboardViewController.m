@@ -327,6 +327,8 @@
     
     NSLog(@"%@",str);
     
+    _lblselectLang.text=LocalizedString(@"Select Your Language");
+
     [_popMenuArabic setHidden:YES];
     [_popMenuEnglish setHidden:NO];
     
@@ -347,6 +349,8 @@
     NSString *str=[_defaults valueForKey:@"Language"];
     
     NSLog(@"%@",str);
+    
+    _lblselectLang.text=LocalizedString(@"Select Your Language");
 
     [_popMenuEnglish setHidden:YES];
     [_popMenuArabic setHidden:NO];
@@ -381,14 +385,23 @@
     {
         if (buttonIndex==0)
         {
-            [self showMenuEnglish];
-        }
-    }
-    else if (alertView.tag==101)
-    {
-        if (buttonIndex==0)
-        {
-            [self showMenuEnglish];
+            
+            NSString *str=[_defaults valueForKey:@"Language"];
+            
+            if ([str isEqualToString:@"English"])
+            {
+                [self showMenuEnglish];
+                
+                [_popMenuArabic setHidden:YES];
+                [_popMenuEnglish setHidden:NO];
+            }
+            else if ([str isEqualToString:@"Arabic"])
+            {
+                [self showMenuArabic];
+                
+                [_popMenuArabic setHidden:NO];
+                [_popMenuEnglish setHidden:YES];
+            }
         }
     }
 }

@@ -24,11 +24,57 @@
     [[self.btnSubmit layer]setCornerRadius:3.5f];
 
     
-    
+
     self.title=LocalizedString(@"Contact Us");
-    [self setNavBar];
     
-//    [self setKeyboard];
+    [_segmentInqType setTitle:LocalizedString(@"Reseller") forSegmentAtIndex:0];
+    [_segmentInqType setTitle:LocalizedString(@"Customer") forSegmentAtIndex:1];
+    [_segmentInqType setTitle:LocalizedString(@"Supplier") forSegmentAtIndex:2];
+    [_segmentInqType setTitle:LocalizedString(@"AF Care") forSegmentAtIndex:3];
+
+    [_btnSubmit setTitle:LocalizedString(@"Submit") forState:UIControlStateNormal];
+    
+    _lblInqType.text=LocalizedString(@"Inquiry Type");
+    
+    
+    UIColor *color = [UIColor lightGrayColor];
+    
+    _txtFirstName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"First Name") attributes:@{NSForegroundColorAttributeName: color}];
+    _txtLastName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"Last Name") attributes:@{NSForegroundColorAttributeName: color}];
+    _txtMobileNo.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"Mobile") attributes:@{NSForegroundColorAttributeName: color}];
+    _txtEmail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"Email") attributes:@{NSForegroundColorAttributeName: color}];
+    _txtMessage.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"Message") attributes:@{NSForegroundColorAttributeName: color}];
+
+    
+    [self setNavBar];
+
+    
+    _defaults=[NSUserDefaults standardUserDefaults];
+
+    NSString *str=[_defaults valueForKey:@"Language"];
+    
+    NSLog(@"%@",str);
+    
+    if ([str isEqualToString:@"English"])
+    {
+        [_txtFirstName setTextAlignment:NSTextAlignmentNatural];
+        [_txtLastName setTextAlignment:NSTextAlignmentNatural];
+        [_txtMobileNo setTextAlignment:NSTextAlignmentNatural];
+        [_txtEmail setTextAlignment:NSTextAlignmentNatural];
+        [_txtMessage setTextAlignment:NSTextAlignmentNatural];
+
+    }
+    else if ([str isEqualToString:@"Arabic"])
+    {
+        [_txtFirstName setTextAlignment:NSTextAlignmentRight];
+        [_txtLastName setTextAlignment:NSTextAlignmentRight];
+        [_txtMobileNo setTextAlignment:NSTextAlignmentRight];
+        [_txtEmail setTextAlignment:NSTextAlignmentRight];
+        [_txtMessage setTextAlignment:NSTextAlignmentRight];
+
+    }
+
+    
     
     _txtEmail.delegate=self;
     _txtFirstName.delegate=self;
@@ -271,12 +317,22 @@
         [Utiles showAlert:APP_NAME Message:@"Enter First Name"];
         return;
     }
+    else if (![Utiles validName:[_txtFirstName.text capitalizedString]])
+    {
+        [Utiles showAlert:APP_NAME Message:@"Enter Valid First Name"];
+        return;
+    }
     if(_txtLastName.text.length==0)
     {
         [Utiles showAlert:APP_NAME Message:@"Enter Last Name"];
         return;
     }
-    
+    else if (![Utiles validName:[_txtLastName.text capitalizedString]])
+    {
+        [Utiles showAlert:APP_NAME Message:@"Enter Valid Last Name"];
+        return;
+    }
+
     if(_txtMobileNo.text.length==0)
     {
         [Utiles showAlert:APP_NAME Message:@"Enter Mobile No."];
@@ -298,9 +354,7 @@
         [Utiles showAlert:APP_NAME Message:@"Enter Valid Email"];
         return;
     }
-    
-    
-    
+
     if(_txtMessage.text.length==0)
     {
         [Utiles showAlert:APP_NAME Message:@"Enter Your Message"];
@@ -317,6 +371,8 @@
 
 -(void)ContactUsWebService
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_txtFirstName.text forKey:@"FName"];
     [dict setObject:_txtLastName.text forKey:@"LName"];
@@ -328,6 +384,7 @@
                                parameters:dict
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         [hud show:YES];
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          if(result)
          {
@@ -342,6 +399,9 @@
              alt1.tag=111;
              [alt1 show];
          }
+         
+         [hud hide:YES];
+
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -355,15 +415,9 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag==101) {
-        if (buttonIndex==0) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    }
-    if (alertView.tag==111) {
-        if (buttonIndex==0) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
+    if (buttonIndex==0)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

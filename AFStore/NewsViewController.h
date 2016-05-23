@@ -11,6 +11,7 @@
 #import "AFAppAPIClient.h"
 #import "Constant.h"
 #import "MBProgressHUD.h"
+#import "ContactUSViewController.h"
 #import "DetailNewsViewController.h"
 #import "Localization.h"
 @interface NewsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIAlertViewDelegate>

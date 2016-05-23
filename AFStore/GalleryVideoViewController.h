@@ -15,7 +15,7 @@
 #import "VideoViewController.h"
 #import "XCDYouTubeVideoPlayerViewController.h"
 #import "Localization.h"
-
+#import "ContactUSViewController.h"
 
 @interface GalleryVideoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {

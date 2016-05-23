@@ -21,19 +21,25 @@
     NSString * strYouTube=self.videoURL;
     
     strYouTube = [strYouTube stringByReplacingOccurrencesOfString:@"http://www.youtube.com/embed/" withString:@""];
+
     
-    NSLog(@"Youtube===%@",strYouTube);
+    [self.playerView loadWithVideoId:strYouTube];
+
     
-    UIView *videoContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
-    [self.view addSubview:videoContainerView];
-    XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:strYouTube];
-    [videoPlayerViewController presentInView:videoContainerView];
-    [videoPlayerViewController.moviePlayer setFullscreen:YES animated:YES];
-    
-    [videoPlayerViewController.moviePlayer play];
+//
+//    NSLog(@"Youtube===%@",strYouTube);
+//    
+//    UIView *videoContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
+//    [self.view addSubview:videoContainerView];
+//    XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:strYouTube];
+//    [videoPlayerViewController presentInView:videoContainerView];
+//    [videoPlayerViewController.moviePlayer setFullscreen:YES animated:YES];
+//    
+//    [videoPlayerViewController.moviePlayer play];
     
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)didReceiveMemoryWarning
 {

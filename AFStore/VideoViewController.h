@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTPlayerView.h"
 
 @interface VideoViewController : UIViewController
 
 
 @property(nonatomic,strong)NSString * videoURL;
 
+@property(nonatomic, strong) IBOutlet YTPlayerView *playerView;
 
 @end
