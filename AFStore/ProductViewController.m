@@ -289,7 +289,7 @@
              _collectionview.hidden=YES;
              nomatchesView.hidden=NO;
 
-             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:@"Goto New" otherButtonTitles:@"Cancel", nil];
+             UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[responseObject objectForKey:@"Message"] delegate:self cancelButtonTitle:LocalizedString(@"Goto New") otherButtonTitles:LocalizedString(@"Cancel"), nil];
              alt1.tag=20;
              [alt1 show];
              
@@ -299,7 +299,7 @@
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
-         UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:@"Goto New" otherButtonTitles:@"Cancel", nil];
+         UIAlertView *alt1=[[UIAlertView alloc]initWithTitle:APP_NAME message:[error localizedDescription] delegate:self cancelButtonTitle:LocalizedString(@"Goto New") otherButtonTitles:LocalizedString(@"Cancel"), nil];
          alt1.tag=111;
          [alt1 show];
          

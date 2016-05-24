@@ -24,6 +24,8 @@
     self.lblNewsTitle.text=self.newsTitle;
     self.lblPubDate.text=self.newsPubDate;
     self.lblSummary.text=LocalizedString(@"Summary");
+    self.lblShareOn.text=LocalizedString(@"Share On");
+
     self.lblNoOfViews.text=[NSString stringWithFormat:@"%@ : %@",LocalizedString(@"Number of Views") ,_newsNoOfViews];
 
     self.title=LocalizedString(@"Detail");

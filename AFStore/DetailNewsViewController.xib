@@ -12,6 +12,7 @@
                 <outlet property="lblNewsTitle" destination="Yhc-kT-Yyf" id="Ole-6s-WlA"/>
                 <outlet property="lblNoOfViews" destination="XZH-XA-j8e" id="S6V-eg-IeQ"/>
                 <outlet property="lblPubDate" destination="X6H-Qy-EtH" id="JIG-sV-cJc"/>
+                <outlet property="lblShareOn" destination="a9H-sU-QDH" id="qpK-Bz-BKQ"/>
                 <outlet property="lblSummary" destination="PhO-6M-gpT" id="aZQ-vI-JT5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="CNU-BB-7st" id="xTx-ui-N1F"/>

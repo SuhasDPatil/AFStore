@@ -14,31 +14,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-Rg-Ref">
-                        <rect key="frame" x="50" y="8" width="262" height="42"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AF_Placeholder_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="jhw-8o-YGw">
+                        <rect key="frame" x="278" y="14" width="34" height="29"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Call1" translatesAutoresizingMaskIntoConstraints="NO" id="QH0-0Q-WtO">
+                        <rect key="frame" x="278" y="56" width="29" height="29"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-Rg-Ref">
+                        <rect key="frame" x="8" y="8" width="252" height="42"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urX-bS-kGC">
-                        <rect key="frame" x="50" y="49" width="262" height="42"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urX-bS-kGC">
+                        <rect key="frame" x="8" y="49" width="252" height="42"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AF_Placeholder_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="jhw-8o-YGw">
-                        <rect key="frame" x="8" y="14" width="34" height="29"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Call1" translatesAutoresizingMaskIntoConstraints="NO" id="QH0-0Q-WtO">
-                        <rect key="frame" x="8" y="56" width="29" height="29"/>
-                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="lblBranchName" destination="Seo-Rg-Ref" id="LEn-1j-q0G"/>
                 <outlet property="lblContactNum" destination="urX-bS-kGC" id="GLt-Pj-VRL"/>
             </connections>
-            <point key="canvasLocation" x="249" y="255"/>
+            <point key="canvasLocation" x="126" y="279"/>
         </tableViewCell>
     </objects>
     <resources>
