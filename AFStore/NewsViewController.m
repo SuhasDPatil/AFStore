@@ -168,17 +168,6 @@
     detNews.newsImage=tempCell.cellDict[@"ArticleImage"];
     detNews.newsArticleID=tempCell.cellDict[@"ArticleID"];
     
-    NSLog(@"%@",detNews.newsTitle);
-    NSLog(@"%@",detNews.newssummery);
-    NSLog(@"%@",detNews.newsArticleID);
-
-    
-
-    
-    
-    
-    
-    
     
     [self.navigationController pushViewController:detNews animated:YES];
     
@@ -191,10 +180,6 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    //    NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-    //
-    //    NSLog(@"%@",dict);
-    //
     [[AFAppAPIClient WSsharedClient] POST:API_GET_NEWS_ALL
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -204,13 +189,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              NewsListArray=[[NSMutableArray alloc]init];
              NewsListArray=[responseObject objectForKey:@"Data"];
              if(NewsListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)NewsListArray.count);
                  int i;
                  for (i=0; i<NewsListArray.count; i++)
                  {
@@ -223,14 +206,6 @@
                      _Summary=[d valueForKey:@"Summary"];
                      _ArticleID=[d valueForKey:@"ArticleID"];
                      _NumberOfViews=[d valueForKey:@"NumberOfViews"];
-                     NSLog(@"News Title: %@", _NewsTitle);
-                     NSLog(@"News Image: %@", _ArticleImage);
-
-                     NSLog(@"pub date: %@",_PublishDate);
-                     NSLog(@"exp date: %@", _ExpireDate);
-                     
-                     
-                     NSLog(@"No. Of Views %@",_NumberOfViews);
                  }
                  
              }

@@ -198,7 +198,6 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              About_EN=[[NSMutableArray alloc]init];
              About_AR=[[NSMutableArray alloc]init];
@@ -242,42 +241,36 @@
              _AboutUs_EN=[_AboutUs_EN stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
 
 
-             NSLog(@"\nAbout US EN===\n%@\n\n",_AboutUs_EN);
              
              _AboutUs_AR=[_tempAboutUs_AR stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _AboutUs_AR=[_AboutUs_AR stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
 
              
-             NSLog(@"\nAbout US AR===\n%@\n\n",_AboutUs_AR);
              
              _VisionM_EN=[_tempVisionM_EN stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _VisionM_EN=[_VisionM_EN stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
 
              
-             NSLog(@"\nVision Mission EN==\n%@\n\n",_VisionM_EN);
              
              _VisionM_AR=[_tempVisionM_AR stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _VisionM_AR=[_VisionM_AR stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
 
              
-             NSLog(@"\nVision Mission AR==\n%@\n\n",_VisionM_AR);
              
              _QualityP_EN=[_tempQualityP_EN stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _QualityP_EN=[_QualityP_EN stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
 
              
-             NSLog(@"\nQuality Policy EN==\n%@\n\n",_QualityP_EN);
              
              _QualityP_AR=[_tempQualityP_AR stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _QualityP_AR=[_QualityP_AR stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
 
              
-             NSLog(@"\nQuality Policy AR==\n%@\n\n",_QualityP_AR);
              
              
              

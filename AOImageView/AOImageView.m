@@ -46,7 +46,6 @@
         titleLabel.backgroundColor =[UIColor clearColor];
         titleLabel.textColor=[UIColor whiteColor];
         [self addSubview:titleLabel];
-       // NSLog(@"%@,%@,%@",imageView,titleStr,self);
     }
     return self;
 }

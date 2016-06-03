@@ -213,10 +213,6 @@
 -(void)CategoryWebService
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //    NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-    //
-    //    NSLog(@"%@",dict);
-    //
     [[AFAppAPIClient WSsharedClient] POST:API_GET_MAIN_CATEGORY
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -225,13 +221,11 @@
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              CategoryListArray=[[NSMutableArray alloc]init];
              CategoryListArray=[responseObject objectForKey:@"Data"];
              if(CategoryListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)CategoryListArray.count);
                  int i;
                  for (i=0; i<CategoryListArray.count; i++)
                  {
@@ -240,9 +234,6 @@
                      _CategoriesName=[d valueForKey:@"CategoriesName"];
                      _CategoryImages=[d valueForKey:@"CategoryImages"];
                      
-                     NSLog(@"CategoriesID: %@", _CategoriesID);
-                     NSLog(@"CategoriesName: %@",_CategoriesName);
-                     NSLog(@"CategoryImages: %@", _CategoryImages);
                  }
              }
              else

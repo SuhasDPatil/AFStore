@@ -100,7 +100,6 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return photoArray.count;
-    NSLog(@"Array Count: %ld",photoArray.count);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -227,7 +226,6 @@
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_GallryID forKey:@"GalleryID"];
     
-    NSLog(@"%@",dict);
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_GALLERY_IMAGES
                                parameters:dict
@@ -237,14 +235,12 @@
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              photoArray=[[NSMutableArray alloc]init];
              photoArray=[responseObject objectForKey:@"Data"];
              
              if(photoArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)photoArray.count);
                  int i;
                  for (i=0; i<photoArray.count; i++)
                  {

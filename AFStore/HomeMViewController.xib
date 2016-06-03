@@ -96,7 +96,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <point key="canvasLocation" x="418" y="-1438"/>
+            <point key="canvasLocation" x="280" y="-1461"/>
         </view>
     </objects>
 </document>

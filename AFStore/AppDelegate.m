@@ -32,10 +32,8 @@
     
     [defaults synchronize];
     
-    NSString * str=[defaults valueForKey:@"Language"];
 
   //  MainVC * begin = [[MainVC alloc] init];
-    BeginViewController * begin=[[BeginViewController alloc]init];
     
     DashboardViewController *dbvc=[[DashboardViewController alloc]init];
     

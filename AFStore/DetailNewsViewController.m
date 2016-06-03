@@ -179,7 +179,6 @@
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
         
-        NSLog(@"Image URL====%@",combined);
         
         NSURL * url = [NSURL URLWithString:combined];
         
@@ -251,7 +250,6 @@
     
     [dict setObject:_newsArticleID forKey:@"ArticalID"];
     
-    NSLog(@"%@",dict);
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_NEWS_DETAILS
                                parameters:dict
@@ -262,13 +260,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              NewsListArray=[[NSMutableArray alloc]init];
              NewsListArray=[responseObject objectForKey:@"Data"];
              if(NewsListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)NewsListArray.count);
                  int i;
                  for (i=0; i<NewsListArray.count; i++)
                  {
@@ -281,11 +277,9 @@
                  
                  
                  NSString * strSummery=self.Article;
-                 NSLog(@"Article Details by web-service : %@",strSummery);
                  
                  
                  NSString * converted=[[strSummery stringByDecodingHTMLEntities]stringByStrippingTags];
-                 NSLog(@"Converted :::: %@",converted);
 
 
                  NSString *con =[self replaceHTMLEntitiesInString:converted];
@@ -308,7 +302,6 @@
                  NSString *urlString=[NSString stringWithFormat:@"http://aynalfahad.com/News/TabId/143/ArtMID/921/ArticleID/%@",_newsArticleID];
                  
                  
-                 NSLog(@"Shre Link :%@",urlString);
                  
                  content.contentURL = [NSURL URLWithString:urlString];
                  
@@ -323,7 +316,6 @@
                  
                  NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
                  
-                 NSLog(@"Image URL====%@",combined);
                  
                  
                  content.imageURL=[NSURL URLWithString:combined];

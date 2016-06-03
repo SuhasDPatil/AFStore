@@ -53,7 +53,6 @@
 
     NSString *str=[_defaults valueForKey:@"Language"];
     
-    NSLog(@"%@",str);
     
     if ([str isEqualToString:@"English"])
     {

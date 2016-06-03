@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"View did load");
     [super viewDidLoad];
 
     self.title=_ProductName_title;
@@ -37,7 +36,7 @@
     [self.tableViewDet registerNib:[UINib nibWithNibName:@"ProductDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
 
     self.segWarranty.selectedSegmentIndex=0;
-    NSString * proPrice=[NSString stringWithFormat:@"$%@",_silver_Price];
+    NSString * proPrice=[NSString stringWithFormat:@"%@",_silver_Price];
     self.lblProductCost.text=proPrice;
     [self getProductImagesWebService];
     [self getProductDetailsWebService];
@@ -96,7 +95,8 @@
             cell.lblLabel.text=LocalizedString(@"Brand Model");
             cell.lblSpec.text=_BrandModel;
             cell.lblHeader.hidden=YES;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
+
         }
         else if (indexPath.row==2)
         {
@@ -105,7 +105,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Color");
             cell.lblSpec.text=_ColorName;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==3)
@@ -115,7 +115,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Memory");
             cell.lblSpec.text=_Memory;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==4)
@@ -135,7 +135,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Battery");
             cell.lblSpec.text=_Battery;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==6)
@@ -145,7 +145,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Bluetooth");
             cell.lblSpec.text=_Bluetooth;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==7)
@@ -155,7 +155,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Brand Name");
             cell.lblSpec.text=_BrandName;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==8)
@@ -165,7 +165,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"FM Radio");
             cell.lblSpec.text=_FM_Radio;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==9)
@@ -175,7 +175,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"GPS");
             cell.lblSpec.text=_GPS;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==10)
@@ -185,7 +185,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Multitouch");
             cell.lblSpec.text=_Multitouch;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==11)
@@ -195,7 +195,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Operating System");
             cell.lblSpec.text=_OperatingSystem;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==12)
@@ -205,7 +205,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Primary Camera");
             cell.lblSpec.text=_PrimaryCamera;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==13)
@@ -215,7 +215,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Processor");
             cell.lblSpec.text=_Processor;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==14)
@@ -225,7 +225,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"RAM");
             cell.lblSpec.text=_Ram;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==15)
@@ -235,7 +235,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Secondary Camera");
             cell.lblSpec.text=_SecondaryCamera;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==16)
@@ -245,7 +245,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"Sound");
             cell.lblSpec.text=_Sound;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
         else if (indexPath.row==17)
@@ -255,7 +255,7 @@
             cell.lblHeader.hidden=YES;
             cell.lblLabel.text=LocalizedString(@"USB");
             cell.lblSpec.text=_USB;
-            cell.backgroundColor=[UIColor whiteColor];
+            cell.backgroundColor=[UIColor colorWithRed:212.0f/255.0f green:212.0f/255.0f blue:212.0f/255.0f alpha:0.1 ];
 
         }
     return cell;
@@ -478,17 +478,17 @@
     NSString * proPrice;
     if (self.segWarranty.selectedSegmentIndex==0)
     {
-        proPrice=[NSString stringWithFormat:@"$%@",_silver_Price];
+        proPrice=[NSString stringWithFormat:@"%@",_silver_Price];
         self.lblProductCost.text=proPrice;
     }
     else if (self.segWarranty.selectedSegmentIndex==1)
     {
-        proPrice=[NSString stringWithFormat:@"$%@",_gold_Price];
+        proPrice=[NSString stringWithFormat:@"%@",_gold_Price];
         self.lblProductCost.text=proPrice;
     }
     else if (self.segWarranty.selectedSegmentIndex==2)
     {
-        proPrice=[NSString stringWithFormat:@"$%@",_diamond_Price];
+        proPrice=[NSString stringWithFormat:@"%@",_diamond_Price];
         self.lblProductCost.text=proPrice;
     }
 }
@@ -512,20 +512,17 @@
              _imgProdImage.hidden=YES;
              _btnImageView.hidden=YES;
              _collectionView.hidden=NO;
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              ProductsImageArray=[[NSMutableArray alloc]init];
              ProductsImageArray=[responseObject objectForKey:@"Data"];
              if(ProductsImageArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)ProductsImageArray.count);
                  int i;
                  for (i=0; i<ProductsImageArray.count; i++)
                  {
                      NSDictionary * d = [ProductsImageArray objectAtIndex:i];
                      
                      _ProductImage=[d valueForKey:@"PhotoPath"];
-                     NSLog(@"Product image name : %@", _ProductImage);
                  }
              }
              else
@@ -566,19 +563,16 @@
          
          FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
          NSString *urlString=[NSString stringWithFormat:@"http://store.aynalfahad.com/mobileDetail.aspx?MobileID=%@",_mobile_ID];
-         NSLog(@"Shre Link :%@",urlString);
          content.contentURL = [NSURL URLWithString:urlString];
          
          content.contentTitle=[NSString stringWithFormat:@"%@\n",_ProductName_title];
-         content.contentDescription=[NSString stringWithFormat:@"\nPrice: $%@  ",_silver_Price];
+         content.contentDescription=[NSString stringWithFormat:@"\nPrice:%@  ",_silver_Price];
          NSDictionary * dict=[ProductsImageArray objectAtIndex:0];
          NSString * imgURL = [dict valueForKey:@"PhotoPath"];
          NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES_Store,imgURL];
-         NSLog(@"Image URL====%@",combined);
          NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
          _shareImageURL=[replacedStr stringByReplacingOccurrencesOfString:@"~" withString:@""];
          content.imageURL=[NSURL URLWithString:_shareImageURL];
-         NSLog(@"%@",content);
          FBSDKShareButton *Sharebutton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(0, 465, 150, 35)];
          Sharebutton.shareContent = content;
          [Sharebutton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
@@ -610,7 +604,6 @@
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              ProductDetailArray=[[NSMutableArray alloc]init];
              ProductDetailArray=[responseObject objectForKey:@"Data"];

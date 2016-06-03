@@ -149,7 +149,6 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              goldArray=[[NSMutableArray alloc]init];
              silverArray=[[NSMutableArray alloc]init];
@@ -170,29 +169,23 @@
              
              
              
-             
-             //             NSString * replacedStr=[_tempAboutUs_EN stringByReplacingOccurrencesOfString:@" " withString:@"&nbsp"];
-             
              _gold=[_tempGold stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _gold=[_tempGold stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
              
              
-             NSLog(@"\nGOLD ===\n%@\n\n",_gold);
              
              _silver=[_tempSilver stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _silver=[_tempSilver stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
              
              
-             NSLog(@"\nSILVERE===\n%@\n\n",_silver);
              
              _diamond=[_tempDiamond stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
              
              _diamond=[_tempDiamond stringByReplacingOccurrencesOfString:@"  " withString:@"&nbsp"];
              
              
-             NSLog(@"\nDIAMOND==\n%@\n\n",_diamond);
              
          }
          else

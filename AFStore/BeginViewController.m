@@ -76,7 +76,6 @@
 
     hvcc.selectedLanguage=@"en";
     nvcc.selectedLanguage=@"en";
-    NSLog(@"%@",hvcc.selectedLanguage);
     [self translateText];
     
     
@@ -100,7 +99,6 @@
     
     hvcc.selectedLanguage=@"ar";
     nvcc.selectedLanguage=@"ar";
-    NSLog(@"%@",hvcc.selectedLanguage);
 
     
 
@@ -127,9 +125,7 @@
 - (IBAction)homeClicked:(id)sender
 {
     HomeMViewController *hvc=[[HomeMViewController alloc]init];
-    
-    NSLog(@"%@",hvc.selectedLanguage);
-    
+        
     [self.navigationController pushViewController:hvc animated:YES];
     
 }

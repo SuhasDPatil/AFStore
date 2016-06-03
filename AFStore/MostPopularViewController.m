@@ -102,7 +102,6 @@
     
     NSString * str=tempCell.cellDict[@"ProductName"];
     
-    NSLog(@"Str::::::::%@",str);
     
     cell.lblProductName.text=str;
     
@@ -113,10 +112,6 @@
     cell.lblProductCost.text=[NSString stringWithFormat:@"%@ %@",strDoller,strCost];
     
     cell.lblFree1.text=tempCell.cellDict[@"Free1"];
-    
-    
-    NSString *detStrHTML=tempCell.cellDict[@"Details"];
-    NSLog(@"Product Detail in HTML format:%@",detStrHTML);
     
     
     
@@ -155,7 +150,6 @@
 {
     
     
-    NSLog(@"DID SELECT");
     
     
     ProductDetailViewController *detProd = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
@@ -214,7 +208,6 @@
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:@"26" forKey:@"SubCatID"];
     
-    NSLog(@"%@",dict);
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_PRODUCT_LIST
                                parameters:dict
@@ -225,13 +218,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              MostPArray=[[NSMutableArray alloc]init];
              MostPArray=[responseObject objectForKey:@"Data"];
              if(MostPArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)MostPArray.count);
                  int i;
                  for (i=0; i<MostPArray.count; i++)
                  {
@@ -243,9 +234,7 @@
                      _ProductImage=[d valueForKey:@"ProductImage"];
                      _Free1=[d valueForKey:@"Free1"];
                      _ProductCost=[d valueForKey:@"ProductCost"];
-                     
-                     NSLog(@"CategoriesID: %@", _ProductID);
-                     
+                                          
                  }
                  
              }

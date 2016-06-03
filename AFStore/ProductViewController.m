@@ -30,7 +30,6 @@
     self.segCondition.selectedSegmentIndex=0;
     _Condition_newUsed=@"1";
     
-    NSLog(@"BRAND_ID===%@",_BrandID);
     [self getProductWebService];
 
     nomatchesView = [[UIView alloc] initWithFrame:self.view.frame];
@@ -174,7 +173,7 @@
     cell.lblProductName.text=str;
     NSString * strDoller=@"$";
     NSString * strCost=tempCell.cellDict[@"Price"];
-    cell.lblProductCost.text=[NSString stringWithFormat:@"%@ %@",strDoller,strCost];
+    cell.lblProductCost.text=[NSString stringWithFormat:@"%@",strCost];
     cell.lblFree1.text=tempCell.cellDict[@"ColorName"];
     
     
@@ -204,7 +203,6 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"DID SELECT");
     
     ProductDetailViewController *detProd = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     
@@ -233,7 +231,6 @@
     [dict setObject:_Condition_newUsed forKey:@"Condition"];
 
     
-    NSLog(@"%@",dict);
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_PRODUCT_LIST
                                parameters:dict
@@ -244,7 +241,6 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              ProductsListArray=[[NSMutableArray alloc]init];
              ProductsListArray=[responseObject objectForKey:@"Data"];
@@ -252,7 +248,6 @@
              {
                  nomatchesView.hidden=YES;
 
-                 NSLog(@"Product Array Count:::%ld",(unsigned long)ProductsListArray.count);
                  int i;
                  for (i=0; i<ProductsListArray.count; i++)
                  {

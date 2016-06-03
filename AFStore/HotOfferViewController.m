@@ -105,10 +105,7 @@
     tempCell=[[OfferViewCell alloc]init];
     
     tempCell.cellDict=[HotOfferListArray objectAtIndex:indexPath.row];
-    
-    NSString * str=tempCell.cellDict[@"Title"];
-    
-    NSLog(@"Str::::::::%@",str);
+        
     
     cell.lblNoOfViews.text=[NSString stringWithFormat:@"Number Of View: %@",tempCell.cellDict[@"NumberOfViews"]];
     
@@ -145,7 +142,6 @@
 {
     
     
-    NSLog(@"DID SELECT");
     DetailHotOfferViewController *detHot = [[DetailHotOfferViewController alloc] initWithNibName:@"DetailHotOfferViewController" bundle:nil];
     
     tempCell.cellDict=[HotOfferListArray objectAtIndex:indexPath.row];
@@ -154,9 +150,6 @@
     detHot.offerImage=tempCell.cellDict[@"FileName"];
     detHot.NoOfViews=tempCell.cellDict[@"NumberOfViews"];
     
-    NSLog(@"Title: %@",detHot.offerCatTitle);
-    NSLog(@"No. Of Views: %@",detHot.NoOfViews);
-    NSLog(@"Image: %@",detHot.offerImage);
     detHot.title=LocalizedString(@"Detail");
     
     
@@ -174,7 +167,6 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:_GalleryID forKey:@"GalleryID"];
-    NSLog(@"Request Dictionary: %@",dict);
 
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_HOT_OFFERS_BY_GALLERY_ID
@@ -186,13 +178,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              HotOfferListArray=[[NSMutableArray alloc]init];
              HotOfferListArray=[responseObject objectForKey:@"Data"];
              if(HotOfferListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)HotOfferListArray.count);
                  int i;
                  for (i=0; i<HotOfferListArray.count; i++)
                  {
@@ -201,8 +191,6 @@
                      _FileName=[d valueForKey:@"FileName"];
                      _NumberOfViews=[d valueForKey:@"NumberOfViews"];
                      
-                     NSLog(@"Image File : %@",_FileName);
-                     NSLog(@"number Of view:  %@",_NumberOfViews);
                      
                  }
                  

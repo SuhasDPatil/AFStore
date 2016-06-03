@@ -104,7 +104,18 @@
     if (!_popMenuEnglish)
     {
 //        _popMenuEnglish = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
-        _popMenuEnglish = [[PopMenu alloc] initWithFrame:CGRectMake(0, 60, 320, 500) items:items];
+        
+        
+        if ([[UIScreen mainScreen] bounds].size.height ==480)
+        {
+            _popMenuEnglish = [[PopMenu alloc] initWithFrame:CGRectMake(0, 40, 320, 450) items:items];
+        }
+        else
+        {
+            _popMenuEnglish = [[PopMenu alloc] initWithFrame:CGRectMake(0, 60, 320, 500) items:items];
+
+        }
+        
         _popMenuEnglish.menuAnimationType = kPopMenuAnimationTypeNetEase;
     
     }
@@ -117,7 +128,6 @@
         {
             HomeMViewController *hvc=[[HomeMViewController alloc]init];
             
-            NSLog(@"%@",hvc.selectedLanguage);
             
             [self.navigationController pushViewController:hvc animated:YES];
             
@@ -225,7 +235,15 @@
     if (!_popMenuArabic)
     {
         //        _popMenuEnglish = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
-        _popMenuArabic = [[PopMenu alloc] initWithFrame:CGRectMake(0, 80, 320, 500) items:items];
+        if ([[UIScreen mainScreen] bounds].size.height ==480)
+        {
+            _popMenuArabic = [[PopMenu alloc] initWithFrame:CGRectMake(0, 40, 320, 450) items:items];
+        }
+        else
+        {
+            _popMenuArabic = [[PopMenu alloc] initWithFrame:CGRectMake(0, 60, 320, 500) items:items];
+            
+        }
         _popMenuArabic.menuAnimationType = kPopMenuAnimationTypeNetEase;
         
     }
@@ -238,7 +256,6 @@
         {
             HomeMViewController *hvc=[[HomeMViewController alloc]init];
             
-            NSLog(@"%@",hvc.selectedLanguage);
             
             [self.navigationController pushViewController:hvc animated:NO];
             
@@ -325,7 +342,6 @@
     
     NSString *str=[_defaults valueForKey:@"Language"];
     
-    NSLog(@"%@",str);
     
     _lblselectLang.text=LocalizedString(@"Select Your Language");
 
@@ -348,7 +364,6 @@
     
     NSString *str=[_defaults valueForKey:@"Language"];
     
-    NSLog(@"%@",str);
     
     _lblselectLang.text=LocalizedString(@"Select Your Language");
 

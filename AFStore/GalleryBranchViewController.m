@@ -166,7 +166,6 @@
     
     [dict setObject:@"2" forKey:@"CategoryID"];
     
-    NSLog(@"%@",dict);
 
     [[AFAppAPIClient WSsharedClient] POST:API_GET_GALLERY_BRANCHES
                                parameters:dict
@@ -176,13 +175,11 @@
          BOOL result=[[responseObject objectForKey:@"Result"] boolValue];
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              BranchListArray=[[NSMutableArray alloc]init];
              BranchListArray=[responseObject objectForKey:@"Data"];
              if(BranchListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)BranchListArray.count);
                  int i;
                  for (i=0; i<BranchListArray.count; i++)
                  {
@@ -193,9 +190,6 @@
                      _GalleryName=[d valueForKey:@"GalleryName"];
                      _ImagesCount=[d valueForKey:@"ImagesCount"];
                      
-                     NSLog(@"Category ID: %@", _CategoryID);
-                     NSLog(@"Galeery Name: %@ (%@)",_GalleryName,_ImagesCount);
-                     NSLog(@"Gallery ID: %@", _GalleryID);
                      
                  }
              }

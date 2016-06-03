@@ -25,19 +25,6 @@
     
     [self.playerView loadWithVideoId:strYouTube];
 
-    
-//
-//    NSLog(@"Youtube===%@",strYouTube);
-//    
-//    UIView *videoContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
-//    [self.view addSubview:videoContainerView];
-//    XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:strYouTube];
-//    [videoPlayerViewController presentInView:videoContainerView];
-//    [videoPlayerViewController.moviePlayer setFullscreen:YES animated:YES];
-//    
-//    [videoPlayerViewController.moviePlayer play];
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 

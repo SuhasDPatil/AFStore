@@ -141,7 +141,6 @@
         NSString * imgURL = tempCell.cellDict[@"ThumbUrl"];
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
-        NSLog(@"Image URL======================%@",combined);
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         
         NSURL * url = [NSURL URLWithString:replacedStr];
@@ -163,16 +162,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"DID SELECT");
 
     VideoViewController *vvc = [[VideoViewController alloc] initWithNibName:@"VideoViewController" bundle:nil];
     
     tempCell.cellDict=[VideoListArray objectAtIndex:[self.Tabview indexPathForSelectedRow].row];
     vvc.videoURL=tempCell.cellDict[@"FileName"];
    
-    NSString *str=tempCell.cellDict[@"FileName"];
     
-    NSLog(@"%@",str);
     
     [self.navigationController pushViewController:vvc animated:YES];
 
@@ -202,13 +198,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              VideoListArray=[[NSMutableArray alloc]init];
              VideoListArray=[responseObject objectForKey:@"Data"];
              if(VideoListArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)VideoListArray.count);
                  int i;
                  for (i=0; i<VideoListArray.count; i++)
                  {
@@ -217,8 +211,6 @@
                      _ThumbUrl=[d valueForKey:@"ThumbUrl"];
                      _FileName=[d valueForKey:@"FileName"];
                      
-                     NSLog(@"CategoriesID: %@", _ThumbUrl);
-                     NSLog(@"CategoriesName: %@",_FileName);
                  }
              }
              else

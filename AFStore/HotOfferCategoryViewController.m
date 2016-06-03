@@ -153,7 +153,6 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
     [dict setObject:@"3" forKey:@"CategoriesID"];
-    NSLog(@"Request Dictionary: %@",dict);
     
     
     [[AFAppAPIClient WSsharedClient] POST:API_GET_HOT_OFFER_CATEGORY_LIST
@@ -165,13 +164,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              CategoryArray=[[NSMutableArray alloc]init];
              CategoryArray=[responseObject objectForKey:@"Data"];
              if(CategoryArray.count>0)
              {
-                 NSLog(@"Category Array Count:::%ld",(unsigned long)CategoryArray.count);
                  int i;
                  for (i=0; i<CategoryArray.count; i++)
                  {
@@ -183,8 +180,6 @@
                      _PortalID=[d valueForKey:@"PortalID"];
                      _Image=[d valueForKey:@"Image"];
                      
-                     NSLog(@"Gallery Name: %@", _GalleryName);
-                     NSLog(@"Gallery ID : %@",_GalleryID);
                      
                  }
                  

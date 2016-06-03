@@ -102,7 +102,6 @@ NSString *const SDWebImageDownloadStopNotification = @"SDWebImageDownloadStopNot
 
 - (void)connection:(NSURLConnection *)aConnection didReceiveData:(NSData *)data
 {
-//    NSLog(@"正在下载的是%@",url);
     [imageData appendData:data];
 }
 

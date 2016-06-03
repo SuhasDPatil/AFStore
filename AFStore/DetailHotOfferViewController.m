@@ -82,7 +82,6 @@
     NSString *urlString=[NSString stringWithFormat:@"http://www.aynAlFahad.com/"];
     
     
-    NSLog(@"Shre Link :%@",urlString);
     
     content.contentURL = [NSURL URLWithString:urlString];
     
@@ -97,7 +96,6 @@
     
     NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
     
-    NSLog(@"Image URL====%@",combined);
     
     NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 
@@ -206,7 +204,6 @@
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
         
-        NSLog(@"Image URL====%@",combined);
         
         NSURL * url = [NSURL URLWithString:combined];
         
@@ -248,7 +245,6 @@
         
         NSString *combined = [NSString stringWithFormat:@"%@%@", API_ALL_IMAGES,imgURL];
         
-        NSLog(@"Image URL====%@",combined);
         
         NSString * replacedStr=[combined stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         

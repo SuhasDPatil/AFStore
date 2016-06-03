@@ -130,7 +130,6 @@
 
 #pragma AOScrollViewDelegate
 -(void)buttonClick:(int)vid{
-    NSLog(@"%d",vid);
 }
 
 
@@ -260,12 +259,10 @@
          [hud show:YES];
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              BannerImageArray=[[NSMutableArray alloc]init];
              BannerImageArray=[responseObject objectForKey:@"Data"];
              if(BannerImageArray.count>0)
              {
-                 NSLog(@"Banner Array Count:::%ld",(unsigned long)BannerImageArray.count);
                  int i;
                  for (i=0; i<BannerImageArray.count; i++)
                  {
@@ -275,7 +272,6 @@
                      _BrandID=[d valueForKey:@"BrandID"];
                      _Brand=[d valueForKey:@"Brand"];
                      
-                     NSLog(@"Img Source: %@",_Img);
                  }
              }
              else
@@ -318,13 +314,11 @@
          [hud show:YES];
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              SlidingImageArray=[[NSMutableArray alloc]init];
              SlidingImageArray=[responseObject objectForKey:@"Data"];
              if(SlidingImageArray.count>0)
              {
-                 NSLog(@"Slide Image Count Count:::%ld",(unsigned long)SlidingImageArray.count);
                  int i;
                  NSArray *d;
                  
@@ -386,13 +380,11 @@
          
          if(result)
          {
-             NSLog(@"Data:%@",[responseObject objectForKey:@"Data"]);
              // NSArray *list=[responseObject objectForKey:@"Data"];
              SlidingHotDealImageArray=[[NSMutableArray alloc]init];
              SlidingHotDealImageArray=[responseObject objectForKey:@"Data"];
              if(SlidingHotDealImageArray.count>0)
              {
-                 NSLog(@"Slide Image Count Count:::%ld",(unsigned long)SlidingHotDealImageArray.count);
                  int i;
                  NSArray *d;
                  
@@ -409,7 +401,6 @@
                      
                      NSString * url = [replacedStr stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
 
-                     NSLog(@"%@",url);
                      [newarray addObject:url];
                      
                  }
