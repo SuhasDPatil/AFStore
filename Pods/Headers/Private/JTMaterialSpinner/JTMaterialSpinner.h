@@ -1,1 +1,1 @@
-../../../JTMaterialSpinner/JTMaterialSpinner/JTMaterialSpinner.h
+IntxLNK.
